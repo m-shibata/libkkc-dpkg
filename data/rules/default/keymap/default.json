@@ -1,0 +1,43 @@
+{
+    "define": {
+        "keymap": {
+            "C-g": "abort",
+            "C-c": "abort",
+            "Escape": "abort",
+            "Return": "commit",
+            "C-m": "commit",
+            "C-h": "delete",
+            "BackSpace": "delete",
+            "C-d": "delete-forward",
+            "Delete": "delete-forward",
+            "C-q": "quote",
+            "A-r": "register",
+            "Tab": "complete",
+            "Henkan_Mode": "next-candidate",
+            "space": "next-candidate",
+            "Down": "next-candidate",
+            "C-x": "previous-candidate",
+            "S-space": "previous-candidate",
+            "C-BackSpace": "purge-candidate",
+            "Up": "previous-candidate",
+            "Muhenkan": "original-candidate",
+            "Right": "next-segment",
+            "Left": "previous-segment",
+            "C-f": "next-segment",
+            "C-Right": "expand-segment",
+            "C-Left": "shrink-segment",
+            "S-Right": "expand-segment",
+            "S-Left": "shrink-segment",
+            "C-o": "expand-segment",
+            "C-i": "shrink-segment",
+            "A-@": "set-input-mode-direct",
+            "A-`": "set-input-mode-direct",
+            "Zenkaku_Hankaku": "set-input-mode-direct",
+            "F6": "convert-hiragana",
+            "F7": "convert-katakana",
+            "F8": "convert-hankaku-katakana",
+            "F9": "convert-wide-latin",
+            "F10": "convert-latin"
+        }
+    }
+}

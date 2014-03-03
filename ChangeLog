@@ -1,0 +1,5319 @@
+commit 1c94e3ea2ef66ed4c7fcb233e6bb55ee30a8cd71
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Dec 16 12:58:34 2013 +0900
+
+    Bump version to 0.3.2
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit cae6663991a9f35df31bb2c078e3a3b66a12693e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Dec 16 12:56:41 2013 +0900
+
+    tool: remove unused JSON-RPC server mode
+
+    That shall be replaced with the D-Bus server.
+
+ INSTALL           |   8 +-
+ po/POTFILES.in    |   1 -
+ tools/Makefile.am |   2 +-
+ tools/kkc.vala    |   3 -
+ tools/server.vala | 416
+ ------------------------------------------------------
+ 5 files changed, 5 insertions(+), 425 deletions(-)
+
+commit ed0a6448c6fcb38ce1b36e49345df343c4174596
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Dec 16 12:55:13 2013 +0900
+
+    Report cursor width when editing input
+
+ libkkc/context.vala |  9 +++++++++
+ libkkc/state.vala   | 36 ++++++++++++++++++++++++++++++++++--
+ 2 files changed, 43 insertions(+), 2 deletions(-)
+
+commit 1194c9fbf49a750fa34b80f6a92f77eda9a1b2a2
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Dec 15 18:59:19 2013 +0900
+
+    decoder: specify -G_MAXDOUBLE as the default minimum path cost,
+    instead of 0
+
+    Patch provided by Mitsuya Shibata at
+    https://bitbucket.org/libkkc/libkkc/issue/5/
+
+ libkkc/bigram-decoder.vala  | 2 +-
+ libkkc/trigram-decoder.vala | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 42dc613f8631d52bd01f38e65bddb5522faca4ae
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Dec 10 12:55:13 2013 +0900
+
+    user-dict: escape special characters in midasi string
+
+    Suggested by Akihiro TSUKADA <tskd2@yahoo.co.jp> in:
+    <http://du-a.org/pipermail/libkkc-list/2013-December/000027.html>.
+
+ libkkc/dictionary.vala              |  2 ++
+ libkkc/user-segment-dictionary.vala |  4 ++--
+ tests/user-dictionary.vala          | 17 ++++++++++++++++-
+ 3 files changed, 20 insertions(+), 3 deletions(-)
+
+commit d6a29fa408fcec36e4ef496d146429f571ed5602
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Dec 9 18:54:44 2013 +0900
+
+    Allow "/" in the midasi string
+
+    Test case provided by Akihiro TSUKADA <tskd2@yahoo.co.jp>.
+
+ libkkc/user-segment-dictionary.vala | 8 ++++----
+ tests/user-segment-dictionary-good  | 1 +
+ 2 files changed, 5 insertions(+), 4 deletions(-)
+
+commit a64c30a612f2f94d56eefada60e6f3c61ad6dc6d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Dec 5 13:30:02 2013 +0900
+
+    nicola: clear timeout_id when timeout has expired
+
+    Patch provided by Mitsuya Shibata at
+    https://bitbucket.org/libkkc/libkkc/issue/4/
+
+ libkkc/nicola.vala | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit a670c0d84984d1e6526b0a8f6f29d3a1db9fbeda
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Sep 15 18:38:54 2013 +0900
+
+    Bump version 0.3.1
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit ec69d2d55472ad35994002321b269135c2b65b5d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Sep 15 18:46:19 2013 +0900
+
+    Adjust test data
+
+ tests/conversions-sentence.json | 2 +-
+ tests/lib/test-utils.vala       | 1 +
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+commit da05810057cdfa014a203fe1f13d2f9b6753e708
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Sep 15 17:18:34 2013 +0900
+
+    decoder: check minimum path cost when backward search
+
+ libkkc/bigram-decoder.vala  | 28 +++++++++++++++++++---------
+ libkkc/decoder.vala         |  9 +++++----
+ libkkc/state.vala           | 13 +++++++++----
+ libkkc/trigram-decoder.vala | 20 ++++++++++++++------
+ 4 files changed, 47 insertions(+), 23 deletions(-)
+
+commit bebe207142f1a166916079a214f13477b1c4dc76
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Sep 15 10:12:17 2013 +0900
+
+    numeric: exclude literal "#" from the result
+
+ libkkc/numeric-template.vala | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+commit f2fc8bf55a95e90e79f0d966c733967c1d6fe7f7
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Sep 14 09:01:50 2013 +0900
+
+    numeric: implement digit grouping
+
+ libkkc/numeric-template.vala |  1 +
+ libkkc/rom-kana-utils.vala   | 20 ++++++++++++++++++++
+ 2 files changed, 21 insertions(+)
+
+commit cc221b574097c3d0bc2afe96ef95343a983f07b0
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Sep 11 17:29:33 2013 +0900
+
+    Bump version to 0.3.0
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 685159f5d5945e70841f611d3cabe0365f9cebff
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Sep 11 17:23:06 2013 +0900
+
+    Don't call dgettext before clients call bindtextdomain
+
+ libkkc/keymap.vala | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+commit 763464e0e541d582c7271ea4a3147b643790c753
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Sep 11 15:00:04 2013 +0900
+
+    Adjust test data
+
+ tests/conversions-user-dictionary-phrase.json | 20 ++++++--------------
+ tests/conversions-user-dictionary.json        | 20 ++++++++++----------
+ 2 files changed, 16 insertions(+), 24 deletions(-)
+
+commit 9038b39061ba886aa12ecff9f99a3799dde63c4d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Sep 11 14:58:34 2013 +0900
+
+    user-dict: decrease the minimum number of adjacent words to register
+
+ libkkc/user-sentence-dictionary.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit bc916e384f00291eee3386e4f4fbd80568799dc5
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Sep 11 14:57:51 2013 +0900
+
+    Merge okurigana segments after dictionary lookup
+
+ libkkc/segment-list.vala | 14 +++++++++++++-
+ libkkc/state.vala        | 43 +++++++++++++++++++++++++++----------------
+ 2 files changed, 40 insertions(+), 17 deletions(-)
+
+commit 0ec8ae8dfc254c3cc015c22009654a7be6e1ebce
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Sep 11 13:18:47 2013 +0900
+
+    Adjust test data
+
+ tests/conversions-segment.json                | 54
+ +++++++++++++--------------
+ tests/conversions-user-dictionary-phrase.json |  2 +-
+ tests/user-dictionary.vala                    |  2 +
+ 3 files changed, 30 insertions(+), 28 deletions(-)
+
+commit a4873634d641709b91c288d018e1c13cca5a856b
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Sep 11 13:17:15 2013 +0900
+
+    Merge possible okurigana segments when sentence conversion
+
+    https://bugzilla.redhat.com/show_bug.cgi?id=970863
+
+ libkkc/rom-kana-utils.vala | 10 ++++++++++
+ libkkc/state.vala          | 25 +++++++++++++++++++++++++
+ 2 files changed, 35 insertions(+)
+
+commit 1f0fe8410166a219a866225a63ce15ef4f86d141
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Sep 4 19:05:32 2013 +0900
+
+    decoder: add cost constraint of multiple candidates
+
+    When looking up multiple candidates using backward A* search, stop
+    searching when the cost of a candidate exceeds the given threshold.
+    The cost is calculated as a difference from the optimal cost.
+
+ libkkc/bigram-decoder.vala  | 15 +++++++++++++--
+ libkkc/decoder.vala         |  5 +++++
+ libkkc/state.vala           |  7 ++++---
+ libkkc/trigram-decoder.vala | 10 +++++++++-
+ 4 files changed, 31 insertions(+), 6 deletions(-)
+
+commit e91006a124a34f811fc2eba2bb7f671c1bc739b3
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jul 29 09:49:30 2013 +0900
+
+    Bump version to 0.2.7
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 2f11922e3ee5800aa0f0c4a4d9abe57788fef219
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jul 29 08:35:00 2013 +0900
+
+    Commit preedit when switching to direct input mode
+
+ libkkc/initial-state-handler.vala | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit b8cd3fc81c37c177ced47781fa7a437df4836004
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jul 29 08:29:07 2013 +0900
+
+    Increase minimum unigram cost for candidate lookup
+
+ libkkc/state.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit ee4dcda62cacdb6e1923ae88c6929be94ca62d36
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jul 28 17:21:39 2013 +0900
+
+    Add minimum cost to lookup candidate from language model
+
+ libkkc/state.vala | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+commit 143331d7487029d539da6bcf33e6d21414da8ef7
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jul 12 19:16:05 2013 +0900
+
+    server: add candidatesPopulated and candidatesSelected notification
+
+ tools/server.vala | 48 ++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 48 insertions(+)
+
+commit e1bfec53494c4f96d85c1b0291758fd95d66467c
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jul 5 14:51:17 2013 +0900
+
+    Bump version to 0.2.6
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit a8909d7d2f14141327dd30c374d1690d78efe6ee
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jul 5 14:34:06 2013 +0900
+
+    tests: factor out conversion data from user-dictionary tests
+
+ tests/Makefile.am                             |   2 +
+ tests/context.vala                            |  47 +++--------
+ tests/conversions-user-dictionary-phrase.json |  26 ++++++
+ tests/conversions-user-dictionary.json        |  50 ++++++++++++
+ tests/lib/test-utils.vala                     |  29 +++++++
+ tests/user-dictionary.vala                    | 113
+ +++-----------------------
+ 6 files changed, 131 insertions(+), 136 deletions(-)
+
+commit 85d4a7f46d989f988ebd0ed4fd75bf9518e5ed48
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jul 5 13:08:53 2013 +0900
+
+    Don't commit preedit on input-mode change
+
+ libkkc/initial-state-handler.vala | 2 --
+ tests/conversions-initial.json    | 4 ++--
+ 2 files changed, 2 insertions(+), 4 deletions(-)
+
+commit 838912c9742cee1e7a5c86227adbea9600bd086c
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jul 5 13:07:57 2013 +0900
+
+    Fix wide-latin input in the initial conversion state
+
+ libkkc/initial-state-handler.vala | 4 +++-
+ tests/conversions-initial.json    | 1 +
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+commit 7af1cc94136ef829834d9e44874bba2df3124543
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jul 5 12:08:08 2013 +0900
+
+    tests: fix indentation and call setlocale
+
+ tests/candidate-list.vala    | 15 +++++++--------
+ tests/candidate.vala         | 15 +++++++--------
+ tests/decoder.vala           | 17 +++++++++--------
+ tests/dictionary-list.vala   | 15 +++++++--------
+ tests/encoding.vala          | 15 +++++++--------
+ tests/expression.vala        | 15 +++++++--------
+ tests/key-event.vala         | 15 +++++++--------
+ tests/keymap.vala            | 15 +++++++--------
+ tests/language-model.vala    | 15 +++++++--------
+ tests/metadata-file.vala     | 15 +++++++--------
+ tests/rom-kana.vala          | 17 +++++++++--------
+ tests/rule.vala              | 15 +++++++--------
+ tests/segment-list.vala      | 15 +++++++--------
+ tests/segment.vala           | 15 +++++++--------
+ tests/system-dictionary.vala | 15 +++++++--------
+ tests/template.vala          | 17 +++++++++--------
+ tests/trellis-node.vala      | 15 +++++++--------
+ tests/user-dictionary.vala   | 19 +++++++++----------
+ tests/user-rule.vala         | 15 +++++++--------
+ 19 files changed, 141 insertions(+), 154 deletions(-)
+
+commit 65a0ce4f848ec9b284523816b4978597730e254d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jul 5 11:33:03 2013 +0900
+
+    Update translations
+
+ po/ja.po | 48 ++++++++++++++++++++++++++++++------------------
+ 1 file changed, 30 insertions(+), 18 deletions(-)
+
+commit 961ba267549ff3e9963247d29c8fd2d8e406b73d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jul 5 11:29:33 2013 +0900
+
+    tool: specify correct prgname
+
+ tools/kkc.vala | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit e816d07ac6e79c82b7120c16c40d0f0b2a915de2
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jul 5 06:20:47 2013 +0900
+
+    Always look for user dictionary first
+
+ libkkc/rom-kana-utils.vala | 10 ++++++++++
+ libkkc/state.vala          | 38 ++++++++++++++++++++++++++++++--------
+ 2 files changed, 40 insertions(+), 8 deletions(-)
+
+commit f85f1ec1491ee82cd596cccdf70f5b776393630a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jul 3 12:13:14 2013 +0900
+
+    Bump version to 0.2.5
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 771433eafa76c97036cf48e8b8c1d49458b8a6a3
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jul 3 11:41:39 2013 +0900
+
+    kkc-package-data: don't error out when the input is not an absolute
+    path
+
+ tools/kkc-package-data.in | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit 09b3300d43d12c36342c27e7a32ed93dfba1031a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jul 3 11:36:20 2013 +0900
+
+    Set sh-basic-offset in .dir-locals.el
+
+ .dir-locals.el | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit ce05eb5ce9d80e468a26aed1499849a9dc059f1d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jul 2 18:25:44 2013 +0900
+
+    data: Fix parallel build
+
+    Reported by Felix Yan at
+    https://bitbucket.org/libkkc/libkkc/issue/3
+
+ data/templates/libkkc-data/data/models/Makefile.sorted2 | 11 +++++++----
+ data/templates/libkkc-data/data/models/Makefile.sorted3 | 12 +++++++-----
+ 2 files changed, 14 insertions(+), 9 deletions(-)
+
+commit 2896bc4c949d93d1524b86697ee9da4304706d43
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jul 1 17:41:22 2013 +0900
+
+    Add $(top_builddir) to the include path when compiling tests
+
+ tests/Makefile.am     | 4 +++-
+ tests/lib/Makefile.am | 3 ++-
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+
+commit d0a4ee5be6fb1d0f0c81544784fbc49ff6cff92d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jul 1 15:39:14 2013 +0900
+
+    Mark Kkc.ModifierType as bitmask
+
+ libkkc/key-event.vala | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 7d3b0d06f6f35c2f2a96083aaea354a4fd30d6ec
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jun 30 08:47:03 2013 +0900
+
+    Check errors when removing test directory
+
+ tests/lib/test-utils.vala  | 2 +-
+ tests/user-dictionary.vala | 9 +++++++--
+ tests/user-rule.vala       | 9 +++++++--
+ 3 files changed, 15 insertions(+), 5 deletions(-)
+
+commit 64239fe3f21d7bb6232a03afc00308bf6ca7a28f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jun 30 08:43:31 2013 +0900
+
+    Factor out conversion test data into json
+
+ tests/Makefile.am               |   3 +
+ tests/context.vala              | 338
+ +++++-----------------------------------
+ tests/conversions-initial.json  |  38 +++++
+ tests/conversions-segment.json  | 212 +++++++++++++++++++++++++
+ tests/conversions-sentence.json |  52 +++++++
+ tests/lib/Makefile.am           |  15 +-
+ tests/lib/test-utils.vala       |  42 ++++-
+ 7 files changed, 396 insertions(+), 304 deletions(-)
+
+commit ed40e4314885b3506fa6adc1b299c89274d89b13
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jun 28 17:51:41 2013 +0900
+
+    Treat ignored key unhandled
+
+ libkkc/context.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit b5d03a46dd8c335979baecefb688752724b5a158
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 24 18:04:23 2013 +0900
+
+    Don't lookup unigram entries if input is a single character
+
+ libkkc/state.vala | 28 ++++++++++++++++------------
+ 1 file changed, 16 insertions(+), 12 deletions(-)
+
+commit eda7963c023f62097f5916591dd205fa7a2e5450
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 24 18:04:05 2013 +0900
+
+    Revert "Fix tests"
+
+    This reverts commit d4a6067df57fa3d6f80a6ebd4ee4dd38d8b7c534.
+
+ tests/context.vala         | 20 +++++++++-----------
+ tests/user-dictionary.vala | 20 +++++++++-----------
+ 2 files changed, 18 insertions(+), 22 deletions(-)
+
+commit d4a6067df57fa3d6f80a6ebd4ee4dd38d8b7c534
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 24 18:01:41 2013 +0900
+
+    Fix tests
+
+ tests/context.vala         | 20 +++++++++++---------
+ tests/user-dictionary.vala | 20 +++++++++++---------
+ 2 files changed, 22 insertions(+), 18 deletions(-)
+
+commit 805a468e4bc92ec13118b36d8ff5ac11ac16f73a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 24 17:44:38 2013 +0900
+
+    Minor code cleanup
+
+    Untabify and add copyright header to language-model-utils.vala.
+
+ libkkc/decoder.vala                      |  2 +-
+ libkkc/language-model-utils.vala         | 22 ++++++++++++++++++++--
+ libkkc/language-model.vala               | 12 ++++++------
+ libkkc/sorted-bigram-language-model.vala |  4 ++--
+ libkkc/text-bigram-language-model.vala   |  2 +-
+ tests/lib/test-case.vala                 |  4 ++--
+ tools/kkc.vala                           |  4 ++--
+ tools/server.vala                        |  2 +-
+ 8 files changed, 35 insertions(+), 17 deletions(-)
+
+commit b98337e5fc5eb610b0dac2dc87005cfb20d94d2f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 24 17:41:12 2013 +0900
+
+    Exclude hiragana entries when looking up unigrams in language model
+
+ libkkc/state.vala | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
+
+commit 9b9f34c1c07d450331c615a4d59f1ba36fe1f04d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 24 17:36:25 2013 +0900
+
+    Search for unigrams in language model before segment dictionaries
+
+ libkkc/context.vala                      |  3 +--
+ libkkc/language-model.vala               |  1 +
+ libkkc/sorted-bigram-language-model.vala |  4 ++--
+ libkkc/state.vala                        | 27 ++++++++++++++++++++++-----
+ libkkc/text-bigram-language-model.vala   |  4 ++++
+ tests/state.vala                         | 11 ++---------
+ 6 files changed, 32 insertions(+), 18 deletions(-)
+
+commit 904bcbdc04c599f6abb13e262a034b4720a3375d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 24 16:50:32 2013 +0900
+
+    Add an option not to use mmap for indices
+
+ libkkc/kkc.vala                           |  8 +++++++
+ libkkc/sorted-bigram-language-model.vala  | 29 +++++++++++++----------
+ libkkc/sorted-trigram-language-model.vala | 13 +++++++----
+ libkkc/utils.vala                         | 39
+ +++++++++++++++++++++++++++++++
+ 4 files changed, 72 insertions(+), 17 deletions(-)
+
+commit 2a54bb4e9b7d6365a3a27483eefe0d9a325ce34e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jun 21 16:59:31 2013 +0900
+
+    Use GMappedFile instead of Posix.mmap
+
+ libkkc/Makefile.am                        |  1 -
+ libkkc/bloom-filter.vala                  | 12 +++----
+ libkkc/sorted-bigram-language-model.vala  | 36 +++++++++----------
+ libkkc/sorted-trigram-language-model.vala | 20 +++++------
+ libkkc/system-segment-dictionary.vala     | 32 ++++++++---------
+ libkkc/utils.vala                         | 59
+ -------------------------------
+ 6 files changed, 46 insertions(+), 114 deletions(-)
+
+commit fb9b63b15eb9c747eb467b0b409ec50fe5ec3c4d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jun 19 18:16:36 2013 +0900
+
+    Allow deleting the last character in the preedit
+
+    https://bitbucket.org/libkkc/libkkc/issue/2
+
+ libkkc/initial-state-handler.vala | 4 +++-
+ tests/context.vala                | 6 ++++++
+ 2 files changed, 9 insertions(+), 1 deletion(-)
+
+commit c4cdeb30ae912a5d370e9d5d18ebf0a90f2dbf7d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jun 19 18:11:42 2013 +0900
+
+    Fix cursor movement after inserting multiple characters
+
+    https://bitbucket.org/libkkc/libkkc/issue/2
+
+ libkkc/initial-state-handler.vala | 4 +++-
+ tests/context.vala                | 6 ++++++
+ 2 files changed, 9 insertions(+), 1 deletion(-)
+
+commit 1bcde77bab5e41353a6aa60614d2f11045ede8b3
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jun 19 18:11:22 2013 +0900
+
+    Fix candidate ordering
+
+ libkkc/candidate-list.vala | 14 ++++----------
+ libkkc/state.vala          | 27 +++++++++++++--------------
+ 2 files changed, 17 insertions(+), 24 deletions(-)
+
+commit cc6755ef424716516ef25544f1f496b07b4fa7f4
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 10 18:19:29 2013 +0900
+
+    Fix unassigned rom-kana character insersion
+
+ libkkc/initial-state-handler.vala | 17 +++++++++++++----
+ libkkc/rom-kana.vala              | 11 +++++++++++
+ tests/context.vala                |  5 +++++
+ 3 files changed, 29 insertions(+), 4 deletions(-)
+
+commit 8c198921817c1be3de63d51933da159227d0eb7c
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 10 17:04:00 2013 +0900
+
+    Report visual cursor position rather than logical cursor position
+
+    Add the length of pending rom-kana output to input_cursor_pos.
+    https://bitbucket.org/libkkc/libkkc/issue/2
+
+ libkkc/context.vala | 2 +-
+ libkkc/state.vala   | 9 +++++++++
+ tests/context.vala  | 4 ++--
+ 3 files changed, 12 insertions(+), 3 deletions(-)
+
+commit 7daf2a822a306b78a26e9e120b20cb50370ed406
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jun 7 17:54:08 2013 +0900
+
+    Bump version to 0.2.4
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 80204c87b779d340e2763e05a94da1bfe21d7370
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jun 7 17:46:01 2013 +0900
+
+    Add more tests for input editing
+
+ tests/context.vala | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit 5fca4bf7aebd06915a27dc4e20c5b7536a2a6a0c
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jun 7 16:52:38 2013 +0900
+
+    Adjust the test case to the last change
+
+ tests/context.vala | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit eeab1194a66676d639cf0ba1b32b5ffb45ac5531
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jun 7 16:44:58 2013 +0900
+
+    Fix more caret movement problems
+
+    Fix off-by-one when inserting new character at the beginning of the
+    preedit, finalize rom-kana conversion before moving cursor, and reset
+    input editing when user type Right at the end of preedit.
+
+    https://bitbucket.org/libkkc/libkkc/issue/2
+
+ libkkc/initial-state-handler.vala | 12 ++++++++----
+ libkkc/state.vala                 |  7 +++++--
+ 2 files changed, 13 insertions(+), 6 deletions(-)
+
+commit af10a5b6f83e16f3e2bad24b3984819294bb4cbb
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jun 7 13:14:43 2013 +0900
+
+    Add "qq" to the default rom-kana rule
+
+    https://bitbucket.org/libkkc/libkkc/issue/1
+
+ data/rules/default/rom-kana/default.json | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit c82f2946b117c7a30574803ffd544eeffa5d0e59
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jun 7 08:37:59 2013 +0900
+
+    Specify partial output for "he" in kana rule
+
+    https://bitbucket.org/libkkc/libkkc/issue/1
+
+ data/rules/kana/rom-kana/default.json | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 79aa65faba78af63be83418328a066841e5c4b61
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jun 6 18:21:27 2013 +0900
+
+    Add auto-correct flag to RomKanaConverter
+
+ libkkc/context.vala               | 12 ++++++++++
+ libkkc/initial-state-handler.vala |  1 +
+ libkkc/rom-kana.vala              | 48
+ +++++++++++++++++++++++++++++----------
+ libkkc/state.vala                 |  9 ++++++++
+ tests/rom-kana.vala               | 13 +++++++++++
+ 5 files changed, 71 insertions(+), 12 deletions(-)
+
+commit 4d82b07427da71dc208eb0d35c35292278aac567
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jun 6 12:09:24 2013 +0900
+
+    Finish input editing before the initial conversion
+
+    https://bitbucket.org/libkkc/libkkc/issue/1
+
+ libkkc/initial-state-handler.vala | 1 +
+ tests/context.vala                | 7 +++++++
+ 2 files changed, 8 insertions(+)
+
+commit 593e2e63c03a8ac3a5f34a70e3488b8970ad1186
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jun 5 22:35:14 2013 +0900
+
+    Fix the last commit
+
+ libkkc/initial-state-handler.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit a1316afaa6341f3c3ac2e3fa974f8964e3c77a73
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jun 5 09:15:47 2013 +0900
+
+    Update preedit when state.input has changed
+
+ libkkc/initial-state-handler.vala | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 9100ae9fb9d63bf87d9983c38329401e7e97ea40
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jun 5 08:54:04 2013 +0900
+
+    Explicitly enable parallel-tests for older Automake
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit ca8b7f3729bc119ff3001365ee8b418ab087e9b1
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jun 4 18:49:57 2013 +0900
+
+    Specify partial output in kana transliteration rule
+
+    https://bitbucket.org/libkkc/libkkc/issue/1
+
+ data/rules/kana/rom-kana/default.json | 178
+ +++++++++++++++++-----------------
+ tests/context.vala                    |  15 ++-
+ 2 files changed, 102 insertions(+), 91 deletions(-)
+
+commit 3f54cbfa2db4384ca360a4dbd1814d783233150b
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 28 11:26:45 2013 +0900
+
+    Add --target-glib option to VALAFLAGS
+
+ configure.ac | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+commit 92ad5300a2f0d0399fa95598fdc96b948735a763
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 28 11:26:25 2013 +0900
+
+    Update required Automake / Autoconf version
+
+ autogen.sh | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit b3eebd5ecb00a37a98aaf3cc68dc3f256c904c53
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 28 11:12:13 2013 +0900
+
+    Define LOG_COMPILER to support Automake 1.13
+
+ configure.ac      | 2 +-
+ tests/Makefile.am | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 255f5f2e00867e35c5a109832f16f2396038a515
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 28 11:11:37 2013 +0900
+
+    Fix context test error after commit
+    77c2ae485bc8f3941b605136cb188df7c51e50f2
+
+ tests/context.vala | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit d524903e3822123a267990c454ee2dbfcd86b8c9
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 22 17:28:50 2013 +0900
+
+    Don't assign 0-9 in the default rom-kana rule
+
+    Suggested by Hajime Taira in
+    <http://du-a.org/pipermail/libkkc-list/2013-May/000006.html>.
+
+ data/rules/default/rom-kana/default.json | 10 ----------
+ 1 file changed, 10 deletions(-)
+
+commit 2d2ea6077493b054543277c5e7ba5574d279bf45
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 21 15:38:32 2013 +0900
+
+    Add doc comments
+
+ libkkc/rom-kana.vala | 39 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 39 insertions(+)
+
+commit 77c2ae485bc8f3941b605136cb188df7c51e50f2
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 21 12:24:30 2013 +0900
+
+    Don't commit preedit when inputting upper case letters in initial
+    state
+
+    Reported by Hajime Taira in
+    <http://du-a.org/pipermail/libkkc-list/2013-May/000003.html>.
+
+ libkkc/initial-state-handler.vala |  8 ++++----
+ libkkc/rom-kana.vala              |  2 ++
+ tests/context.vala                | 11 ++++++++++-
+ 3 files changed, 16 insertions(+), 5 deletions(-)
+
+commit 53a9635ee60c4947c571ef2ec3b804ef54704f74
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 21 12:24:03 2013 +0900
+
+    Add tools/server.{vala,c} POTFILES
+
+ po/POTFILES.in   | 1 +
+ po/POTFILES.skip | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 313130c42365acf40619d5b25eea8886267bf399
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 17 19:20:37 2013 +0900
+
+    Minor code cleanup
+
+ libkkc/state.vala | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+commit b9de7379f0a98b9de9dc7670de747a0348c158f6
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 17 18:29:21 2013 +0900
+
+    tool: add JSON-RPC server
+
+ tools/Makefile.am |   2 +-
+ tools/kkc.vala    |   3 +
+ tools/server.vala | 368
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 372 insertions(+), 1 deletion(-)
+
+commit cb7253cdcd380b3d68f548c5d8c8b8f297c1849f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 17 16:39:55 2013 +0900
+
+    tool: don't use JSON output for context repl
+
+ tools/kkc.vala | 40 ++++++++++++++--------------------------
+ 1 file changed, 14 insertions(+), 26 deletions(-)
+
+commit 4c0d16fc1340eb881c2b9077a1ed335173bdfda5
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 14 18:27:02 2013 +0900
+
+    tool: make repl type argument as sub-command
+
+ tools/kkc.vala | 266
+ +++++++++++++++++++++++++++++++++++----------------------
+ 1 file changed, 164 insertions(+), 102 deletions(-)
+
+commit 6cbacaf415dfb1e280c52889496b482745d45f3b
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon May 13 18:51:41 2013 +0900
+
+    Simplify NICOLA event queue
+
+ libkkc/nicola.vala | 47 ++++++++++++++++++++++++-----------------------
+ 1 file changed, 24 insertions(+), 23 deletions(-)
+
+commit 250925d09dfe4ee8381c6bbe9b902f451c9c7fd4
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon May 13 18:23:20 2013 +0900
+
+    Use microseconds in NICOLA timing check
+
+ libkkc/nicola.vala | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+commit d88c3c2eb21a7895bc8e02db4acd543b40e366b5
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 15 15:21:31 2013 +0900
+
+    Bump version to 0.2.3
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit db493555ae257ec1fdbf0c0c83e2416003e31674
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 15 15:20:01 2013 +0900
+
+    Add tests for unhandled Left/Right
+
+ tests/context.vala | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+commit c3067c48d72282d553cd9f74ac37603d60c3f03b
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 15 15:15:44 2013 +0900
+
+    Don't handle Left/Right when there is no input characters
+
+ libkkc/initial-state-handler.vala | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+commit bf1f34ee5d225ee3d35405a590d1844290cf13dc
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon May 13 17:36:49 2013 +0900
+
+    Remove insert-kana- command
+
+ libkkc/initial-state-handler.vala | 11 -----------
+ 1 file changed, 11 deletions(-)
+
+commit 652a507743570589e4bc8df6c04887e9c7e3c723
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon May 13 17:35:04 2013 +0900
+
+    Add missing nicola/keymap/direct.json
+
+ data/rules/nicola/keymap/direct.json | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit 0fa154477e864716406ae1f3ab046c3a0eee2409
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon May 13 16:51:22 2013 +0900
+
+    Reimplement NICOLA rule as rom-kana map
+
+ data/rules/nicola/Makefile.am                  |   2 +-
+ data/rules/nicola/keymap/default.json          |  19 +--
+ data/rules/nicola/keymap/hankaku-katakana.json |   2 +-
+ data/rules/nicola/keymap/hiragana.json         |   2 +-
+ data/rules/nicola/keymap/kana.json             | 177
+ -------------------------
+ data/rules/nicola/keymap/katakana.json         |   2 +-
+ data/rules/nicola/keymap/latin.json            |   2 +-
+ data/rules/nicola/keymap/wide-latin.json       |   2 +-
+ data/rules/nicola/rom-kana/default.json        | 145 ++++++++++++++++++++
+ libkkc/nicola.vala                             |  73 ++++++----
+ 10 files changed, 200 insertions(+), 226 deletions(-)
+
+commit d0392f2183b833bf0f7acd18dc631facd2dc7083
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 10 19:39:21 2013 +0900
+
+    Fix nicola key handling
+
+ libkkc/nicola.vala | 35 +++++++++-----------
+ tests/context.vala | 97
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 113 insertions(+), 19 deletions(-)
+
+commit df5acee9f6e2db5c457c78485e6216a94bb78f75
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 10 19:38:51 2013 +0900
+
+    Fix octet character parsing in expression
+
+ libkkc/expression.vala | 25 ++++++++++++-------------
+ tests/expression.vala  |  8 ++++++++
+ 2 files changed, 20 insertions(+), 13 deletions(-)
+
+commit b26c40ae62001f92c2abdd11d03f8c664d133aa3
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 10 18:00:15 2013 +0900
+
+    Fix commit 2318e2b8c918655d07fdbec6617048d233f1c04f
+
+ Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d51a15d32c7f5dd45b3f75288e4ae8d5c248a0e2
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 10 17:58:06 2013 +0900
+
+    Distribute autogen.sh
+
+ Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 2318e2b8c918655d07fdbec6617048d233f1c04f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 10 17:57:29 2013 +0900
+
+    Fix make distcheck
+
+ Makefile.am       | 2 +-
+ tests/Makefile.am | 3 ++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit f45374f3086d72e515eee4b5e03bc6934dbeb1de
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 10 17:32:15 2013 +0900
+
+    Better Initable usage for language model
+
+ libkkc/kkc.vala                           |  7 ++-
+ libkkc/language-model.vala                | 72
+ +++++++++++++++++++------------
+ libkkc/metadata-file.vala                 |  2 +-
+ libkkc/sorted-bigram-language-model.vala  | 11 ++---
+ libkkc/sorted-trigram-language-model.vala | 11 +++--
+ libkkc/text-bigram-language-model.vala    | 17 +++-----
+ libkkc/text-trigram-language-model.vala   |  6 +--
+ tools/kkc.vala                            |  5 +--
+ 8 files changed, 73 insertions(+), 58 deletions(-)
+
+commit ed67f1feeb66b253b48a6657c4d37b0800a21366
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 10 16:59:14 2013 +0900
+
+    Rename Rule.find_rule -> RuleMetadata.find
+
+ libkkc/kkc.vala      |  1 +
+ libkkc/map-file.vala |  2 +-
+ libkkc/rom-kana.vala |  2 +-
+ libkkc/rule.vala     | 70
+ +++++++++++++++++++++++++++-------------------------
+ libkkc/state.vala    |  2 +-
+ tests/context.vala   |  4 +--
+ tests/keymap.vala    |  8 +++---
+ tests/rom-kana.vala  |  6 ++---
+ tests/rule.vala      |  6 ++---
+ tests/user-rule.vala |  4 +--
+ tools/kkc.vala       |  2 +-
+ 11 files changed, 55 insertions(+), 52 deletions(-)
+
+commit aacc84efc58b18f767d414c453730f6deb780998
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 10 16:46:15 2013 +0900
+
+    Add metadata tests
+
+ tests/Makefile.am                       | 14 +++++
+ tests/language-model-metadata-bad1.json |  4 ++
+ tests/language-model-metadata-bad2.json |  5 ++
+ tests/language-model.vala               | 27 ++++++++++
+ tests/metadata-bad1.json                |  1 +
+ tests/metadata-bad2.json                |  3 ++
+ tests/metadata-bad3.json                |  3 ++
+ tests/metadata-bad4.json                |  1 +
+ tests/metadata-file.vala                | 93
+ +++++++++++++++++++++++++++++++++
+ tests/metadata.json                     |  4 ++
+ tests/rule-metadata-bad.json            |  5 ++
+ tests/rule.vala                         | 12 +++++
+ 12 files changed, 172 insertions(+)
+
+commit a10c6ad441c414d4e8f80857f722dae95ee9968f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 10 16:45:48 2013 +0900
+
+    Simplify RuleMetadata parsing
+
+ libkkc/rule.vala | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
+
+commit 360bce5a97d9e747f9c89199054b40a919f7ee15
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 10 16:10:02 2013 +0900
+
+    Factor out metadata parsing into a new class
+
+ libkkc/Makefile.am                        |   1 +
+ libkkc/context.vala                       |   6 +-
+ libkkc/language-model.vala                | 114 ++++++-----------
+ libkkc/metadata-file.vala                 |  93 ++++++++++++++
+ libkkc/rule.vala                          | 195
+ ++++++++++--------------------
+ libkkc/sorted-bigram-language-model.vala  |   4 +-
+ libkkc/sorted-trigram-language-model.vala |   4 +-
+ libkkc/state.vala                         |   2 +-
+ libkkc/text-bigram-language-model.vala    |   6 +-
+ libkkc/user-rule.vala                     |  10 +-
+ 10 files changed, 217 insertions(+), 218 deletions(-)
+
+commit 92ffd6e8b66f9cad1874c765a7cc1009f4910a99
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 10 13:32:26 2013 +0900
+
+    Add language-model tests
+
+ tests/language-model.vala | 28 ++++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+
+commit baef3aada549999101394108ef99571afc0d9a0c
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 10 12:49:17 2013 +0900
+
+    More coverage improvements
+
+ libkkc/map-file.vala                              | 3 ++-
+ tests/Makefile.am                                 | 3 +++
+ tests/data/rules/test-bad10/keymap/.gitkeep       | 0
+ tests/data/rules/test-bad10/metadata.json         | 4 ++++
+ tests/data/rules/test-bad10/rom-kana/.gitkeep     | 0
+ tests/data/rules/test-bad10/rom-kana/default.json | 3 +++
+ tests/data/rules/test-bad9/rom-kana/.gitkeep      | 0
+ tests/rule.vala                                   | 3 ++-
+ tests/user-dictionary.vala                        | 3 +++
+ 9 files changed, 17 insertions(+), 2 deletions(-)
+
+commit 2673b50265edc4a6f68f85ba0647fa410301a32e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 10 11:49:30 2013 +0900
+
+    Improve system-dictionary and user-dictionary tests
+
+ libkkc/dictionary-list.vala           |   11 +-
+ libkkc/dictionary.vala                |    5 -
+ libkkc/segment-dictionary.vala        |    9 -
+ libkkc/state.vala                     |    8 -
+ libkkc/system-segment-dictionary.vala |   15 +-
+ libkkc/user-dictionary.vala           |    9 -
+ libkkc/user-segment-dictionary.vala   |   16 +-
+ libkkc/user-sentence-dictionary.vala  |    9 -
+ tests/Makefile.am                     |   12 +-
+ tests/bad-file-dict1.dat              |    1 -
+ tests/context.vala                    |    2 +-
+ tests/dictionary-list.vala            |    2 +-
+ tests/file-dict.dat                   | 3414
+ ---------------------------------
+ tests/system-dictionary.vala          |   26 +-
+ tests/system-segment-dictionary       | 3414
+ +++++++++++++++++++++++++++++++++
+ tests/system-segment-dictionary-bad1  |    1 +
+ tests/system-segment-dictionary-bad2  |    2 +
+ tests/system-segment-dictionary-bad3  |    1 +
+ tests/user-dictionary.vala            |  154 +-
+ tests/user-segment-dictionary-bad1    |    1 +
+ tests/user-segment-dictionary-bad2    |    2 +
+ tests/user-segment-dictionary-good    |    4 +
+ tests/user-sentence-dictionary-bad1   |    1 +
+ tests/user-sentence-dictionary-bad2   |    2 +
+ tests/user-sentence-dictionary-good   |    4 +
+ 25 files changed, 3612 insertions(+), 3513 deletions(-)
+
+commit 5f3d37416600dabd129f617ad0490b9ed8117666
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 10 11:05:48 2013 +0900
+
+    Add trellis-node and state tests
+
+ tests/Makefile.am       |  6 ++++
+ tests/state.vala        | 41 +++++++++++++++++++++++++
+ tests/trellis-node.vala | 79
+ +++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 126 insertions(+)
+
+commit 2825cbf5eab89c07ce8982ec48f2e0ef93ad8ae7
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri May 10 06:35:16 2013 +0900
+
+    More coverage improvements
+
+ libkkc/initial-state-handler.vala | 3 ++-
+ libkkc/state.vala                 | 6 ------
+ tests/context.vala                | 1 +
+ 3 files changed, 3 insertions(+), 7 deletions(-)
+
+commit 146f13ace5a30cb63be045a9cf0a942f080e7e73
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu May 9 19:33:42 2013 +0900
+
+    Fix make distcheck
+
+ data/rules/nicola/Makefile.am | 1 +
+ tests/Makefile.am             | 5 -----
+ 2 files changed, 1 insertion(+), 5 deletions(-)
+
+commit 9eb8c37ca7c52d0d3724d222736920dd7dac3842
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu May 9 19:10:13 2013 +0900
+
+    More coverage improvements
+
+ tests/rom-kana.vala          | 69
+ ++++++++++++++++++++++++++++++++++++++++++--
+ tests/system-dictionary.vala | 30 ++++++++++++++++++-
+ 2 files changed, 96 insertions(+), 3 deletions(-)
+
+commit 707c50d1eea1a4cc7a970f905ece7f096d33f85c
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu May 9 18:40:42 2013 +0900
+
+    Add template tests
+
+ tests/Makefile.am   |  3 +++
+ tests/template.vala | 55
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 58 insertions(+)
+
+commit 64c9eb92ce6d35eed9acc801d8f180eb9fe48964
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu May 9 18:21:01 2013 +0900
+
+    More coverage improvements
+
+ libkkc/convert-sentence-state-handler.vala |  1 -
+ libkkc/initial-state-handler.vala          |  1 -
+ tests/context.vala                         | 12 ++++++++++++
+ 3 files changed, 12 insertions(+), 2 deletions(-)
+
+commit f2c521995e5721ff905188ba243873882faf5c64
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu May 9 17:35:34 2013 +0900
+
+    Split state handlers into separate files
+
+ libkkc/Makefile.am                         |   3 +
+ libkkc/convert-segment-state-handler.vala  |  88 ++++++
+ libkkc/convert-sentence-state-handler.vala | 132 +++++++++
+ libkkc/initial-state-handler.vala          | 313 +++++++++++++++++++
+ libkkc/state.vala                          | 462
+ -----------------------------
+ tests/context.vala                         |  48 +++
+ tests/user-dictionary.vala                 |  40 ++-
+ 7 files changed, 601 insertions(+), 485 deletions(-)
+
+commit 029339c2556dce3f9cff2d070df088ac9a4127a4
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu May 9 15:40:23 2013 +0900
+
+    More coverage improvements
+
+ data/rules/nicola/keymap/default.json            |  1 -
+ libkkc/state.vala                                | 31 ++++++-----
+ tests/Makefile.am                                |  8 ++-
+ tests/context.vala                               | 65
+ +++++++++++++++++++++++-
+ tests/data/rules/test-bad8/keymap/.gitkeep       |  0
+ tests/data/rules/test-bad8/metadata.json         |  4 ++
+ tests/data/rules/test-bad8/rom-kana/.gitkeep     |  0
+ tests/data/rules/test-bad8/rom-kana/default.json |  7 +++
+ tests/data/rules/test-bad9/keymap/.gitkeep       |  0
+ tests/data/rules/test-bad9/metadata.json         |  4 ++
+ tests/data/rules/test-bad9/rom-kana/.gitkeep     |  0
+ tests/data/rules/test-bad9/rom-kana/default.json |  7 +++
+ tests/rule.vala                                  | 63
+ +++++++++++++++++++++++
+ 13 files changed, 171 insertions(+), 19 deletions(-)
+
+commit 5f237c9a47f6a151b25124dffd535d4c926dbee5
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu May 9 15:40:06 2013 +0900
+
+    Use Initable in Rule implemetation
+
+ libkkc/rule.vala | 28 +++++++++++++++++-----------
+ 1 file changed, 17 insertions(+), 11 deletions(-)
+
+commit 4dbfeeec27a9d5f7a2d4a8fbae8cd35d0f1be870
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu May 9 14:02:28 2013 +0900
+
+    Bind Zenkaku_Hankaku to input mode switch
+
+    https://bugzilla.redhat.com/show_bug.cgi?id=961187
+
+ data/rules/default/keymap/default.json | 1 +
+ data/rules/default/keymap/direct.json  | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 8602450dd48785260397caeef7ce88a7ac1db729
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu May 9 13:08:09 2013 +0900
+
+    Add map-file test data
+
+ libkkc/map-file.vala                            |  2 +-
+ tests/Makefile.am                               | 58
+ +++++++++++++++++++------
+ tests/data/rules/test-bad1/keymap/hiragana.json |  1 +
+ tests/data/rules/test-bad1/metadata.json        |  4 ++
+ tests/data/rules/test-bad1/rom-kana/.gitkeep    |  0
+ tests/data/rules/test-bad2/keymap/hiragana.json |  1 +
+ tests/data/rules/test-bad2/metadata.json        |  4 ++
+ tests/data/rules/test-bad2/rom-kana/.gitkeep    |  0
+ tests/data/rules/test-bad3/keymap/hiragana.json |  1 +
+ tests/data/rules/test-bad3/metadata.json        |  4 ++
+ tests/data/rules/test-bad3/rom-kana/.gitkeep    |  0
+ tests/data/rules/test-bad4/keymap/hiragana.json |  1 +
+ tests/data/rules/test-bad4/metadata.json        |  4 ++
+ tests/data/rules/test-bad4/rom-kana/.gitkeep    |  0
+ tests/data/rules/test-bad5/keymap/hiragana.json |  1 +
+ tests/data/rules/test-bad5/metadata.json        |  4 ++
+ tests/data/rules/test-bad5/rom-kana/.gitkeep    |  0
+ tests/data/rules/test-bad6/keymap/hiragana.json |  1 +
+ tests/data/rules/test-bad6/metadata.json        |  4 ++
+ tests/data/rules/test-bad6/rom-kana/.gitkeep    |  0
+ tests/data/rules/test-bad7/keymap/hiragana.json |  5 +++
+ tests/data/rules/test-bad7/metadata.json        |  4 ++
+ tests/data/rules/test-bad7/rom-kana/.gitkeep    |  0
+ tests/data/rules/test-empty/keymap/.gitkeep     |  0
+ tests/data/rules/test-empty/metadata.json       |  4 ++
+ tests/data/rules/test-empty/rom-kana/.gitkeep   |  0
+ 26 files changed, 89 insertions(+), 14 deletions(-)
+
+commit ff05b4ca683914ffc789e74783a34a28ce57fb5f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu May 9 11:59:25 2013 +0900
+
+    Simplify cleaning generated model data for VPATH build
+
+ tests/Makefile.am | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+commit 8d793323b05a99bfe6ccd5c049043707ad1839ba
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu May 9 07:06:57 2013 +0900
+
+    Don't catch errors when loading user dictionaries
+
+ libkkc/user-segment-dictionary.vala  | 19 ++++---------------
+ libkkc/user-sentence-dictionary.vala | 19 ++++---------------
+ 2 files changed, 8 insertions(+), 30 deletions(-)
+
+commit a76ac696868cac2400b91beb0a1cff87289721c4
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu May 9 06:56:29 2013 +0900
+
+    Add dictionary-list tests
+
+ libkkc/dictionary-list.vala  |  9 +++++++
+ libkkc/dictionary.vala       |  2 +-
+ libkkc/expression.vala       |  2 +-
+ tests/Makefile.am            |  6 ++++-
+ tests/decoder.vala           | 22 +++++++++++++++++
+ tests/dictionary-list.vala   | 59
+ ++++++++++++++++++++++++++++++++++++++++++++
+ tests/expression.vala        |  3 +++
+ tests/system-dictionary.vala |  4 ---
+ 8 files changed, 100 insertions(+), 7 deletions(-)
+
+commit 950f88bf2f356a60135ed3155023dc2cbea3f00d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu May 9 06:11:38 2013 +0900
+
+    Add text2 and sorted2 test data
+
+ tests/Makefile.am                       |   21 +-
+ tests/basic.vala                        |   49 -
+ tests/data/models/sorted2/metadata.json |    5 +
+ tests/data/models/text2/data.arpa       | 3473
+ +++++++++++++++++++++++++++++++
+ tests/data/models/text2/metadata.json   |    5 +
+ tests/decoder.vala                      |   66 +
+ 6 files changed, 3568 insertions(+), 51 deletions(-)
+
+commit 1288dfc8f92ba43a4873ba531ef73fccfe7f076e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 19:49:38 2013 +0900
+
+    Fix VPATH build
+
+ tests/Makefile.am          | 10 +++++++++-
+ tests/user-dictionary.vala |  4 +---
+ 2 files changed, 10 insertions(+), 4 deletions(-)
+
+commit 6bac128caff2538264809b3ae0d77c68ac0ed336
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 19:49:31 2013 +0900
+
+    Doc fix
+
+ libkkc/rom-kana.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 3c5f36a2da7f19ae067a203d3d6b94495e5baac2
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 19:25:49 2013 +0900
+
+    Bump version to 0.2.2
+
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 54720b460f6cf416cad17c562c69ed365ea2d202
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 19:24:02 2013 +0900
+
+    Always handle delete when modifying preedit
+
+ libkkc/state.vala | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+
+commit e609f4761bf2110055b0b6e8acfe9ef6d3aef7c9
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 19:21:15 2013 +0900
+
+    Always handle cursor movement in preedit
+
+ libkkc/state.vala | 22 ++++++++--------------
+ 1 file changed, 8 insertions(+), 14 deletions(-)
+
+commit 44c3e2d9667c138309c9f09d5bdc305976675a1f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 19:12:10 2013 +0900
+
+    Add Context.input_cursor_pos
+
+ libkkc/context.vala | 11 ++++++-
+ libkkc/state.vala   | 17 ++++++-----
+ tests/context.vala  | 84
+ ++++++++++++++++++++++++++++++++---------------------
+ 3 files changed, 70 insertions(+), 42 deletions(-)
+
+commit 6592e23ec9007d84cf9b51d3f96bb3597734eaa4
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 18:47:19 2013 +0900
+
+    Update translations
+
+ po/ja.po | 51 ++++++++++++++++++++++++++-------------------------
+ 1 file changed, 26 insertions(+), 25 deletions(-)
+
+commit d2b32e4121665e10b1a783557ca0e2999474867d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 18:46:09 2013 +0900
+
+    Add "delete-forward" command.
+
+ data/rules/default/keymap/default.json |  2 ++
+ libkkc/keymap.vala                     |  1 +
+ libkkc/state.vala                      | 11 +++++++++++
+ tests/context.vala                     |  1 +
+ 4 files changed, 15 insertions(+)
+
+commit 17505e471376464084a36473ad7be4c5013f435f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 17:36:40 2013 +0900
+
+    Implement preedit modification in initial state
+
+    https://bugzilla.redhat.com/show_bug.cgi?id=958718
+
+ libkkc/rom-kana.vala |  7 ++++++
+ libkkc/state.vala    | 64
+ ++++++++++++++++++++++++++++++++++++++++++++++++----
+ tests/context.vala   |  7 +++++-
+ 3 files changed, 72 insertions(+), 6 deletions(-)
+
+commit 1ed66931f348cf2c7b7adf1f309707b0b2a84e71
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 17:03:56 2013 +0900
+
+    More coverage improvements
+
+ libkkc/utils.vala |  8 ++++----
+ tests/keymap.vala | 16 +++++++++++++++-
+ 2 files changed, 19 insertions(+), 5 deletions(-)
+
+commit d6ff805bcdad8d3d6d0455e284f1b2d77f9b0a39
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 17:00:07 2013 +0900
+
+    Add segment and segment-list tests
+
+ libkkc/segment.vala        |  2 +-
+ tests/Makefile.am          |  6 ++++++
+ tests/segment-list.vala    | 29 +++++++++++++++++++++++++++++
+ tests/segment.vala         | 29 +++++++++++++++++++++++++++++
+ tests/user-dictionary.vala | 15 ++++++++++++++-
+ 5 files changed, 79 insertions(+), 2 deletions(-)
+
+commit 9f658fef1a4b2f4b70567fd5c449a5afbc534136
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 16:35:36 2013 +0900
+
+    Add candidate and encoding tests
+
+ libkkc/candidate.vala        |  4 ++--
+ libkkc/encoding.vala         | 15 ++++++++++-----
+ libkkc/key-event.vala        | 13 ++++++++++---
+ tests/Makefile.am            |  6 ++++++
+ tests/basic.vala             |  4 ++--
+ tests/candidate.vala         | 40 ++++++++++++++++++++++++++++++++++++++
+ tests/context.vala           |  6 +++---
+ tests/encoding.vala          | 46
+ ++++++++++++++++++++++++++++++++++++++++++++
+ tests/expression.vala        |  2 +-
+ tests/key-event.vala         | 26 ++++++++++++++++++++-----
+ tests/keymap.vala            |  2 +-
+ tests/rom-kana.vala          |  2 +-
+ tests/system-dictionary.vala |  2 +-
+ tests/user-dictionary.vala   |  4 ++--
+ tests/user-rule.vala         |  4 ++--
+ 15 files changed, 148 insertions(+), 28 deletions(-)
+
+commit 383baf64160b69797c7ac9c4e07dcd51ce4df894
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 16:00:51 2013 +0900
+
+    More coverage improvement
+
+ tests/bad-file-dict1.dat  |  1 +
+ tests/candidate-list.vala | 26 ++++++++++++++++-
+ tests/context.vala        | 74
+ ++++++++++++++++++++++++++++++++---------------
+ tests/key-event.vala      | 24 +++++++++++++--
+ 4 files changed, 98 insertions(+), 27 deletions(-)
+
+commit 1c6b14e2c61e20d90a868206bd28ca49c390454d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 12:55:04 2013 +0900
+
+    More coverage improvement
+
+ libkkc/rom-kana-utils.vala | 2 +-
+ tests/file-dict.dat        | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit f9a755dd4e30f2f3b7babf82ae45414501c02c4f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 12:43:38 2013 +0900
+
+    Check backslash to yen conversion
+
+ tests/key-event.vala | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+commit bf58f51fc33b3d0a9221beaca1b016242b434dec
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 12:43:25 2013 +0900
+
+    Add system-dictionary tests
+
+ libkkc/system-segment-dictionary.vala | 18 ++++------------
+ tests/Makefile.am                     |  3 +++
+ tests/context.vala                    |  7 ------
+ tests/system-dictionary.vala          | 40
+ +++++++++++++++++++++++++++++++++++
+ 4 files changed, 47 insertions(+), 21 deletions(-)
+
+commit 743a16d7bb63259b84e86cfc7a6faded0a038f81
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 11:33:00 2013 +0900
+
+    Add key-event tests
+
+ tests/Makefile.am    |  3 +++
+ tests/key-event.vala | 49
+ +++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 52 insertions(+)
+
+commit dfffdcaac9066c318f212a20387d6b0997550998
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 11:16:42 2013 +0900
+
+    Use Initable in LanguageModel implementations
+
+ libkkc/language-model.vala                | 16 +++++++++-----
+ libkkc/sorted-bigram-language-model.vala  | 35
+ ++++++++++---------------------
+ libkkc/sorted-trigram-language-model.vala | 15 +++++++------
+ libkkc/text-bigram-language-model.vala    | 14 ++++++-------
+ libkkc/text-trigram-language-model.vala   |  6 +++++-
+ 5 files changed, 41 insertions(+), 45 deletions(-)
+
+commit bf856675064c1537a387690bbdececab72fe9f9e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 10:59:45 2013 +0900
+
+    More coverage improvement
+
+ libkkc/context.vala        |  35 ++++-------
+ libkkc/key-event.vala      |  16 +++--
+ tests/context.vala         | 142
+ ++++++++++++++++++++++++++++++++++-----------
+ tests/user-dictionary.vala |  43 +++++++++++---
+ tools/kkc.vala             |   7 ++-
+ 5 files changed, 174 insertions(+), 69 deletions(-)
+
+commit f1e0a0ffb3f9e168e75fe39ffcdc0dd9fd685ff2
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 8 05:32:22 2013 +0900
+
+    Add text3 model for test
+
+ configure.ac                                |    3 +
+ tests/Makefile.am                           |   25 +-
+ tests/basic.vala                            |    2 +-
+ tests/context.vala                          |   56 +-
+ tests/data/models/sorted3/data.1gram        |  Bin 9690 -> 0 bytes
+ tests/data/models/sorted3/data.1gram.index  |  Bin 25392 -> 0 bytes
+ tests/data/models/sorted3/data.2gram        |  Bin 47880 -> 0 bytes
+ tests/data/models/sorted3/data.2gram.filter |  Bin 3314 -> 0 bytes
+ tests/data/models/sorted3/data.3gram        |  Bin 50550 -> 0 bytes
+ tests/data/models/sorted3/data.3gram.filter |  Bin 4199 -> 0 bytes
+ tests/data/models/sorted3/data.input        |  Bin 9664 -> 0 bytes
+ tests/data/models/text3/data.arpa           | 6263
+ +++++++++++++++++++++++++++
+ tests/data/models/text3/metadata.json       |    5 +
+ tests/user-dictionary.vala                  |   26 +-
+ 14 files changed, 6334 insertions(+), 46 deletions(-)
+
+commit d71ac5b21207d90d8a9952c41ee80df740004e88
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 7 18:50:57 2013 +0900
+
+    More coverage improvement
+
+ tests/candidate-list.vala  | 10 +++++++++
+ tests/context.vala         | 55
+ +++++++++++++++++++++++++++++++++++++++-------
+ tests/file-dict.dat        |  2 +-
+ tests/keymap.vala          |  3 ++-
+ tests/user-dictionary.vala | 18 ++++++++++++++-
+ 5 files changed, 77 insertions(+), 11 deletions(-)
+
+commit 3129c8812304c7bfde20b032374824a3c4002c8a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 7 18:43:12 2013 +0900
+
+    Add candidate-list and keymap tests
+
+ libkkc/candidate-list.vala |  3 +--
+ tests/Makefile.am          | 16 +++++++++++++-
+ tests/candidate-list.vala  | 53
+ ++++++++++++++++++++++++++++++++++++++++++++++
+ tests/keymap.vala          | 45 +++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 114 insertions(+), 3 deletions(-)
+
+commit 7bf134f8743c0568267101bbbbe691ebc35707fc
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 7 15:25:06 2013 +0900
+
+    More coverage improvement
+
+ libkkc/bigram-decoder.vala |   2 +-
+ libkkc/encoding.vala       |   9 --
+ libkkc/rom-kana-utils.vala |  21 -----
+ libkkc/state.vala          |  57 ++++++-------
+ tests/Makefile.am          |   4 +-
+ tests/context.vala         | 191
+ +++++++++++++++---------------------------
+ tests/expression.vala      |   4 +
+ tests/file-dict.dat        |   2 +-
+ tests/user-dictionary.vala | 202
+ +++++++++++++++++++++++++++++++++++++++++++++
+ tests/user-rule.vala       |  10 +++
+ 10 files changed, 311 insertions(+), 191 deletions(-)
+
+commit 70d7cb9f07240a6da63bb7dd25ec951cc85d70c5
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 7 14:37:31 2013 +0900
+
+    Switch InitialStateHandler to use CommandHandler
+
+ libkkc/state.vala | 483
+ +++++++++++++++++++++++++++---------------------------
+ 1 file changed, 242 insertions(+), 241 deletions(-)
+
+commit 83df29802955995e002d1524c1076d4d4d20eeab
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 7 12:24:00 2013 +0900
+
+    Add EmptySegmentDictionary to context test for improve coverage
+
+ tests/context.vala | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 79e809fe15c1bade09947fb2465905265714cc70
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 7 12:19:48 2013 +0900
+
+    Add numeric-template tests
+
+ tests/context.vala  | 9 +++++++--
+ tests/file-dict.dat | 1 +
+ 2 files changed, 8 insertions(+), 2 deletions(-)
+
+commit 2e44eb829c66c36edcad40af93e37e301a0837f5
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 7 12:04:53 2013 +0900
+
+    Remove transient directories in TestCase.set_up
+
+ tests/context.vala        |  5 +++++
+ tests/lib/Makefile.am     |  2 +-
+ tests/lib/test-utils.vala | 14 ++++++++++++++
+ tests/user-rule.vala      | 11 ++++++-----
+ 4 files changed, 26 insertions(+), 6 deletions(-)
+
+commit e9d9d0df2b69f135bf14becdb3376a79dcef6f0b
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 7 11:15:13 2013 +0900
+
+    Add user-dictionary tests
+
+ tests/Makefile.am  |  1 +
+ tests/context.vala | 60
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 61 insertions(+)
+
+commit 8487138081a8425f70cbff6c55eb460d73ee002d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 7 10:58:08 2013 +0900
+
+    Add expression tests
+
+ tests/Makefile.am     |  4 +++-
+ tests/expression.vala | 27 +++++++++++++++++++++++++++
+ 2 files changed, 30 insertions(+), 1 deletion(-)
+
+commit c060815ae7ae083e4a1cefa3d6eaed1ed1835b5e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun May 5 10:14:39 2013 +0900
+
+    Don't pass KeyEvent as a ref to StateHandler
+
+ libkkc/context.vala |  3 +--
+ libkkc/state.vala   | 68
+ ++++++++++++++++++++++++++---------------------------
+ 2 files changed, 34 insertions(+), 37 deletions(-)
+
+commit f2b604e8d2fbc9380db3092f53732591bc4287a1
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun May 5 10:06:04 2013 +0900
+
+    Don't handle set-input-mode-* in ConvertSentenceStateHandler
+
+ libkkc/state.vala | 42 ------------------------------------------
+ 1 file changed, 42 deletions(-)
+
+commit 53b903563b55cb0cee2c7dbf7166ba9f4978d23e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun May 5 09:59:05 2013 +0900
+
+    Switch ConvertSentenceHandler to use CommandHandler
+
+ libkkc/state.vala | 358
+ +++++++++++++++++++++++++++++++++++-------------------
+ 1 file changed, 234 insertions(+), 124 deletions(-)
+
+commit 765c1b921ff4ed88ffedc42547c489efbd48660f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun May 5 09:21:20 2013 +0900
+
+    Switch ConvertSegmentStateHandler to use CommandHandler
+
+ libkkc/state.vala | 163
+ ++++++++++++++++++++++++++++++++++++++----------------
+ 1 file changed, 116 insertions(+), 47 deletions(-)
+
+commit d1ddbc804e52275ba33fde71e6a5bca880d01001
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun May 5 09:00:25 2013 +0900
+
+    Minor wording fix
+
+ libkkc/state.vala | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+commit 7bac777822c21a470078c0187479ea12b24951d4
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun May 5 08:16:11 2013 +0900
+
+    Factor out input character handling to a separate class
+
+ libkkc/rom-kana.vala | 137
+ ++++++++++++++++++++++++++++++++++++++++++++++-----
+ libkkc/state.vala    | 115 +++++++++++++++---------------------------
+ 2 files changed, 165 insertions(+), 87 deletions(-)
+
+commit ee1e1745b88c82af5aee6e9f2863d64e04067325
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat May 4 11:34:42 2013 +0900
+
+    Fix finish completion
+
+ libkkc/state.vala | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+
+commit 106d236568efab8862269392a47d3fb4c53b1c40
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat May 4 06:40:57 2013 +0900
+
+    Factor out latin conversion code from InitialStateHandler
+
+ libkkc/rom-kana.vala | 16 ++++++++++++++--
+ libkkc/state.vala    | 50
+ ++++++++++++++------------------------------------
+ 2 files changed, 28 insertions(+), 38 deletions(-)
+
+commit bd767d862e08553de26a7615597a65227902fcc5
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu May 2 19:51:24 2013 +0900
+
+    Exclude prefix words when completion
+
+    https://bugzilla.redhat.com/show_bug.cgi?id=958728
+
+ libkkc/state.vala                     |  8 +++++---
+ libkkc/system-segment-dictionary.vala | 10 ++++++----
+ tests/context.vala                    |  1 +
+ tests/file-dict.dat                   |  1 +
+ 4 files changed, 13 insertions(+), 7 deletions(-)
+
+commit 816fc66a6f6edb226a8ac5be3ecfe8072d6b9539
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu May 2 18:40:16 2013 +0900
+
+    Add test for the previous change
+
+ tests/context.vala | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 075b7c0282ed51bc1c1f458e21e60ba2b97261ed
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu May 2 18:37:49 2013 +0900
+
+    Clear preedit with abort command when conversion has not started
+
+    https://bugzilla.redhat.com/show_bug.cgi?id=958704
+
+ libkkc/state.vala | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+commit a847f244e24fba292c4b3017e4397352a6a40dfb
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 1 19:32:09 2013 +0900
+
+    Bump version to 0.2.1
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit f4b4a4e01b452f4c4421b7f9966b8aee8a738fc3
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 1 19:31:48 2013 +0900
+
+    Fix coding style
+
+ libkkc/state.vala | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit 87177196df2e13997732d07adec681ba92c18ef1
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 1 19:30:58 2013 +0900
+
+    Fix set-input-mode-*
+
+ libkkc/state.vala | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit e61e36e45f47637d99dec7758debe57afbdf2f86
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 1 19:24:19 2013 +0900
+
+    Make word completion work again
+
+ libkkc/state.vala | 20 ++++++++++++++------
+ 1 file changed, 14 insertions(+), 6 deletions(-)
+
+commit 3342946e05527c05168c86fedd5dbea83edbd822
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 1 11:48:38 2013 +0900
+
+    Improve context test
+
+ tests/context.vala | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
+
+commit b6408f67a6f12715f996ca92fc579a6d95e95c7f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed May 1 11:38:31 2013 +0900
+
+    Add SegmentList.get_offset
+
+ libkkc/segment-list.vala | 10 ++++++++++
+ libkkc/state.vala        |  5 +----
+ 2 files changed, 11 insertions(+), 4 deletions(-)
+
+commit 5109958501796918d780adbac0021ebc6e2efce0
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 30 23:13:21 2013 +0900
+
+    Fix typo
+
+ libkkc/state.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 5c9ca204a8b9298ce268f9a791015f3033afb57a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 30 13:18:23 2013 +0900
+
+    Bump version to 0.2.0
+
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit fbc855cb99e065040c12e127182303af843041c6
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 30 13:39:45 2013 +0900
+
+    Add missing azik-jp106 rule
+
+ configure.ac                              | 1 +
+ data/rules/Makefile.am                    | 1 +
+ data/rules/azik-jp106/keymap/default.json | 5 +++++
+ 3 files changed, 7 insertions(+)
+
+commit 9a8598a6483411c09073c66cb7739a0d9b983e3e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 30 12:51:11 2013 +0900
+
+    Refactor context test
+
+ tests/context.vala | 90
+ ++++++++++++++++++++++++++----------------------------
+ 1 file changed, 43 insertions(+), 47 deletions(-)
+
+commit 8ce69391b751ad419322d91fdab2664412be1e12
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 30 12:32:24 2013 +0900
+
+    Fix commit after kana conversion
+
+ libkkc/state.vala  | 67
+ ++++++++++++++++++++++++++++++++----------------------
+ tests/context.vala | 11 +++++++++
+ 2 files changed, 51 insertions(+), 27 deletions(-)
+
+commit 16a9ed5acdb4bd3c0bb9ee4fcd64d97859c7ed69
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 30 11:53:57 2013 +0900
+
+    Fix upper / lower case conversion
+
+ libkkc/state.vala  | 51
+ +++++++++++++++++++++++++++++----------------------
+ tests/context.vala |  4 ++--
+ 2 files changed, 31 insertions(+), 24 deletions(-)
+
+commit 16089a4b31b921d7f23011260e0e42aabf0b0a9c
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 30 09:04:28 2013 +0900
+
+    Support toggle upper/lower case when latin conversion
+
+ libkkc/context.vala |  2 ++
+ libkkc/state.vala   | 70
+ ++++++++++++++++++++++++++++++-----------------------
+ tests/context.vala  |  7 ++++++
+ 3 files changed, 49 insertions(+), 30 deletions(-)
+
+commit 221d81ad7fb812518d65063f5129e0b93515ccd7
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Apr 29 14:29:25 2013 +0900
+
+    Handle more JISX0201 kana characters
+
+ libkkc/rom-kana-utils.vala | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit b832f40d18f38be47caa693f68aad1f7408f18f9
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Apr 29 10:57:46 2013 +0900
+
+    Support segment-based kana conversion
+
+ libkkc/state.vala  | 88
+ +++++++++++++++++++++++++++++++++++++++++-------------
+ tests/context.vala |  5 ++++
+ 2 files changed, 73 insertions(+), 20 deletions(-)
+
+commit 6dbae56d11ac7b9f65796c21c6a781b6ac10690a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Apr 28 18:55:48 2013 +0900
+
+    Rewrite rom-kana conversion
+
+ libkkc/context.vala  |   2 +-
+ libkkc/rom-kana.vala | 137 +++++++++++++++++++-----------
+ libkkc/state.vala    | 229
+ +++++++++++++++++++++++++++------------------------
+ tests/context.vala   |  23 ++++++
+ tests/rom-kana.vala  |  12 +--
+ 5 files changed, 242 insertions(+), 161 deletions(-)
+
+commit ed2365ce32c35101d0e34aeb7c2568b4b6105200
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Apr 28 09:13:00 2013 +0900
+
+    Simplify CandidateList properties
+
+ libkkc/candidate-list.vala | 62
+ ++++++++++++++++++++++------------------------
+ 1 file changed, 30 insertions(+), 32 deletions(-)
+
+commit 373699b3ca2e2827cfaefe85f52988f7fe8cbcad
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Apr 27 10:09:37 2013 +0900
+
+    Update translations
+
+ po/ja.po | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+commit 7d631c9df606dbd2d3814b68d8206e8192bbb095
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Apr 27 10:07:46 2013 +0900
+
+    Assign Muhenkan to original-candidate instead of abort-conversion
+
+ data/rules/default/keymap/default.json |  2 +-
+ libkkc/candidate-list.vala             |  3 +++
+ libkkc/keymap.vala                     |  2 +-
+ libkkc/state.vala                      | 26 ++++++++++++++------------
+ 4 files changed, 19 insertions(+), 14 deletions(-)
+
+commit 16cd162f1c018fcf74435b3ae920d2805eba40e9
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Apr 27 09:37:01 2013 +0900
+
+    Suppress automake warning about Marisa_gir_LDFLAGS
+
+ marisa-glib/Makefile.am | 13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
+
+commit 65134446412d48453908e5919644ca580b74b069
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Apr 26 18:25:36 2013 +0900
+
+    Update translations
+
+ po/ja.po | 170
+ ++++++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 97 insertions(+), 73 deletions(-)
+
+commit 23a3d515f7918a886c86b212a7f965f23b403f21
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Apr 26 18:23:09 2013 +0900
+
+    Add missing file entries to po/POTFILES.in
+
+ po/POTFILES.in | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+commit 354d6a2ea79f4ab316c1948efd79a98de61273d7
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Apr 26 18:20:42 2013 +0900
+
+    Add command label for abort-conversion
+
+ libkkc/keymap.vala | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 40e502cb2b4e890ed1a0902a35c7ec40f58a2631
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Apr 26 18:08:17 2013 +0900
+
+    Assign Muhenkan to abort-conversion
+
+ data/rules/default/keymap/default.json | 2 ++
+ libkkc/state.vala                      | 6 ++++--
+ 2 files changed, 6 insertions(+), 2 deletions(-)
+
+commit 7176ec5b6cc54c04b6ab02037ab4474e7bbf8773
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Apr 26 17:15:46 2013 +0900
+
+    Do segment lookup before sentence lookup
+
+ libkkc/state.vala | 27 +++++++++------------------
+ 1 file changed, 9 insertions(+), 18 deletions(-)
+
+commit 2c641398ea27574d6598ebb84453afc5a182bc18
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Apr 25 15:48:16 2013 +0900
+
+    Handle convert command in Convert{Sentence,Segment}StateHandler
+
+ libkkc/state.vala | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+commit addcc9c6721693a7873b382daffc0970945e2d40
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Apr 17 10:44:11 2013 +0900
+
+    Do numeric conversion before simple lookup
+
+ libkkc/state.vala | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit d3aff53e4f071dcb6bcb3b4d1585e4d3e783eaae
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 16 19:55:33 2013 +0900
+
+    Fix numeric conversion
+
+ libkkc/numeric-template.vala |  4 ++++
+ libkkc/state.vala            | 20 ++++++++++----------
+ 2 files changed, 14 insertions(+), 10 deletions(-)
+
+commit c04d9f022895d789f1b626d988e2fc160d57ab0b
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 16 18:57:41 2013 +0900
+
+    Move Kana candidates at the end of the list
+
+ libkkc/candidate-list.vala | 33 ++++++++++++++++++++++++++-------
+ libkkc/state.vala          | 41 +++++++++++++++++++++++++----------------
+ 2 files changed, 51 insertions(+), 23 deletions(-)
+
+commit e7cfa9c81c02ca4b4e2305d178ecf51e10f357d2
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 16 18:30:53 2013 +0900
+
+    Simplify CandidateList.{cursor,page}_{up,down}
+
+ libkkc/candidate-list.vala | 111
+ ++++++++++++++++++++-------------------------
+ 1 file changed, 49 insertions(+), 62 deletions(-)
+
+commit 5aa49b9285a39c57e9309228e6dd1d0ca5f96096
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Apr 15 13:08:42 2013 +0900
+
+    Simplify CandidateList::selected handler
+
+ libkkc/state.vala | 29 ++++++++---------------------
+ 1 file changed, 8 insertions(+), 21 deletions(-)
+
+commit d280b98b3c810a8a9c011740f63bc6a752f323df
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Apr 15 12:54:00 2013 +0900
+
+    Don't clear candidate list after a candidate is selected
+
+ libkkc/state.vala | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit aee303f892b8855fdffd21d59a3b1722340c634e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Apr 12 12:04:13 2013 +0900
+
+    marisa-glib: suppress g-ir-scanner warnings
+
+ marisa-glib/marisa-agent.h  | 2 +-
+ marisa-glib/marisa-key.h    | 2 +-
+ marisa-glib/marisa-keyset.h | 2 +-
+ marisa-glib/marisa-trie.h   | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+commit e58e1af5a987629f1fab6707d9e8580dc1100ae3
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Apr 12 11:00:06 2013 +0900
+
+    build: fix compile error with clang
+
+ libkkc/numeric-template.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit c26d79e9f1dbfa881b8a7dd91daa88bfb8f0cd04
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Apr 12 10:54:25 2013 +0900
+
+    build: don't add -lstdc++ explicitly
+
+ configure.ac            |  4 ++++
+ libkkc/Makefile.am      | 22 +++++++++++++++++-----
+ marisa-glib/Makefile.am |  3 ++-
+ tests/Makefile.am       |  2 +-
+ 4 files changed, 24 insertions(+), 7 deletions(-)
+
+commit f2751dff73764da8c26da8ded64c94744c8b4f31
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 9 19:36:48 2013 +0900
+
+    Add "convert-<KanaMode>" commands
+
+ data/rules/default/keymap/default.json |  7 ++++++-
+ libkkc/keymap.vala                     |  7 ++++++-
+ libkkc/rom-kana-utils.vala             |  5 +++--
+ libkkc/state.vala                      | 19 +++++++++++++++++++
+ 4 files changed, 34 insertions(+), 4 deletions(-)
+
+commit f662557acb62681c9b06a4a9af445c66f3e1d07a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 9 19:04:31 2013 +0900
+
+    Add rom-kana test case
+
+ tests/Makefile.am   | 14 +++++++++-----
+ tests/rom-kana.vala | 39 +++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 48 insertions(+), 5 deletions(-)
+
+commit b2e993d94a77b49d016d9a202acb3be71961d705
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 9 19:04:08 2013 +0900
+
+    build: generate libkkc-internals.la for unit testing
+
+ libkkc/Makefile.am | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+commit 5ee800a827511997f1dd76048a6ac4c913a4c7de
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 9 19:03:40 2013 +0900
+
+    rom-kana: remove preserve_preedit flag
+
+ libkkc/rom-kana.vala | 15 ++++-----------
+ 1 file changed, 4 insertions(+), 11 deletions(-)
+
+commit 1f5bd452b705d49bf567a844ba55d977f64e3d55
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 9 16:20:51 2013 +0900
+
+    Optimize the last commit
+
+ libkkc/keymap.vala | 36 +++++++++++++++---------------------
+ 1 file changed, 15 insertions(+), 21 deletions(-)
+
+commit d1663e15481f050bbf2faa46f6afc916fb8c5fe1
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 9 15:40:38 2013 +0900
+
+    user-rule: don't write derived keymap entries
+
+ libkkc/keymap.vala    | 19 +++++++++++++++----
+ libkkc/user-rule.vala |  2 +-
+ 2 files changed, 16 insertions(+), 5 deletions(-)
+
+commit 73811772eaeea81d29ed756e820efd173dc647a4
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 9 15:07:03 2013 +0900
+
+    Fix Keymap.entries to respect parent keymap
+
+ libkkc/keymap.vala | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
+
+commit 0803622ce4eeb0adf69fe34cbb70521de22cff2f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 9 14:32:59 2013 +0900
+
+    Refine UserRule API
+
+ libkkc/keymap.vala    | 50
+ ++++++++++++++++++++++++++++++++++++++++++++++-
+ libkkc/map-file.vala  | 39 +++++++++++++++++++++++--------------
+ libkkc/rule.vala      | 54
+ ++++++++++++++++++++++++++++++++++-----------------
+ libkkc/user-rule.vala | 11 +++++------
+ tests/user-rule.vala  | 37 +++++++++++------------------------
+ 5 files changed, 125 insertions(+), 66 deletions(-)
+
+commit 957c485a8f66586b6ea07279d5bae2dbba0f6dc2
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Apr 9 12:30:19 2013 +0900
+
+    Fix valadoc comment for DictionaryList.clear
+
+ libkkc/dictionary-list.vala | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit 4e3220a15561b2b4568f0feac478d4a76719856b
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Apr 8 19:42:16 2013 +0900
+
+    Clean metadata.json
+
+ data/rules/act/Makefile.am              | 5 ++++-
+ data/rules/azik-jp106/Makefile.am       | 5 ++++-
+ data/rules/azik/Makefile.am             | 5 ++++-
+ data/rules/default/Makefile.am          | 5 ++++-
+ data/rules/kana/Makefile.am             | 5 ++++-
+ data/rules/kzik/Makefile.am             | 5 ++++-
+ data/rules/nicola/Makefile.am           | 5 ++++-
+ data/rules/rule.mk                      | 2 +-
+ data/rules/tcode/Makefile.am            | 5 ++++-
+ data/rules/trycode/Makefile.am          | 5 ++++-
+ data/rules/tutcode-touch16x/Makefile.am | 5 ++++-
+ data/rules/tutcode/Makefile.am          | 5 ++++-
+ 12 files changed, 45 insertions(+), 12 deletions(-)
+
+commit d52c2db11a8618f667d1f55370110f103f2624e4
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Apr 8 19:32:38 2013 +0900
+
+    Fix the last commit
+
+ tests/user-rule.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d75da0cdd44af5266fe24095f6f4cbd93d94b0a3
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Apr 8 19:31:16 2013 +0900
+
+    Fix make distcheck
+
+ Makefile.am          |  2 +-
+ data/rules/rule.mk   |  4 ++--
+ tests/Makefile.am    | 16 ++++++++--------
+ tests/user-rule.vala |  6 ++----
+ 4 files changed, 13 insertions(+), 15 deletions(-)
+
+commit 94214e132aac7573e473d06c690ad2bab857ab90
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Apr 8 18:33:07 2013 +0900
+
+    rules: improve automake integration
+
+ configure.ac                            |  10 ++
+ data/rules/Makefile.am                  | 195
+ ++------------------------------
+ data/rules/act/Makefile.am              |  28 +++++
+ data/rules/azik-jp106/Makefile.am       |  28 +++++
+ data/rules/azik/Makefile.am             |  28 +++++
+ data/rules/default/Makefile.am          |  29 +++++
+ data/rules/kana/Makefile.am             |  29 +++++
+ data/rules/kzik/Makefile.am             |  28 +++++
+ data/rules/nicola/Makefile.am           |  28 +++++
+ data/rules/rule.mk                      |   9 ++
+ data/rules/tcode/Makefile.am            |  27 +++++
+ data/rules/trycode/Makefile.am          |  27 +++++
+ data/rules/tutcode-touch16x/Makefile.am |  27 +++++
+ data/rules/tutcode/Makefile.am          |  27 +++++
+ tests/Makefile.am                       |  14 +++
+ 15 files changed, 351 insertions(+), 183 deletions(-)
+
+commit d5bdfe3135f6ce0f9779e7f631927eed0053d855
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Apr 8 16:37:42 2013 +0900
+
+    Port user rule from ibus-kkc
+
+ libkkc/Makefile.am    |   1 +
+ libkkc/user-rule.vala | 177
+ ++++++++++++++++++++++++++++++++++++++++++++++++++
+ tests/Makefile.am     |   7 +-
+ tests/user-rule.vala  |  69 ++++++++++++++++++++
+ 4 files changed, 253 insertions(+), 1 deletion(-)
+
+commit 4ddcfac13b9faf8f43f436eed188e28cd37451b5
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Apr 8 12:53:43 2013 +0900
+
+    rules: add "priority" field
+
+ data/rules/act/metadata.json.in              |  3 ++-
+ data/rules/azik-jp106/metadata.json.in       |  3 ++-
+ data/rules/azik/metadata.json.in             |  3 ++-
+ data/rules/default/metadata.json.in          |  3 ++-
+ data/rules/kana/metadata.json.in             |  3 ++-
+ data/rules/kzik/metadata.json.in             |  3 ++-
+ data/rules/nicola/metadata.json.in           |  3 ++-
+ data/rules/tcode/metadata.json.in            |  3 ++-
+ data/rules/trycode/metadata.json.in          |  3 ++-
+ data/rules/tutcode-touch16x/metadata.json.in |  3 ++-
+ data/rules/tutcode/metadata.json.in          |  3 ++-
+ libkkc/rule.vala                             | 14 +++++++++++++-
+ 12 files changed, 35 insertions(+), 12 deletions(-)
+
+commit 50983301a607555d39fc0ddb204502cbbe37549a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Apr 8 12:47:47 2013 +0900
+
+    Update translations
+
+ po/ja.po | 142
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++----------
+ 1 file changed, 121 insertions(+), 21 deletions(-)
+
+commit dead397422de74a1178e0c711d75bce6deed1699
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Apr 8 12:37:20 2013 +0900
+
+    rules: make metadata fields translatable
+
+ data/rules/Makefile.am                       | 86
+ ++++++++++++++++++++++++----
+ data/rules/act/metadata.json                 |  4 --
+ data/rules/act/metadata.json.in              |  4 ++
+ data/rules/azik-jp106/metadata.json          |  4 --
+ data/rules/azik-jp106/metadata.json.in       |  4 ++
+ data/rules/azik/metadata.json                |  4 --
+ data/rules/azik/metadata.json.in             |  4 ++
+ data/rules/default/metadata.json             |  4 --
+ data/rules/default/metadata.json.in          |  4 ++
+ data/rules/kana/metadata.json                |  5 --
+ data/rules/kana/metadata.json.in             |  5 ++
+ data/rules/kzik/metadata.json                |  4 --
+ data/rules/kzik/metadata.json.in             |  4 ++
+ data/rules/nicola/metadata.json              |  5 --
+ data/rules/nicola/metadata.json.in           |  5 ++
+ data/rules/tcode/metadata.json               |  4 --
+ data/rules/tcode/metadata.json.in            |  4 ++
+ data/rules/trycode/metadata.json             |  4 --
+ data/rules/trycode/metadata.json.in          |  4 ++
+ data/rules/tutcode-touch16x/metadata.json    |  4 --
+ data/rules/tutcode-touch16x/metadata.json.in |  4 ++
+ data/rules/tutcode/metadata.json             |  4 --
+ data/rules/tutcode/metadata.json.in          |  4 ++
+ libkkc/rule.vala                             |  8 ++-
+ 24 files changed, 128 insertions(+), 58 deletions(-)
+
+commit d6caace178d7819a0c213d9682e776e2667367a4
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Apr 8 08:51:02 2013 +0900
+
+    Ignore more modifier keys
+
+ libkkc/key-event-filter.vala | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+commit 7cb7bd36adfe11909d3b6fc5c4941f9bc74d4491
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Apr 7 15:41:30 2013 +0900
+
+    Rename KeyEvent.code to KeyEvent.unicode
+
+ libkkc/key-event.vala |  6 +++---
+ libkkc/nicola.vala    |  5 +++--
+ libkkc/state.vala     | 22 +++++++++++-----------
+ libkkc/utils.vala     |  2 +-
+ 4 files changed, 18 insertions(+), 17 deletions(-)
+
+commit 5c8609cd4b53b2cf88ed11d6793fd35304e7b482
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Apr 7 15:39:59 2013 +0900
+
+    Fix yen keyval handling
+
+ libkkc/utils.vala | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+commit e375b6bf791b5684f0ec9e33f621daabe5837dbd
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Apr 7 12:11:15 2013 +0900
+
+    Remove KeyEvent.from_x_keysym and simplify properties
+
+ libkkc/key-event.vala | 48
+ ++++++++++--------------------------------------
+ 1 file changed, 10 insertions(+), 38 deletions(-)
+
+commit b43ef6341b1a1bbce4bfdd5dca1e931ac53b2a13
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Apr 7 12:06:43 2013 +0900
+
+    Remove KeyEvent.base_equal
+
+ libkkc/key-event.vala | 11 -----------
+ libkkc/nicola.vala    |  6 ++++--
+ 2 files changed, 4 insertions(+), 13 deletions(-)
+
+commit d07f222b443d3da0a357a426d4f9b37c91f75293
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Apr 7 10:29:54 2013 +0900
+
+    key-event: simplify parsing
+
+ libkkc/key-event-filter.vala |  6 +++--
+ libkkc/key-event.vala        | 63
+ +++++++++++++++++---------------------------
+ libkkc/utils.vala            | 11 +++++++-
+ 3 files changed, 38 insertions(+), 42 deletions(-)
+
+commit f30075dc10e03ed1bb267fbf7a9809bc431ab2b3
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Apr 7 09:15:51 2013 +0900
+
+    nicola: remove "usleep" modifier and "lshift/rshift" keys
+
+ libkkc/key-event.vala | 6 ------
+ libkkc/nicola.vala    | 4 ++--
+ 2 files changed, 2 insertions(+), 8 deletions(-)
+
+commit 84b465925185108e731010a499f3ec76744920d3
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Apr 7 09:14:28 2013 +0900
+
+    nicola: remove ddskk extension
+
+ data/rules/nicola/keymap/hiragana.json |  7 +---
+ data/rules/nicola/keymap/kana.json     |  3 --
+ data/rules/nicola/keymap/katakana.json |  7 +---
+ libkkc/nicola.vala                     | 68
+ +++++-----------------------------
+ 4 files changed, 11 insertions(+), 74 deletions(-)
+
+commit e59c27a0f5a59b05403e66b60b5e61383f6c8f3a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Apr 7 08:47:36 2013 +0900
+
+    key-event-filter: ignore modifier only keys
+
+ libkkc/key-event-filter.vala | 25 +++++++++++++++++++------
+ 1 file changed, 19 insertions(+), 6 deletions(-)
+
+commit 0570f7c29da6fc3d78adbff5951f036d0b4465d6
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Apr 6 09:21:24 2013 +0900
+
+    Fix commit a7948f5bc25f304691620f56260d8b600213bb1e
+
+ libkkc/state.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 483d7db05ff10823c7291756e5ee289b1f6925bb
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Apr 5 18:44:59 2013 +0900
+
+    Remove KeyEvent.copy
+
+ libkkc/context.vala   | 2 +-
+ libkkc/key-event.vala | 9 ---------
+ 2 files changed, 1 insertion(+), 10 deletions(-)
+
+commit 6de5bd9a464268c385f0643ae68fdd787cd7d908
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Apr 5 18:52:32 2013 +0900
+
+    Generalize KeyEvent initialization
+
+ libkkc/key-event.vala | 81
+ +++++++--------------------------------------------
+ 1 file changed, 10 insertions(+), 71 deletions(-)
+
+commit 6713632dfba2cd92c01fd240c566c7630aa9394d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Apr 5 18:43:26 2013 +0900
+
+    Add keyname resolution functions
+
+ libkkc/Makefile.am   |    1 +
+ libkkc/keynames.vala | 2094
+ ++++++++++++++++++++++++++++++++++++++++++++++++++
+ libkkc/kkc.vala      |    1 +
+ libkkc/utils.vala    |   31 +
+ 4 files changed, 2127 insertions(+)
+
+commit 83859ebcd77ecec85d1db421b57ebc619d7f5bf5
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Apr 5 15:52:45 2013 +0900
+
+    Add Zenkaku_Hankaku to known keysyms
+
+    Fixes https://bugzilla.redhat.com/show_bug.cgi?id=948690
+
+ libkkc/key-event.vala | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 28353d46a31fd8f00131c12ce6c4bacc36b09a9d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Apr 5 12:24:52 2013 +0900
+
+    key-event: clear shift modifier when keyval is ASCII and not SPC
+
+    Fixes https://bugzilla.redhat.com/show_bug.cgi?id=948660
+
+ libkkc/key-event.vala | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+commit b6ab22d83b402a8044d0dacbc9e55ba9041bfb2f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Mar 28 11:56:08 2013 +0900
+
+    Simplify InputMode and KanaMode handling using EnumClass
+
+ libkkc/kkc.vala      |  9 +--------
+ libkkc/rom-kana.vala |  4 +---
+ libkkc/rule.vala     | 35 +++++++++++++----------------------
+ libkkc/state.vala    | 18 ++++++++++++------
+ 4 files changed, 27 insertions(+), 39 deletions(-)
+
+commit a7948f5bc25f304691620f56260d8b600213bb1e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Mar 27 19:09:42 2013 +0900
+
+    Simplify InputMode and KanaMode handling using EnumClass
+
+ libkkc/state.vala | 46 ++++++++++++++--------------------------------
+ 1 file changed, 14 insertions(+), 32 deletions(-)
+
+commit b759f8857e905fca4b68b1454759475e67fb2127
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Mar 19 15:04:35 2013 +0900
+
+    Bump version to 0.1.10
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit b4329b57a3aa8dcf5f2738b9fd515b5f5b606d5b
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Mar 19 14:33:03 2013 +0900
+
+    Don't use Gee.MapIterator in libkkc API
+
+ libkkc/keymap.vala | 57
+ ++++++++++++++++++++++++++++++++++++++++--------------
+ 1 file changed, 43 insertions(+), 14 deletions(-)
+
+commit cc027c90ff7b52abcd7f57ab2f3d96cddb9b81cd
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Mar 19 13:30:34 2013 +0900
+
+    Update translations
+
+ po/POTFILES.in |  1 +
+ po/ja.po       | 98
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++-----
+ 2 files changed, 92 insertions(+), 7 deletions(-)
+
+commit 95bc52a3c94e295b76fed6d5be307b1c9904af52
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Mar 19 13:26:32 2013 +0900
+
+    Add Keymap.commands
+
+ libkkc/Makefile.am |  1 +
+ libkkc/keymap.vala | 35 +++++++++++++++++++++++++++++++++++
+ libkkc/kkc.vala    |  3 +++
+ 3 files changed, 39 insertions(+)
+
+commit aa0f94b4e9468fad86dd202b593399d335530262
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Mar 19 11:02:13 2013 +0900
+
+    Export Rule.load_metadata
+
+ libkkc/rule.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d1ec1257b756a29fa5bfeebd42f7a5801db02d3a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Mar 19 10:59:05 2013 +0900
+
+    Change Rule constructor argument from string to RuleMetadata
+
+ libkkc/rule.vala  | 16 +++++-----------
+ libkkc/state.vala |  4 +++-
+ tools/kkc.vala    |  3 ++-
+ 3 files changed, 10 insertions(+), 13 deletions(-)
+
+commit 4dec3d9a1570a84c1e57cb35425f6615288b2ba7
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Mar 18 18:09:34 2013 +0900
+
+    Uniquify key events when loading keymap
+
+ libkkc/map-file.vala |  9 +++++++--
+ libkkc/rule.vala     | 12 ++++++++++++
+ 2 files changed, 19 insertions(+), 2 deletions(-)
+
+commit f9e2018c249c81703272e1ebf328d502e0430d11
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Mar 18 18:08:55 2013 +0900
+
+    Allow unset key in keymap with Keymap#set
+
+ libkkc/keymap.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit fb469a6816127b92cce37b81684e2a67485bff68
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Mar 18 15:50:33 2013 +0900
+
+    Don't derive direct keymap from default
+
+ data/rules/default/keymap/direct.json | 3 ---
+ 1 file changed, 3 deletions(-)
+
+commit 2e45da45839dd5e9486a8105a677baba104b5b77
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Mar 18 15:50:08 2013 +0900
+
+    Add Keymap#map_iterator
+
+ libkkc/keymap.vala | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+commit 4f13cf7bf3eac73d311abb39c6eb6137123bda69
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Mar 18 12:42:40 2013 +0900
+
+    keymap: store KeyEvent directly instead of its string representation
+
+ libkkc/keymap.vala | 36 +++++++++++++++++-------------------
+ libkkc/rule.vala   |  9 ++++++++-
+ 2 files changed, 25 insertions(+), 20 deletions(-)
+
+commit a842b9b7d32b3d951a77953ca51f79b6207259aa
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Mar 17 21:42:18 2013 +0900
+
+    trellis-node: avoid unnecessary strdup
+
+ libkkc/trellis-node.vala | 34 +++++++++++++++++++++-------------
+ 1 file changed, 21 insertions(+), 13 deletions(-)
+
+commit aab8761c35a4696af1952407de7e66612824c0ed
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Mar 12 19:33:40 2013 +0900
+
+    Bump version to 0.1.9
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 05036e1645e143c06d1956b5d9bf1784548d027c
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 8 18:28:42 2013 +0900
+
+    Expose keymap from the library
+
+ libkkc/key-event.vala | 29 ++++++++++++++++++++++++++++-
+ libkkc/keymap.vala    |  4 ++--
+ libkkc/rule.vala      |  6 +++++-
+ libkkc/state.vala     |  2 +-
+ 4 files changed, 36 insertions(+), 5 deletions(-)
+
+commit 1f2aff9a2dfa316bbb016a197237b86a18a5ae67
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Mar 11 17:33:31 2013 +0900
+
+    Bind "Down" to "next-candidate"
+
+ data/rules/default/keymap/default.json | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 187e58f1b7ae814c92b1fbfc8cce9667d54c9851
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Mar 12 14:12:55 2013 +0900
+
+    Clear completion on preedit change
+
+    Fixes: https://bugzilla.redhat.com/show_bug.cgi?id=920407
+
+ libkkc/state.vala | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit 1c8d4474e04aa55bd062cdc7de7e98dbe7e5565a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Mar 7 15:15:16 2013 +0900
+
+    rom-kana: generalize punctuation handling as rule
+
+ data/rules/default/rom-kana/default.json |  2 ++
+ libkkc/rom-kana.vala                     | 42
+ ++++++++++++++++++++++----------
+ 2 files changed, 31 insertions(+), 13 deletions(-)
+
+commit 57b22308032f30beb8aba8e843646886cc84447c
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Mar 2 16:56:53 2013 +0900
+
+    Bump version to 0.1.8.
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 2bc1bbe70e2c4985633cf37413a3ce9b9603e4e5
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Mar 2 17:25:25 2013 +0900
+
+    Fix lookup order.
+
+ libkkc/state.vala | 45 ++++++++++++++++++++++++++-------------------
+ 1 file changed, 26 insertions(+), 19 deletions(-)
+
+commit 11a43c9c311775b1c2c806b51b3d10188f511876
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Feb 28 19:31:39 2013 +0900
+
+    Normalize input when sentence conversion.
+
+ libkkc/state.vala | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit ae78d9a55e38860d56e0ff4e0f73af1285310660
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Feb 27 20:35:35 2013 +0900
+
+    Fix backward A* search algorithm.
+
+ libkkc/bigram-decoder.vala | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
+
+commit 0fce67bb7d3990d68b274f33ab806b152c77c197
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Feb 27 18:32:28 2013 +0900
+
+    Bind Escape to abort.
+
+ data/rules/default/keymap/default.json | 1 +
+ libkkc/key-event.vala                  | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit f7bbda6bccd0060fa78e51eb4500b539cb3bcc55
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Feb 27 18:31:21 2013 +0900
+
+    Change lookup order.
+
+ libkkc/state.vala | 32 ++++++++++++++++++--------------
+ 1 file changed, 18 insertions(+), 14 deletions(-)
+
+commit b9f42cc4b904fda0b60a305a40c68a862cc5ba3a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Feb 27 18:22:22 2013 +0900
+
+    Try to lookup segment as sentence.
+
+ libkkc/state.vala | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+commit 6a1aec9b57534f0cac884b351eeb68f3146359e5
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 22 17:55:03 2013 +0900
+
+    Bump version to 0.1.7.
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 2eb69ee34d3f15ccf667f249bdfde3a5b475a907
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 22 17:54:44 2013 +0900
+
+    Update git.mk.
+
+ git.mk | 63
+ ++++++++++++++++++++++++++++++++++++++++++---------------------
+ 1 file changed, 42 insertions(+), 21 deletions(-)
+
+commit 0012f3b6576b8df2bdcc0aa3d9ec83f311c70770
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 22 17:33:09 2013 +0900
+
+    Update copyright year.
+
+ libkkc/Makefile.am      | 4 ++--
+ libkkc/kkc-1.0.pc.in    | 4 ++--
+ marisa-glib/Makefile.am | 4 ++--
+ 3 files changed, 6 insertions(+), 6 deletions(-)
+
+commit 5292ed231e663367eb1233324c2b6d67dfa3ac68
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 22 17:27:25 2013 +0900
+
+    rom-kana: allow katakana version of partial output
+
+ data/rules/README.rules                  | 22 +++++++++------
+ data/rules/default/rom-kana/default.json |  2 +-
+ libkkc/rom-kana.vala                     | 48
+ +++++++++++++++++++-------------
+ libkkc/rule.vala                         | 18 ++++++++----
+ 4 files changed, 57 insertions(+), 33 deletions(-)
+
+commit 782bb21411ba63d3964993575cbae726c9df65cc
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 22 17:03:05 2013 +0900
+
+    rom-kana: generalize NN handling as rule
+
+ data/rules/default/rom-kana/default.json |  1 +
+ libkkc/rom-kana.vala                     | 44
+ ++++++++++++++------------------
+ libkkc/rule.vala                         | 14 ++++------
+ libkkc/state.vala                        | 14 +++++-----
+ 4 files changed, 32 insertions(+), 41 deletions(-)
+
+commit 80f9caf833fd9f3a3ab04329d8872a1d82d74588
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 22 13:48:25 2013 +0900
+
+    Optimize rom-kana valid character check.
+
+ libkkc/rom-kana.vala | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+commit e5a46e7f6b48cd17e04cdf3142d00fe10d2c8005
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Feb 21 17:49:45 2013 +0900
+
+    Handle keycodes as well as keysyms in Kana typing rule.
+
+ data/rules/kana/metadata.json         |  3 ++-
+ data/rules/kana/rom-kana/default.json |  3 ++-
+ libkkc/key-event-filter.vala          | 25 ++++++++++++++++++++++++-
+ libkkc/key-event.vala                 | 25 +++++++++++++++++++++++--
+ libkkc/rom-kana.vala                  | 21 ++++++++++++---------
+ libkkc/rule.vala                      |  1 +
+ libkkc/state.vala                     |  2 +-
+ 7 files changed, 65 insertions(+), 15 deletions(-)
+
+commit 3fb110a1211e3459aa9effa8ec2b034fded6f0dd
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Feb 21 16:45:51 2013 +0900
+
+    Fix okuri-ari conversion in Kana typing rule.
+
+ libkkc/state.vala | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit c03c9bcfff986737c11ff41e02f9e98fd20e8889
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Feb 14 18:27:27 2013 +0900
+
+    Remove header_size option from genfilter.py.
+
+ data/templates/libkkc-data/data/models/Makefile.sorted2 |  2 +-
+ data/templates/libkkc-data/data/models/Makefile.sorted3 |  4 ++--
+ data/templates/libkkc-data/tools/genfilter.py           | 10 +++-------
+ 3 files changed, 6 insertions(+), 10 deletions(-)
+
+commit 258d6b73e30c38e2e62b7e2326208eb7c5ec8d59
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Feb 14 16:32:36 2013 +0900
+
+    Assume the encoding of user dictionaries is UTF-8.
+
+ libkkc/user-segment-dictionary.vala | 39
+ ++-----------------------------------
+ 1 file changed, 2 insertions(+), 37 deletions(-)
+
+commit ae698ac71244f74c38969868361578625800d460
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Feb 14 16:16:36 2013 +0900
+
+    Remove unused midasi_history code.
+
+ libkkc/user-segment-dictionary.vala | 17 +----------------
+ 1 file changed, 1 insertion(+), 16 deletions(-)
+
+commit dc3bfbd7fe65e02c57c131c8ed0adec24151dc4c
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Feb 14 11:28:43 2013 +0900
+
+    Simplify midasi_history update in UserSegmentDictionary.
+
+ libkkc/user-segment-dictionary.vala | 28 +++++++++-------------------
+ 1 file changed, 9 insertions(+), 19 deletions(-)
+
+commit 621c29b3da40a28808aae1900bf4e2360cd81a90
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Feb 13 20:29:17 2013 +0900
+
+    Add work around for Python 2.6.
+
+ data/templates/libkkc-data/tools/genfilter.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit df7eb9166b04f5f96e607f5d8e128658ba08e966
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Feb 11 15:32:01 2013 +0900
+
+    Fix shift handling in KeyEvent.to_string().
+
+ libkkc/key-event.vala | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 40def1c6ad42a11c1adbcae48df216c317e45793
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Feb 11 08:54:41 2013 +0900
+
+    kkc: don't reset context on each iteration
+
+ tools/kkc.vala | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit 08c77f10d274e8a06cce8239410188951a376fc2
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Feb 13 18:35:15 2013 +0900
+
+    Don't add constraint if prefix offset is 0.
+
+ libkkc/state.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit bc9723450bc635b98a7a537644cf43cb818e30c1
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Feb 13 13:50:31 2013 +0900
+
+    Bump version to 0.1.6.
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit a5a2603cc6cc95323fdba4bde1bf75466a74653f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Feb 13 15:36:49 2013 +0900
+
+    Fix libkkc-data packaging script.
+
+ data/templates/Makefile.am                          |  8 ++++----
+ data/templates/libkkc-data/data/models/Makefile.am  | 21
+ ---------------------
+ .../libkkc-data/data/models/Makefile.sorted3        |  4 ++--
+ tools/kkc-package-data.in                           |  2 +-
+ 4 files changed, 7 insertions(+), 28 deletions(-)
+
+commit 4ab199baabea0e910c882442fb6e06c4ee5f833f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Feb 13 14:19:57 2013 +0900
+
+    Add filter data to tests.
+
+ tests/Makefile.am                           |   2 ++
+ tests/data/models/sorted3/data.2gram.filter | Bin 0 -> 3314 bytes
+ tests/data/models/sorted3/data.3gram.filter | Bin 0 -> 4199 bytes
+ 3 files changed, 2 insertions(+)
+
+commit c5afe6fceb3d7b1f3623a6bf48ab5f23d55cc17c
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Feb 13 12:38:43 2013 +0900
+
+    Assume native byte order.
+
+ data/templates/libkkc-data/tools/genfilter.py |  3 +--
+ data/templates/libkkc-data/tools/sortlm.py    | 10 +++++-----
+ libkkc/sorted-bigram-language-model.vala      | 20 ++++++++++----------
+ libkkc/sorted-trigram-language-model.vala     | 14 +++++++-------
+ 4 files changed, 23 insertions(+), 24 deletions(-)
+
+commit 2169f19100a2691e732c22c04e30c4fc44fcf957
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Feb 13 11:02:19 2013 +0900
+
+    Use bloom filter to filter out non-existing N-grams.
+
+ .../libkkc-data/data/models/Makefile.sorted2       |   5 +
+ .../libkkc-data/data/models/Makefile.sorted3       |  10 ++
+ data/templates/libkkc-data/tools/Makefile.am       |   2 +-
+ data/templates/libkkc-data/tools/genfilter.py      | 125
+ +++++++++++++++++++++
+ libkkc/Makefile.am                                 |   1 +
+ libkkc/bloom-filter.vala                           |  78 +++++++++++++
+ libkkc/sorted-bigram-language-model.vala           |  15 +++
+ libkkc/sorted-trigram-language-model.vala          |  15 +++
+ 8 files changed, 250 insertions(+), 1 deletion(-)
+
+commit a839ea05450f19ff855c79abcc5e871efa098dac
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Feb 12 18:06:19 2013 +0900
+
+    Add doc.
+
+ libkkc/user-dictionary.vala          | 6 ++++++
+ libkkc/user-segment-dictionary.vala  | 2 +-
+ libkkc/user-sentence-dictionary.vala | 3 +++
+ 3 files changed, 10 insertions(+), 1 deletion(-)
+
+commit 90645d631900ec8ffaba97849db969d85c61b675
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Feb 12 17:57:29 2013 +0900
+
+    Speed up N-gram offset lookup by using temporal locality.
+
+ libkkc/sorted-bigram-language-model.vala  | 14 ++++++++++++++
+ libkkc/sorted-trigram-language-model.vala | 15 +++++++++++++++
+ 2 files changed, 29 insertions(+)
+
+commit 8cff1dca517cfd5b4c8b5988b1d950eeee68d610
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Feb 12 17:24:28 2013 +0900
+
+    Make sure to clear completion after "abort".
+
+ libkkc/state.vala | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 77008fd491426e6d7489c3b3a227892f6f9322c3
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Feb 12 17:19:40 2013 +0900
+
+    Fix commit 24789cff.
+
+ libkkc/system-segment-dictionary.vala | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit f463b38b9041ca0473d6a9c3d72cbd8dc8a697cf
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Feb 12 16:00:58 2013 +0900
+
+    Assume valac >= 0.16.
+
+ configure.ac                          |  2 +-
+ docs/Makefile.am                      |  1 -
+ libkkc/system-segment-dictionary.vala |  4 ----
+ libkkc/user-segment-dictionary.vala   | 13 -------------
+ libkkc/user-sentence-dictionary.vala  | 13 -------------
+ 5 files changed, 1 insertion(+), 32 deletions(-)
+
+commit 6967261acd6f5cf1942adffe762a0cf54b137950
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Feb 12 15:59:02 2013 +0900
+
+    Fix candidate reordering when selection.
+
+ libkkc/user-segment-dictionary.vala | 26 +++++++++++---------------
+ 1 file changed, 11 insertions(+), 15 deletions(-)
+
+commit 3b7079d0b1968d966d7e900d5ee984f101cddf17
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Feb 11 08:42:00 2013 +0900
+
+    kkc: output segments more verbosely
+
+ tools/kkc.vala | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit c84b68481248a390ade0344004467f4f72b0d38d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Feb 11 08:41:45 2013 +0900
+
+    Bump version to 0.1.5.
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d2121c97fcccaeea0a2b25bba928b047af6a0d47
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Feb 11 07:23:15 2013 +0900
+
+    kkc: add --rule and --list-rules option
+
+ tools/kkc.vala | 28 ++++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+
+commit 885ee32a42ca5e0ad7522baa08537e7784a98955
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Feb 11 07:21:14 2013 +0900
+
+    kkc: use json-glib to generate output
+
+ tools/kkc.vala | 27 ++++++++++++++++++---------
+ 1 file changed, 18 insertions(+), 9 deletions(-)
+
+commit a4612774a116a221c30ef0dae79412aefa51f792
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Feb 10 23:38:17 2013 +0900
+
+    Bind more ASCII letters in the default rom-kana rule.
+
+ data/rules/default/rom-kana/default.json | 27 +++++++++++++++++++++++++--
+ 1 file changed, 25 insertions(+), 2 deletions(-)
+
+commit 30dcc5eacfeabfda8a870f9cce57c478b9a72f68
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Feb 10 20:44:05 2013 +0900
+
+    Handle sonant marks properly in kana typing rule.
+
+ data/rules/kana/rom-kana/default.json | 26 ++++++++++++++++++++++++++
+ libkkc/rom-kana.vala                  | 23 +++++++++++++++++++++--
+ 2 files changed, 47 insertions(+), 2 deletions(-)
+
+commit 00a9c37956f7737638dd503b095f9483fd435b32
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Feb 10 16:41:01 2013 +0900
+
+    Define kana rule as rom-kana rule instead of keymap.
+
+ data/rules/Makefile.am                       | 27 +++++------
+ data/rules/kana/keymap/hankaku-katakana.json | 12 +----
+ data/rules/kana/keymap/hiragana.json         | 12 +----
+ data/rules/kana/keymap/kana.json             | 71
+ ----------------------------
+ data/rules/kana/keymap/katakana.json         | 12 +----
+ data/rules/kana/rom-kana/default.json        | 62
+ ++++++++++++++++++++++++
+ 6 files changed, 81 insertions(+), 115 deletions(-)
+
+commit 94565af33881a3c0090e3e285f4e36b917296235
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Feb 10 12:12:47 2013 +0900
+
+    Add kana keymap.
+
+ data/rules/Makefile.am                       | 14 ++++++
+ data/rules/kana/keymap/default.json          |  5 ++
+ data/rules/kana/keymap/direct.json           |  5 ++
+ data/rules/kana/keymap/hankaku-katakana.json | 13 +++++
+ data/rules/kana/keymap/hiragana.json         | 13 +++++
+ data/rules/kana/keymap/kana.json             | 71
+ ++++++++++++++++++++++++++++
+ data/rules/kana/keymap/katakana.json         | 13 +++++
+ data/rules/kana/keymap/latin.json            |  5 ++
+ data/rules/kana/keymap/wide-latin.json       |  5 ++
+ data/rules/kana/metadata.json                |  4 ++
+ data/rules/kana/rom-kana/default.json        |  6 +++
+ libkkc/key-event.vala                        |  5 +-
+ 12 files changed, 157 insertions(+), 2 deletions(-)
+
+commit a4c7e67539822a7a01fb127f10d0b26511008a8f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Feb 10 09:45:27 2013 +0900
+
+    Bump version to 0.1.4.
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit fdc2ee96f259b504e4889f49fcd672e7f4e76434
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Feb 10 09:02:11 2013 +0900
+
+    Delay segment dictionary lookup until next-candidate.
+
+ libkkc/state.vala | 9 +--------
+ 1 file changed, 1 insertion(+), 8 deletions(-)
+
+commit ada065706cca3f60d05a626967d2439a9cd878da
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 9 12:29:30 2013 +0900
+
+    Add license header to template.
+
+ data/templates/libkkc-data/tools/Makefile.am | 18 ++++++++++++++++--
+ data/templates/libkkc-data/tools/sortlm.py   | 16 ++++++++++++++++
+ 2 files changed, 32 insertions(+), 2 deletions(-)
+
+commit e01c632136d77f2f8b730dd2f8ccaec1c7808cf7
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 9 12:23:30 2013 +0900
+
+    Don't handle "complete" if preedit is empty.
+
+ libkkc/state.vala | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit bd8ac866349161a0d6bba151e39d394df099996e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 9 06:31:31 2013 +0900
+
+    Bind [0123456789] in the default rom-kana rule.
+
+ data/rules/default/rom-kana/default.json | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+commit 79d1e3631882d49a55e9d97353f58e63152342cc
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 9 06:29:44 2013 +0900
+
+    Revert "Revert "Partially revert ec8b25d6 so wide-latin char is not
+    appended by default.""
+
+    This reverts commit 6a3585b33efb2db7558805374036c7a8d4f8e790.
+
+ libkkc/state.vala | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+commit 6a3585b33efb2db7558805374036c7a8d4f8e790
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 8 19:45:22 2013 +0900
+
+    Revert "Partially revert ec8b25d6 so wide-latin char is not appended
+    by default."
+
+    This reverts commit a8fcbd756f0f4a611689e5e8e71371d2533682d2.
+
+ libkkc/state.vala | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit be7d3c1950f082ea857abbc40a1838ccbf04ada2
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 8 18:24:39 2013 +0900
+
+    Add missing json-glib-1.0 to pc.
+
+ libkkc/kkc-1.0.pc.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit e63572b48d381b74b366aad9bafa4044125af182
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 8 11:59:41 2013 +0900
+
+    Output rom-kana preedit when commit.
+
+ libkkc/state.vala | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit a8fcbd756f0f4a611689e5e8e71371d2533682d2
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 8 11:53:17 2013 +0900
+
+    Partially revert ec8b25d6 so wide-latin char is not appended by
+    default.
+
+ libkkc/state.vala | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+commit 24789cff6cfa3aca2c141f843b57e172e1c4d45b
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 8 11:33:30 2013 +0900
+
+    Fix crash when no completion is found.
+
+ libkkc/system-segment-dictionary.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit efd52a346811b41d5d9aaa30f075f38959351d94
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 8 11:17:42 2013 +0900
+
+    Bind l[aiueo] in the default rom-kana rule.
+
+ data/rules/default/rom-kana/default.json | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit 5cd204191122b2ad10a4baa8ddb1bef590f699c9
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Feb 7 19:43:58 2013 +0900
+
+    Don't use generic type parameter for static array elements.
+
+ libkkc/encoding.vala       |  7 ++++++-
+ libkkc/key-event.vala      | 16 ++++++++++++++--
+ libkkc/rom-kana-utils.vala | 17 ++++++-----------
+ libkkc/rule.vala           |  9 ++++++++-
+ 4 files changed, 34 insertions(+), 15 deletions(-)
+
+commit 20048143333cc6064d55e99a4e173ee41a3f60e9
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Feb 7 17:08:02 2013 +0900
+
+    Bump version to 0.1.3.
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d9dea1023736922c2a33b25253911d22ff39c869
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Feb 7 16:13:40 2013 +0900
+
+    Add a tool to generate libkkc-data package.
+
+ configure.ac              |   1 +
+ tools/Makefile.am         |  20 +++++++
+ tools/kkc-package-data.in | 129
+ ++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 150 insertions(+)
+
+commit 94bdecc8b2782573dffe2a53f159761a7940a1d4
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Feb 7 16:13:08 2013 +0900
+
+    Pick data files from $(libdir)/libkkc as well as $(pkgdatadir).
+
+ libkkc/Makefile.am | 1 +
+ libkkc/config.vapi | 1 +
+ libkkc/utils.vala  | 5 +++++
+ 3 files changed, 7 insertions(+)
+
+commit 2fe787ab43d627d5c5342e0785149440db5b9d6a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Feb 7 13:20:55 2013 +0900
+
+    Add template for generating libkkc-data.
+
+ configure.ac                                       |   1 +
+ data/Makefile.am                                   |   2 +-
+ data/templates/Makefile.am                         |  34 ++++
+ data/templates/libkkc-data/Makefile.am             |  18 +++
+ data/templates/libkkc-data/configure.ac.in         |  37 +++++
+ data/templates/libkkc-data/data/Makefile.am        |  17 ++
+ data/templates/libkkc-data/data/models/Makefile.am |  21 +++
+ .../libkkc-data/data/models/Makefile.sorted2       |  50 ++++++
+ .../libkkc-data/data/models/Makefile.sorted3       |  52 +++++++
+ .../libkkc-data/data/models/sorted2/metadata.json  |   5 +
+ .../libkkc-data/data/models/sorted3/metadata.json  |   5 +
+ .../libkkc-data/data/models/text2/metadata.json    |   5 +
+ .../libkkc-data/data/models/text3/metadata.json    |   5 +
+ data/templates/libkkc-data/tools/Makefile.am       |   3 +
+ data/templates/libkkc-data/tools/sortlm.py         | 172
+ +++++++++++++++++++++
+ 15 files changed, 426 insertions(+), 1 deletion(-)
+
+commit 9da8e98cd57e36562d3ed6e4bcc029856ba246c5
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Feb 6 17:25:51 2013 +0900
+
+    Normalize input string before lookup.
+
+ libkkc/rom-kana-utils.vala |  4 ++++
+ libkkc/state.vala          | 16 +++++++++-------
+ 2 files changed, 13 insertions(+), 7 deletions(-)
+
+commit 1db65f056ff4aae982161d92f3fee08e5aa40802
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Feb 5 18:21:14 2013 +0900
+
+    Clear selection when input mode change.
+
+ libkkc/state.vala | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 89aa1b319fe2d86aa7b211e6066d15eb6a9047a0
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Feb 5 16:52:12 2013 +0900
+
+    Change some key bindings.
+
+ data/rules/default/keymap/default.json    | 2 +-
+ data/rules/default/keymap/latin.json      | 2 +-
+ data/rules/default/keymap/wide-latin.json | 4 ++--
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+commit d52f1d84be532c6146f1d7bf741bc05403af0919
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Feb 5 15:58:55 2013 +0900
+
+    Bump version to 0.1.2.
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 5a5a5187e2a6b8d9b4a75954a560a896c26f7259
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Feb 5 14:28:50 2013 +0900
+
+    Fix constraint lookup.
+
+ libkkc/state.vala | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+commit 56c520e967301e2f99fbda937e717317963d48c3
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Feb 5 12:32:54 2013 +0900
+
+    Make sure to remove all elements in trellis after decoding.
+
+ libkkc/bigram-decoder.vala | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+commit 0d0ff359ec95b36509addc619af9f33376a51b3e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Feb 3 17:16:49 2013 +0900
+
+    Update translation.
+
+ po/ja.po | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
+
+commit eaf547206709d9f0f4a1c558a2d774f18fdcd19a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Feb 3 17:09:25 2013 +0900
+
+    Fix ASCII range check.
+
+ libkkc/state.vala | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+commit c7e04a4c0a1395db248a81e67b0924f68841a245
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Feb 3 17:07:41 2013 +0900
+
+    Implement insert-quoted.
+
+ data/rules/README.rules                         |  1 +
+ data/rules/default/keymap/default.json          |  4 +-
+ data/rules/default/keymap/direct.json           |  6 +--
+ data/rules/default/keymap/hankaku-katakana.json |  5 +--
+ data/rules/default/keymap/hiragana.json         |  6 +--
+ data/rules/default/keymap/katakana.json         |  6 +--
+ libkkc/key-event.vala                           |  4 +-
+ libkkc/state.vala                               | 58
+ +++++++++++++++++--------
+ 8 files changed, 55 insertions(+), 35 deletions(-)
+
+commit c030c19e3a55b5404233de5131a7b351b306ff6d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Feb 3 09:39:40 2013 +0900
+
+    Assign more keys.
+
+ data/rules/default/keymap/default.json          | 6 +++---
+ data/rules/default/keymap/direct.json           | 5 +++--
+ data/rules/default/keymap/hankaku-katakana.json | 5 ++++-
+ data/rules/default/keymap/hiragana.json         | 6 +++++-
+ data/rules/default/keymap/katakana.json         | 6 +++++-
+ data/rules/default/keymap/latin.json            | 4 +++-
+ data/rules/default/keymap/wide-latin.json       | 4 +++-
+ 7 files changed, 26 insertions(+), 10 deletions(-)
+
+commit 6cd7780407da02d12446ce4b5dc6cabbf7d0d5c4
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Feb 3 08:22:09 2013 +0900
+
+    Request selection text explicitly.
+
+ data/rules/README.rules                |  2 ++
+ data/rules/default/keymap/default.json |  5 +++--
+ libkkc/context.vala                    | 10 +++++++++-
+ libkkc/state.vala                      |  7 +++++++
+ 4 files changed, 21 insertions(+), 3 deletions(-)
+
+commit b2df8bbe400c9d62a2b588afc8b62c3bd26fcf65
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Feb 3 05:52:50 2013 +0900
+
+    Bump version to 0.1.1.
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit ba5a2dd5362bd4ab01e2065246b860e8187c7e7d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Feb 3 07:05:40 2013 +0900
+
+    Clear selection after used.
+
+ libkkc/state.vala | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 0f61610e749e777363a0d0d55a9ae946dbc1feef
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Feb 3 05:30:58 2013 +0900
+
+    Make sure to escape "\n", "/", and "\\" in user dictionary.
+
+ libkkc/dictionary.vala               | 56
+ ++++++++++++++++++++++++++++++++++--
+ libkkc/kkc.vala                      |  1 +
+ libkkc/user-sentence-dictionary.vala |  4 +--
+ libkkc/utils.vala                    | 19 ++++++++++++
+ 4 files changed, 75 insertions(+), 5 deletions(-)
+
+commit d3161c502e11b8cf3864a2d659c219e47a2009fd
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 2 18:29:40 2013 +0900
+
+    Mark user dictionary dirty after purge candidate.
+
+ libkkc/user-segment-dictionary.vala | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit fd13c120d08dd61e4fa6ef457b9bec4fa5383d0d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 2 18:29:33 2013 +0900
+
+    Fix typo.
+
+ libkkc/context.vala  |  8 ++++----
+ libkkc/rom-kana.vala | 10 +++++-----
+ libkkc/state.vala    |  6 +++---
+ 3 files changed, 12 insertions(+), 12 deletions(-)
+
+commit 7f6a1d332f468fcd73554b66b58c805dec5f30f0
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 2 17:04:48 2013 +0900
+
+    Fix completion in direct input mode.
+
+ libkkc/state.vala | 31 ++++++++++++++++++-------------
+ 1 file changed, 18 insertions(+), 13 deletions(-)
+
+commit ab521d91c749ec2e18d733d00c2689d3f5f8f598
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 2 16:49:57 2013 +0900
+
+    Add missing direct.json.
+
+ data/rules/default/keymap/direct.json | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+commit 5265621c0d635497298eb235246fdde944435bcf
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 2 16:38:04 2013 +0900
+
+    Add dictionary options to kkc tool.
+
+ tools/kkc.vala | 43 +++++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 39 insertions(+), 4 deletions(-)
+
+commit 5b88b9a1aca84e6a989b3e88bcd18410419075f6
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 2 16:24:26 2013 +0900
+
+    Fix test failure.
+
+ libkkc/context.vala | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit 259e99259d53c737df22af21e2163e9c31be1ea0
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 2 16:04:32 2013 +0900
+
+    Implement candidate completion.
+
+ data/rules/default/keymap/default.json |  1 +
+ libkkc/state.vala                      | 39
+ ++++++++++++++++++++++++++++++++++
+ libkkc/system-segment-dictionary.vala  |  2 +-
+ 3 files changed, 41 insertions(+), 1 deletion(-)
+
+commit 7ac509345aaef7af5c2a39800c86fb8098464e56
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 2 15:37:32 2013 +0900
+
+    Implement direct input mode.
+
+ data/rules/Makefile.am                 |  1 +
+ data/rules/default/keymap/default.json |  7 ++++---
+ data/rules/nicola/keymap/default.json  |  6 +++---
+ libkkc/kkc.vala                        |  9 +++++++--
+ libkkc/rom-kana-utils.vala             | 15 +++++++--------
+ libkkc/rom-kana.vala                   | 14 +++++++++++++-
+ libkkc/rule.vala                       |  3 ++-
+ libkkc/state.vala                      | 25 +++++++++++++++----------
+ 8 files changed, 52 insertions(+), 28 deletions(-)
+
+commit 7a248b254f38a11ee7090afbc3061f40b4db3afb
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 2 13:21:02 2013 +0900
+
+    Fix commit 41a38820699dfaee9268c7f032febb0e02419d98.
+
+ libkkc/rom-kana-utils.vala | 14 +++++---------
+ libkkc/state.vala          |  9 ++++-----
+ 2 files changed, 9 insertions(+), 14 deletions(-)
+
+commit 28a7733202b723a41aa22140a9b049f83ee4d353
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 2 13:19:32 2013 +0900
+
+    Implement purge-candidate.
+
+ data/rules/default/keymap/default.json |  1 +
+ libkkc/state.vala                      | 21 ++++++++++++++++++++-
+ 2 files changed, 21 insertions(+), 1 deletion(-)
+
+commit fcc828c68761a72d0f4369cd2ae0ae1bb52e7423
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 2 12:01:39 2013 +0900
+
+    Assign keyname for some keysyms.
+
+ data/rules/default/keymap/default.json | 4 ++--
+ data/rules/nicola/keymap/default.json  | 2 +-
+ libkkc/key-event.vala                  | 9 ++++-----
+ 3 files changed, 7 insertions(+), 8 deletions(-)
+
+commit 4fcfac16413259234ed38fc950cdefc83a72bfe7
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 2 07:56:55 2013 +0900
+
+    Remove unnecessary coding cookie.
+
+ libkkc/state.vala | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit a847593a00d67075679e6b21d2ba1fd61990f22f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 2 07:56:17 2013 +0900
+
+    Implement word registration based on selection.
+
+ libkkc/context.vala | 12 ++++++++++++
+ libkkc/state.vala   | 13 +++++++++++--
+ 2 files changed, 23 insertions(+), 2 deletions(-)
+
+commit ec8b25d67642a02a60ea5aedc772189afa65a61f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 2 07:30:33 2013 +0900
+
+    rom-kana: convert unhandled ASCII letter to wide char.
+
+ libkkc/rom-kana-utils.vala | 11 +++++------
+ libkkc/rom-kana.vala       |  1 -
+ libkkc/state.vala          |  3 ++-
+ 3 files changed, 7 insertions(+), 8 deletions(-)
+
+commit 4102d9300c6e7b5ec3ab73cd09c9c3b73d7b5b62
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Feb 2 06:58:13 2013 +0900
+
+    "period" -> "punctuation".
+
+ libkkc/context.vala  |  8 ++++----
+ libkkc/rom-kana.vala | 12 ++++++------
+ libkkc/state.vala    |  6 +++---
+ 3 files changed, 13 insertions(+), 13 deletions(-)
+
+commit 75b42fd277da79aa2bb9920d8d9d385e6a659f05
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 1 19:23:32 2013 +0900
+
+    Fix README.rules.
+
+ data/rules/README.rules | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
+
+commit a33f9577e60d29e215135bdec45839493e4c99e4
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 1 18:53:27 2013 +0900
+
+    Make test suite standalone.
+
+ libkkc/rom-kana-utils.vala                 |  18 -----------
+ libkkc/rule.vala                           |   2 +-
+ tests/Makefile.am                          |  18 ++++++++---
+ tests/basic.vala                           |   1 -
+ tests/context.vala                         |  47
+ +++++++++++++++--------------
+ tests/data/models/sorted3/data.1gram       | Bin 0 -> 9690 bytes
+ tests/data/models/sorted3/data.1gram.index | Bin 0 -> 25392 bytes
+ tests/data/models/sorted3/data.2gram       | Bin 0 -> 47880 bytes
+ tests/data/models/sorted3/data.3gram       | Bin 0 -> 50550 bytes
+ tests/data/models/sorted3/data.input       | Bin 0 -> 9664 bytes
+ tests/data/models/sorted3/metadata.json    |   5 +++
+ 11 files changed, 43 insertions(+), 48 deletions(-)
+
+commit dd97cb9b5079d7f6241a33d9fcef1c8877eba359
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 1 11:11:07 2013 +0900
+
+    Move rules under data.
+
+ Makefile.am                                        |    2 +-
+ configure.ac                                       |    3 +-
+ data/Makefile.am                                   |   19 +
+ data/rules/Makefile.am                             |  128 +
+ data/rules/README.rules                            |  166 +
+ data/rules/act/keymap/default.json                 |    5 +
+ data/rules/act/keymap/hankaku-katakana.json        |   10 +
+ data/rules/act/keymap/hiragana.json                |   10 +
+ data/rules/act/keymap/katakana.json                |   10 +
+ data/rules/act/keymap/latin.json                   |    5 +
+ data/rules/act/keymap/wide-latin.json              |    5 +
+ data/rules/act/metadata.json                       |    4 +
+ data/rules/act/rom-kana/default.json               |  671 ++++
+ data/rules/azik-jp106/keymap/hankaku-katakana.json |    5 +
+ data/rules/azik-jp106/keymap/hiragana.json         |   11 +
+ data/rules/azik-jp106/keymap/katakana.json         |   11 +
+ data/rules/azik-jp106/keymap/latin.json            |    5 +
+ data/rules/azik-jp106/keymap/wide-latin.json       |    5 +
+ data/rules/azik-jp106/metadata.json                |    4 +
+ data/rules/azik-jp106/rom-kana/default.json        |  497 +++
+ data/rules/azik/keymap/default.json                |   10 +
+ data/rules/azik/keymap/hankaku-katakana.json       |   10 +
+ data/rules/azik/keymap/hiragana.json               |   10 +
+ data/rules/azik/keymap/katakana.json               |   10 +
+ data/rules/azik/keymap/latin.json                  |    5 +
+ data/rules/azik/keymap/wide-latin.json             |    5 +
+ data/rules/azik/metadata.json                      |    4 +
+ data/rules/azik/rom-kana/default.json              |  497 +++
+ data/rules/default/keymap/default.json             |   25 +
+ data/rules/default/keymap/hankaku-katakana.json    |   11 +
+ data/rules/default/keymap/hiragana.json            |   11 +
+ data/rules/default/keymap/katakana.json            |   11 +
+ data/rules/default/keymap/latin.json               |   10 +
+ data/rules/default/keymap/wide-latin.json          |   10 +
+ data/rules/default/metadata.json                   |    4 +
+ data/rules/default/rom-kana/default.json           |  242 ++
+ data/rules/kzik/keymap/default.json                |   10 +
+ data/rules/kzik/keymap/hankaku-katakana.json       |   10 +
+ data/rules/kzik/keymap/hiragana.json               |   10 +
+ data/rules/kzik/keymap/katakana.json               |   10 +
+ data/rules/kzik/keymap/latin.json                  |    5 +
+ data/rules/kzik/keymap/wide-latin.json             |    5 +
+ data/rules/kzik/metadata.json                      |    4 +
+ data/rules/kzik/rom-kana/default.json              |  521 ++++
+ data/rules/nicola/keymap/default.json              |   19 +
+ data/rules/nicola/keymap/hankaku-katakana.json     |    5 +
+ data/rules/nicola/keymap/hiragana.json             |   10 +
+ data/rules/nicola/keymap/kana.json                 |  180 ++
+ data/rules/nicola/keymap/katakana.json             |   10 +
+ data/rules/nicola/keymap/latin.json                |    5 +
+ data/rules/nicola/keymap/wide-latin.json           |    5 +
+ data/rules/nicola/metadata.json                    |    5 +
+ data/rules/nicola/rom-kana/default.json            |    6 +
+ data/rules/tcode/keymap/hankaku-katakana.json      |    5 +
+ data/rules/tcode/keymap/hiragana.json              |    5 +
+ data/rules/tcode/keymap/katakana.json              |    5 +
+ data/rules/tcode/keymap/latin.json                 |    5 +
+ data/rules/tcode/keymap/wide-latin.json            |    5 +
+ data/rules/tcode/metadata.json                     |    4 +
+ data/rules/tcode/rom-kana/default.json             | 1360 ++++++++
+ data/rules/trycode/keymap/hankaku-katakana.json    |    5 +
+ data/rules/trycode/keymap/hiragana.json            |    5 +
+ data/rules/trycode/keymap/katakana.json            |    5 +
+ data/rules/trycode/keymap/latin.json               |    5 +
+ data/rules/trycode/keymap/wide-latin.json          |    5 +
+ data/rules/trycode/metadata.json                   |    4 +
+ data/rules/trycode/rom-kana/default.json           | 3249
+ ++++++++++++++++++++
+ .../tutcode-touch16x/keymap/hankaku-katakana.json  |    5 +
+ data/rules/tutcode-touch16x/keymap/hiragana.json   |    5 +
+ data/rules/tutcode-touch16x/keymap/katakana.json   |    5 +
+ data/rules/tutcode-touch16x/keymap/latin.json      |    5 +
+ data/rules/tutcode-touch16x/keymap/wide-latin.json |    5 +
+ data/rules/tutcode-touch16x/metadata.json          |    4 +
+ data/rules/tutcode-touch16x/rom-kana/default.json  |   18 +
+ data/rules/tutcode/keymap/hankaku-katakana.json    |    5 +
+ data/rules/tutcode/keymap/hiragana.json            |    5 +
+ data/rules/tutcode/keymap/katakana.json            |    5 +
+ data/rules/tutcode/keymap/latin.json               |    5 +
+ data/rules/tutcode/keymap/wide-latin.json          |    5 +
+ data/rules/tutcode/metadata.json                   |    4 +
+ data/rules/tutcode/rom-kana/default.json           | 2645
+ ++++++++++++++++
+ rules/Makefile.am                                  |  128 -
+ rules/README.rules                                 |  166 -
+ rules/act/keymap/default.json                      |    5 -
+ rules/act/keymap/hankaku-katakana.json             |   10 -
+ rules/act/keymap/hiragana.json                     |   10 -
+ rules/act/keymap/katakana.json                     |   10 -
+ rules/act/keymap/latin.json                        |    5 -
+ rules/act/keymap/wide-latin.json                   |    5 -
+ rules/act/metadata.json                            |    4 -
+ rules/act/rom-kana/default.json                    |  671 ----
+ rules/azik-jp106/keymap/hankaku-katakana.json      |    5 -
+ rules/azik-jp106/keymap/hiragana.json              |   11 -
+ rules/azik-jp106/keymap/katakana.json              |   11 -
+ rules/azik-jp106/keymap/latin.json                 |    5 -
+ rules/azik-jp106/keymap/wide-latin.json            |    5 -
+ rules/azik-jp106/metadata.json                     |    4 -
+ rules/azik-jp106/rom-kana/default.json             |  497 ---
+ rules/azik/keymap/default.json                     |   10 -
+ rules/azik/keymap/hankaku-katakana.json            |   10 -
+ rules/azik/keymap/hiragana.json                    |   10 -
+ rules/azik/keymap/katakana.json                    |   10 -
+ rules/azik/keymap/latin.json                       |    5 -
+ rules/azik/keymap/wide-latin.json                  |    5 -
+ rules/azik/metadata.json                           |    4 -
+ rules/azik/rom-kana/default.json                   |  497 ---
+ rules/default/keymap/default.json                  |   25 -
+ rules/default/keymap/hankaku-katakana.json         |   11 -
+ rules/default/keymap/hiragana.json                 |   11 -
+ rules/default/keymap/katakana.json                 |   11 -
+ rules/default/keymap/latin.json                    |   10 -
+ rules/default/keymap/wide-latin.json               |   10 -
+ rules/default/metadata.json                        |    4 -
+ rules/default/rom-kana/default.json                |  242 --
+ rules/kzik/keymap/default.json                     |   10 -
+ rules/kzik/keymap/hankaku-katakana.json            |   10 -
+ rules/kzik/keymap/hiragana.json                    |   10 -
+ rules/kzik/keymap/katakana.json                    |   10 -
+ rules/kzik/keymap/latin.json                       |    5 -
+ rules/kzik/keymap/wide-latin.json                  |    5 -
+ rules/kzik/metadata.json                           |    4 -
+ rules/kzik/rom-kana/default.json                   |  521 ----
+ rules/nicola/keymap/default.json                   |   19 -
+ rules/nicola/keymap/hankaku-katakana.json          |    5 -
+ rules/nicola/keymap/hiragana.json                  |   10 -
+ rules/nicola/keymap/kana.json                      |  180 --
+ rules/nicola/keymap/katakana.json                  |   10 -
+ rules/nicola/keymap/latin.json                     |    5 -
+ rules/nicola/keymap/wide-latin.json                |    5 -
+ rules/nicola/metadata.json                         |    5 -
+ rules/nicola/rom-kana/default.json                 |    6 -
+ rules/tcode/keymap/hankaku-katakana.json           |    5 -
+ rules/tcode/keymap/hiragana.json                   |    5 -
+ rules/tcode/keymap/katakana.json                   |    5 -
+ rules/tcode/keymap/latin.json                      |    5 -
+ rules/tcode/keymap/wide-latin.json                 |    5 -
+ rules/tcode/metadata.json                          |    4 -
+ rules/tcode/rom-kana/default.json                  | 1360 --------
+ rules/trycode/keymap/hankaku-katakana.json         |    5 -
+ rules/trycode/keymap/hiragana.json                 |    5 -
+ rules/trycode/keymap/katakana.json                 |    5 -
+ rules/trycode/keymap/latin.json                    |    5 -
+ rules/trycode/keymap/wide-latin.json               |    5 -
+ rules/trycode/metadata.json                        |    4 -
+ rules/trycode/rom-kana/default.json                | 3249
+ --------------------
+ .../tutcode-touch16x/keymap/hankaku-katakana.json  |    5 -
+ rules/tutcode-touch16x/keymap/hiragana.json        |    5 -
+ rules/tutcode-touch16x/keymap/katakana.json        |    5 -
+ rules/tutcode-touch16x/keymap/latin.json           |    5 -
+ rules/tutcode-touch16x/keymap/wide-latin.json      |    5 -
+ rules/tutcode-touch16x/metadata.json               |    4 -
+ rules/tutcode-touch16x/rom-kana/default.json       |   18 -
+ rules/tutcode/keymap/hankaku-katakana.json         |    5 -
+ rules/tutcode/keymap/hiragana.json                 |    5 -
+ rules/tutcode/keymap/katakana.json                 |    5 -
+ rules/tutcode/keymap/latin.json                    |    5 -
+ rules/tutcode/keymap/wide-latin.json               |    5 -
+ rules/tutcode/metadata.json                        |    4 -
+ rules/tutcode/rom-kana/default.json                | 2645
+ ----------------
+ 159 files changed, 10657 insertions(+), 10637 deletions(-)
+
+commit 41a38820699dfaee9268c7f032febb0e02419d98
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 1 10:35:10 2013 +0900
+
+    Show hankaku katakana and wide latin candidates.
+
+ libkkc/state.vala | 19 ++++++++-----------
+ 1 file changed, 8 insertions(+), 11 deletions(-)
+
+commit b8c50402c16c97762e11cb1c277abea2f8be1896
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 1 09:35:39 2013 +0900
+
+    Fix constraint lookup.
+
+ libkkc/state.vala | 57
+ ++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 29 insertions(+), 28 deletions(-)
+
+commit e184b597f3b7576f4e604b61a2424ff9176324de
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 1 09:09:46 2013 +0900
+
+    Hide is_dirty property of dictionary.
+
+ libkkc/dictionary-list.vala           | 12 +++++-------
+ libkkc/dictionary.vala                |  5 -----
+ libkkc/segment-dictionary.vala        | 11 -----------
+ libkkc/system-segment-dictionary.vala | 11 -----------
+ libkkc/user-dictionary.vala           | 11 -----------
+ libkkc/user-segment-dictionary.vala   | 10 +++++-----
+ libkkc/user-sentence-dictionary.vala  | 10 +++++-----
+ 7 files changed, 15 insertions(+), 55 deletions(-)
+
+commit 869ed3d1937a884793d10e5f018f88490f9a30c9
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Feb 1 07:03:40 2013 +0900
+
+    Use enum for the return value of dictionary callback.
+
+ libkkc/dictionary-list.vala | 23 ++++++++++++++++++++---
+ libkkc/state.vala           | 14 ++++++++------
+ 2 files changed, 28 insertions(+), 9 deletions(-)
+
+commit 2afdf723c92a47672b969265f86bc018b24f491e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 31 22:23:48 2013 +0900
+
+    Add is_dirty property to Dictionary.
+
+ libkkc/dictionary-list.vala           | 12 +++++++-----
+ libkkc/dictionary.vala                |  5 +++++
+ libkkc/segment-dictionary.vala        | 11 +++++++++++
+ libkkc/system-segment-dictionary.vala | 11 +++++++++++
+ libkkc/user-dictionary.vala           | 11 +++++++++++
+ libkkc/user-segment-dictionary.vala   |  8 ++++++++
+ libkkc/user-sentence-dictionary.vala  |  7 +++++++
+ 7 files changed, 60 insertions(+), 5 deletions(-)
+
+commit 9870c417a8829f7f589065ba78353ba71032e8e8
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 31 21:55:21 2013 +0900
+
+    Don't save dictionaries explicitly in state.vala.
+
+ libkkc/state.vala | 20 ++++----------------
+ 1 file changed, 4 insertions(+), 16 deletions(-)
+
+commit 0ad3cd759fbe93a2138bef13474a79a87b4d8b2a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jan 27 11:02:09 2013 +0900
+
+    Notify preedit change when candidate is selected.
+
+ libkkc/context.vala | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit 2d65e96ee950b1ca1459d00c6fd286ed718cc6ae
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 31 17:57:42 2013 +0900
+
+    Bump version to 0.1.0.
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 5eb4239b05f1e4ceda8c81658d114bbe9e1d74f0
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 31 17:44:22 2013 +0900
+
+    Rename libkkc.pc to kkc-1.0.pc.
+
+ configure.ac         |  2 +-
+ libkkc/Makefile.am   |  4 ++--
+ libkkc/kkc-1.0.pc.in | 31 +++++++++++++++++++++++++++++++
+ libkkc/libkkc.pc.in  | 31 -------------------------------
+ 4 files changed, 34 insertions(+), 34 deletions(-)
+
+commit 1d033f0d4ec18db490457872535dfa1a712a1c4b
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 31 17:36:56 2013 +0900
+
+    Don't pass non-ASCII character to RomKanaConverter.
+
+ libkkc/context.vala | 3 ++-
+ libkkc/state.vala   | 8 ++++----
+ 2 files changed, 6 insertions(+), 5 deletions(-)
+
+commit 6a0ebe17c386c35021b29cf8bb39337b9f4bf2d1
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 31 13:02:13 2013 +0900
+
+    Remember short sentences.
+
+ libkkc/state.vala                    | 98
+ +++++++++++++++++++++++++-----------
+ libkkc/user-sentence-dictionary.vala |  6 +++
+ 2 files changed, 75 insertions(+), 29 deletions(-)
+
+commit ccfd5c6d9f913e0a413fe5d0c45bb70032382f68
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jan 30 18:00:19 2013 +0900
+
+    Refactor dictionary list into DicionaryList.
+
+ libkkc/Makefile.am          |   1 +
+ libkkc/context.vala         |  41 +++-----------
+ libkkc/dictionary-list.vala |  89 ++++++++++++++++++++++++++++++
+ libkkc/state.vala           | 130
+ ++++++++++++++++++++++----------------------
+ tests/context.vala          |   4 +-
+ 5 files changed, 167 insertions(+), 98 deletions(-)
+
+commit ec2d1a4dc7950a2b6ea81a8da7cff7f2d89f3357
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jan 30 17:58:51 2013 +0900
+
+    Fix test failure.
+
+ tests/context.vala | 14 +-------------
+ 1 file changed, 1 insertion(+), 13 deletions(-)
+
+commit 511b0cf61aeb2e9b191f31d338c7b0ec455bfed1
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jan 30 14:04:33 2013 +0900
+
+    Add translation.
+
+ po/LINGUAS     |  1 +
+ po/POTFILES.in |  1 +
+ po/ja.po       | 29 +++++++++++++++++++++++++++++
+ 3 files changed, 31 insertions(+)
+
+commit 2c110af037e9ce37f793d55476807453289b3ea3
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jan 29 19:46:00 2013 +0900
+
+    Remove abstract base class of CandidateList.
+
+ libkkc/candidate-list.vala | 304
+ +++++++++++++++++++--------------------------
+ libkkc/state.vala          |   2 +-
+ 2 files changed, 131 insertions(+), 175 deletions(-)
+
+commit 9c01ffd1cb32c8804714782c20766c69abb38d8a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jan 29 19:38:44 2013 +0900
+
+    Enable silent rules.
+
+ configure.ac | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 7b5b028e54dc0b264ccdeacddbd7cb99064895e1
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jan 29 19:14:01 2013 +0900
+
+    Add doc.
+
+ libkkc/context.vala | 33 ++++++++++++++++++++-------------
+ 1 file changed, 20 insertions(+), 13 deletions(-)
+
+commit 313b2079e3de665fd655e0bd17fe2548c18a1e76
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jan 29 16:04:59 2013 +0900
+
+    Refactor using DictionaryCallback.
+
+ libkkc/state.vala | 215
+ +++++++++++++++++++++++++++++++-----------------------
+ 1 file changed, 124 insertions(+), 91 deletions(-)
+
+commit 74c7d7ff77fb2eecdde60cc21295a4972114f053
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jan 29 11:37:32 2013 +0900
+
+    Define pkgdatadir in libkkc.pc.
+
+ libkkc/libkkc.pc.in | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit f77a754a75f7bc4e24e31c6dcdfea0932bbd6996
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jan 27 09:46:57 2013 +0900
+
+    Make sure to convert "nn" before conversion.
+
+ libkkc/state.vala | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
+
+commit 2f770c5385220aab18f8638337b16f98b8bc532d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jan 27 09:40:34 2013 +0900
+
+    Reorder candidates list.
+
+ libkkc/state.vala | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+commit 80ece9567ba95bb827bf75b4ab194b8a5c36cae3
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jan 27 09:30:31 2013 +0900
+
+    First try to convert sentence as segment.
+
+ libkkc/state.vala | 32 +++++++++++++++++++++++++++++++-
+ 1 file changed, 31 insertions(+), 1 deletion(-)
+
+commit 6a3effe51985eaee935374667958025bdcee679e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jan 27 08:22:22 2013 +0900
+
+    Add doc.
+
+ libkkc/user-dictionary.vala          | 21 +++++++++++++++++++++
+ libkkc/user-sentence-dictionary.vala | 15 +++++++++++++++
+ 2 files changed, 36 insertions(+)
+
+commit c30fa1aebc6beec35516d91c7f817d6c87f63173
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jan 27 08:18:35 2013 +0900
+
+    "constraints" -> "constraint".
+
+ libkkc/bigram-decoder.vala           | 22 ++++++++++-----------
+ libkkc/decoder.vala                  |  2 +-
+ libkkc/sentence-dictionary.vala      |  8 ++++----
+ libkkc/state.vala                    | 38
+ ++++++++++++++++++------------------
+ libkkc/trigram-decoder.vala          |  6 +++---
+ libkkc/user-dictionary.vala          |  6 +++---
+ libkkc/user-sentence-dictionary.vala | 12 ++++++------
+ 7 files changed, 47 insertions(+), 47 deletions(-)
+
+commit 21d7b03cc757d4a33753b6b7ba6101dd208bb24c
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jan 27 08:11:55 2013 +0900
+
+    Add license text.
+
+ README | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+commit 3ecb5ff9e72c4bd6d7df11b54d0e80ce7d094db0
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jan 27 08:10:59 2013 +0900
+
+    marisa-glib: remove unused files.
+
+ marisa-glib/Makefile.am        | 8 ++++----
+ marisa-glib/Marisa-custom.vala | 2 --
+ marisa-glib/marisa-glib.deps   | 1 -
+ 3 files changed, 4 insertions(+), 7 deletions(-)
+
+commit d38c094c3d7464f5133a8270e33bea85a5b56ec6
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jan 27 08:04:49 2013 +0900
+
+    Refactor unbound key handling.
+
+ libkkc/state.vala | 52
+ ++++++++++++++++++++++------------------------------
+ 1 file changed, 22 insertions(+), 30 deletions(-)
+
+commit f89f6adcff4a078425053c7765290d5c668b9e99
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Jan 26 15:03:26 2013 +0900
+
+    Fix make distcheck.
+
+ docs/Makefile.am        | 23 +++++++++++++----------
+ marisa-glib/Makefile.am |  2 +-
+ tests/Makefile.am       |  1 +
+ tests/basic.vala        |  1 +
+ tests/context.vala      |  2 ++
+ 5 files changed, 18 insertions(+), 11 deletions(-)
+
+commit 3638ef8ae8a165e3bd0f5524521b5340d1e5137d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Jan 26 12:18:11 2013 +0900
+
+    Add missing dictionary for tests.
+
+ tests/Makefile.am   |    2 +
+ tests/file-dict.dat | 3412
+ +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 3414 insertions(+)
+
+commit f8dafd1a2f1037207ee8138caab267be4e698007
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Jan 26 12:17:51 2013 +0900
+
+    Rename SegmentDictionary.lookup to lookup_candidates.
+
+ libkkc/segment-dictionary.vala        | 14 ++++++++++----
+ libkkc/state.vala                     | 27 +++++++++++++++------------
+ libkkc/system-segment-dictionary.vala | 26 +++++++++++++++++---------
+ libkkc/user-dictionary.vala           |  8 ++++++--
+ libkkc/user-segment-dictionary.vala   | 10 +++++++---
+ 5 files changed, 55 insertions(+), 30 deletions(-)
+
+commit 78e69aa471141006e7a7f3dd798626eafb5874ad
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Jan 26 12:05:10 2013 +0900
+
+    Bump version to 0.0.3.
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 3930c15fb662d08e027d74ff216d31e8f513db5b
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Jan 26 11:33:58 2013 +0900
+
+    Check if segment is really changed.
+
+ libkkc/state.vala | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+commit 843996bda43906dcf9952541019ea75b4f5bbe4a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Jan 26 11:30:48 2013 +0900
+
+    Make sure to update preedit when command is commit.
+
+ libkkc/state.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit acb7ad9ff818b9a1013d7d4ff67495712fb8ab36
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Jan 26 08:21:48 2013 +0900
+
+    Save sentence dictionary only when segments changed.
+
+ libkkc/state.vala | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+commit 565a629857432ed790fb5deeaf4587c9517aaecd
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Jan 26 08:14:14 2013 +0900
+
+    Remove unused code.
+
+ libkkc/state.vala | 21 ---------------------
+ 1 file changed, 21 deletions(-)
+
+commit 84455f190f4b3ff35e1b0dec113f887b80940d05
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Jan 26 08:13:55 2013 +0900
+
+    Bind Up to previous-candidate.
+
+ rules/default/keymap/default.json | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit bf793bdf8dd58e63d1eeceb01a3fc5511d946f26
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 22:26:49 2013 +0900
+
+    Consume other keys when preedit is active.
+
+ libkkc/state.vala | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 0bce497d478770ea2f46717bae50b8ed48133de8
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 19:44:53 2013 +0900
+
+    Bind S-space to previous-candidate.
+
+ rules/default/keymap/default.json | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 106bdb91b3cdfcb0498715add037ba348aafa97c
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 19:44:35 2013 +0900
+
+    Add Context.has_output method.
+
+ libkkc/context.vala | 9 +++++++--
+ libkkc/state.vala   | 3 ---
+ 2 files changed, 7 insertions(+), 5 deletions(-)
+
+commit 484d6ed591022a45318a6b2e5aea38930e99113e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 18:41:13 2013 +0900
+
+    Disable page movement with space.
+
+ libkkc/state.vala | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 83ac4e04b1c4a3b1b1a87d55723c6b6da225387f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 18:22:15 2013 +0900
+
+    Bump version to 0.0.2.
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit c115274a318d9a0e81239b7510a02e74da1b02ba
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 18:21:44 2013 +0900
+
+    Try to fix make distcheck.
+
+ docs/Makefile.am        | 2 ++
+ libkkc/Makefile.am      | 1 +
+ marisa-glib/Makefile.am | 2 +-
+ 3 files changed, 4 insertions(+), 1 deletion(-)
+
+commit 5be63883796e70e49469bbedf274ddcc86ad1a1b
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 18:05:41 2013 +0900
+
+    Don't install marisa-glib.vapi and .deps.
+
+ marisa-glib/Makefile.am | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+commit 4e0677fa1d250ffe65f0f37f856d6b98df4a19e5
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 17:47:55 2013 +0900
+
+    Rename kkc option -d to -m.
+
+ tools/kkc.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d10a16222c5b1184178db2daf43cd8204dfdd2b8
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 17:46:28 2013 +0900
+
+    Fix the last change.
+
+ libkkc/state.vala | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+commit 4fab4f2d18cea38e6aa74513392f5c300b89c17a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 16:07:08 2013 +0900
+
+    Remove user-dict in tear down.
+
+ tests/context.vala | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit c6cec3f500b0ce1650332d1453fe2731a0bfdc2a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 16:05:06 2013 +0900
+
+    Don't clear preedit when abort in convert sentence state.
+
+ libkkc/state.vala | 10 ++--------
+ 1 file changed, 2 insertions(+), 8 deletions(-)
+
+commit ebbd9b2e141a33693629da3f611cfe31d7fb9da7
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 16:04:56 2013 +0900
+
+    Bind C-c to abort.
+
+ rules/default/keymap/default.json | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 859028445b8d2a11e6dd9d6672a4720be0aa4cfb
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 15:55:32 2013 +0900
+
+    Support shift modifier for command keys.
+
+ libkkc/key-event-filter.vala      |  2 --
+ libkkc/key-event.vala             | 12 ++++++++++--
+ libkkc/nicola.vala                |  2 --
+ rules/default/keymap/default.json |  2 ++
+ 4 files changed, 12 insertions(+), 6 deletions(-)
+
+commit 1dc1ade2bd3bf480ed5bb36e0e4a20a2acec1d89
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 14:02:51 2013 +0900
+
+    Finish phrase dictionary support.
+
+ libkkc/Makefile.am                    |   7 +-
+ libkkc/dictionary.vala                |  83 -------
+ libkkc/file-dictionary.vala           | 361
+ -------------------------------
+ libkkc/segment-dictionary.vala        | 103 +++++++++
+ libkkc/segment-list.vala              |   4 +
+ libkkc/sentence-dictionary.vala       | 286 +-----------------------
+ libkkc/state.vala                     | 140 ++++++++++--
+ libkkc/system-segment-dictionary.vala | 361
+ +++++++++++++++++++++++++++++++
+ libkkc/user-dictionary.vala           | 374
+ +++-----------------------------
+ libkkc/user-segment-dictionary.vala   | 396
+ ++++++++++++++++++++++++++++++++++
+ libkkc/user-sentence-dictionary.vala  | 297 +++++++++++++++++++++++++
+ libkkc/utils.vala                     |  37 ++++
+ tests/context.vala                    |   4 +-
+ 13 files changed, 1375 insertions(+), 1078 deletions(-)
+
+commit 239f1af7dd9ebd41452091ccb2d4f2a09bc53386
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 08:01:13 2013 +0900
+
+    Fix the last change.
+
+ rules/default/keymap/default.json | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+commit bd2a358f0576331da92d4e8518e45c5449c83f16
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 03:55:24 2013 +0900
+
+    Fix for old valac.
+
+ libkkc/key-event.vala | 2 +-
+ tests/context.vala    | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 0f153d15cce330d137d924d781022ce57c0f9557
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 25 03:55:09 2013 +0900
+
+    Bind more keys.
+
+ rules/default/keymap/default.json | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+commit c036345e358bd667fa4388d8895fb698b593821a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 24 19:41:12 2013 +0900
+
+    Implement select_segments in user dictionary.
+
+ libkkc/sentence-dictionary.vala | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+commit 8d95d8563c5eb44bce0d40a0857ba5d97c1083e8
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 24 19:34:31 2013 +0900
+
+    Implement lookup methods of user dictionary.
+
+ libkkc/sentence-dictionary.vala | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
+
+commit 84e1e03ac23fd56cfda243f8b2ba95838583901a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 24 19:29:47 2013 +0900
+
+    Implement load/save of user sentence dictionary.
+
+ libkkc/sentence-dictionary.vala | 184
+ ++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 179 insertions(+), 5 deletions(-)
+
+commit 1adfbf9a7e19eb8e63673ec6c999e0701622f381
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 24 18:16:33 2013 +0900
+
+    Update test data for the latest libkkc-data.
+
+ tests/context.vala | 38 +++++++++++++++++++-------------------
+ 1 file changed, 19 insertions(+), 19 deletions(-)
+
+commit be3a59ad10e2291a85c59cbd5383c9970cd945db
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 24 18:16:18 2013 +0900
+
+    Utilize okuri-ari conversion.
+
+ libkkc/numeric-template.vala |  2 ++
+ libkkc/state.vala            | 18 ++++++++++--------
+ libkkc/template.vala         | 32 ++++++++++++++++++++++++++++++++
+ 3 files changed, 44 insertions(+), 8 deletions(-)
+
+commit 3ee4d362793cf451ae7789314d8d507b32db4ef2
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 24 18:13:15 2013 +0900
+
+    Respect constraints when adding unknown nodes.
+
+ libkkc/bigram-decoder.vala  | 17 +++++++++++++++--
+ libkkc/trigram-decoder.vala |  2 +-
+ 2 files changed, 16 insertions(+), 3 deletions(-)
+
+commit 2791279574507c26e0d53752bed2042d81f3ea55
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 24 15:20:06 2013 +0900
+
+    Fix "delete" behavior.
+
+ libkkc/state.vala | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
+
+commit 8c43074085eb98a7de285e85ddeed31d092a8529
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 24 14:15:07 2013 +0900
+
+    Update version.
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 457a0afd0fc4b86e07955c892883c8ebd0b144b8
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 24 13:56:10 2013 +0900
+
+    Start rewriting phrase dictionary.
+
+ libkkc/Makefile.am              |   1 +
+ libkkc/dictionary.vala          |  43 +++++++-------
+ libkkc/file-dictionary.vala     |   2 +-
+ libkkc/key-event.vala           |   4 +-
+ libkkc/segment-list.vala        |  59 -------------------
+ libkkc/sentence-dictionary.vala | 126
+ ++++++++++++++++++++++++++++++++++++++++
+ libkkc/state.vala               |  56 ++++--------------
+ libkkc/user-dictionary.vala     |   2 +-
+ 8 files changed, 166 insertions(+), 127 deletions(-)
+
+commit 80c280fb514738afeae05ae46fcf8fecc6ec0fab
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 24 12:37:48 2013 +0900
+
+    Fix keymap.
+
+ rules/default/keymap/hankaku-katakana.json | 8 ++------
+ rules/default/keymap/hiragana.json         | 8 ++------
+ rules/default/keymap/katakana.json         | 8 ++------
+ rules/default/keymap/latin.json            | 2 +-
+ rules/default/keymap/wide-latin.json       | 2 +-
+ 5 files changed, 8 insertions(+), 20 deletions(-)
+
+commit 5bee9c7673833823960aed02cb77d2ee5647eab5
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 24 10:53:30 2013 +0900
+
+    Refactor Dictionary class.
+
+ libkkc/dictionary.vala      | 28 +++++++++++++++-------------
+ libkkc/file-dictionary.vala | 14 ++++++++------
+ libkkc/user-dictionary.vala | 26 +++++++++++++-------------
+ 3 files changed, 36 insertions(+), 32 deletions(-)
+
+commit 2c7bc2fb35fbee98a5ba6403810204eb816a0fcc
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Thu Jan 24 10:48:20 2013 +0900
+
+    Rename Dict -> Dictionary.
+
+ libkkc/Makefile.am          |   6 +-
+ libkkc/context.vala         |   6 +-
+ libkkc/dict.vala            | 173 -------------------
+ libkkc/dictionary.vala      | 173 +++++++++++++++++++
+ libkkc/file-dict.vala       | 359 ---------------------------------------
+ libkkc/file-dictionary.vala | 359 +++++++++++++++++++++++++++++++++++++++
+ libkkc/state.vala           |   4 +-
+ libkkc/user-dict.vala       | 396
+ --------------------------------------------
+ libkkc/user-dictionary.vala | 396
+ ++++++++++++++++++++++++++++++++++++++++++++
+ tests/context.vala          |   4 +-
+ 10 files changed, 938 insertions(+), 938 deletions(-)
+
+commit 0f8aede5e41fc9e850415f35baa092c41f9f738c
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jan 23 18:36:11 2013 +0900
+
+    Refactor phrase dictionary code.
+
+ libkkc/state.vala | 34 +++++++++++++++++++++++++++++++---
+ 1 file changed, 31 insertions(+), 3 deletions(-)
+
+commit d0006329244f75038304ea5ccb41b2528835108d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jan 23 17:20:47 2013 +0900
+
+    Add tools/kkc.c to POTFILES.skip.
+
+ po/POTFILES.skip | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 1e12061d62fe03e6944b9b957f5daae35e4c3dc6
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jan 23 17:20:30 2013 +0900
+
+    Refactor phrase dictionary code.
+
+ libkkc/segment-list.vala | 61 +++++++++++++++++++++++++++++++++++++++++-
+ libkkc/state.vala        | 69
+ +++++++++++-------------------------------------
+ tests/context.vala       |  2 +-
+ 3 files changed, 77 insertions(+), 55 deletions(-)
+
+commit abaa9dc9bb993215733503f1978513b3be941b83
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jan 22 19:32:49 2013 +0900
+
+    Support phrase dictionary (wip).
+
+ libkkc/state.vala     | 71
+ +++++++++++++++++++++++++++++++++++++++++++++++++++
+ libkkc/user-dict.vala |  6 ++---
+ tests/context.vala    |  6 +++++
+ 3 files changed, 80 insertions(+), 3 deletions(-)
+
+commit 80ed0c1210de0788ef34aeed0cf79bbcc11f34c9
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jan 22 18:09:11 2013 +0900
+
+    Rename state handlers.
+
+ libkkc/context.vala | 12 ++++++------
+ libkkc/state.vala   | 22 +++++++++++-----------
+ 2 files changed, 17 insertions(+), 17 deletions(-)
+
+commit 05924c47e19778053a8dc1a34d1c54d1f9e7e457
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jan 22 14:26:26 2013 +0900
+
+    Lookup dictionary when segment is selected.
+
+ libkkc/candidate-list.vala | 20 +++++++++++++----
+ libkkc/state.vala          | 54
+ ++++++++++++++++++++++++++++++++--------------
+ 2 files changed, 54 insertions(+), 20 deletions(-)
+
+commit 0182051befebd6ba82e2f4b245cd09966551d091
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jan 22 12:57:48 2013 +0900
+
+    Rename "preedit" -> "input" to avoid confusion.
+
+ libkkc/context.vala      |  5 +++--
+ libkkc/segment-list.vala |  6 ++----
+ libkkc/state.vala        | 41 ++++++++++++++++++++++++-----------------
+ 3 files changed, 29 insertions(+), 23 deletions(-)
+
+commit 1c26821de761e2afd2e287d39d276dfc578ca8f6
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jan 22 12:57:26 2013 +0900
+
+    Support rounding lookup table.
+
+ libkkc/candidate-list.vala | 83
+ +++++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 67 insertions(+), 16 deletions(-)
+
+commit ff46a6c16225e6903848f268b1eeffb29e3f63be
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jan 22 11:43:16 2013 +0900
+
+    Remove preedit property from context.
+
+ libkkc/context.vala      |  78 ++++------------------------------
+ libkkc/segment-list.vala |  11 ++++-
+ libkkc/state.vala        | 107
+ ++++++++++++++---------------------------------
+ tests/context.vala       |  55 ++++++++++++++----------
+ tools/kkc.vala           |  10 ++---
+ 5 files changed, 85 insertions(+), 176 deletions(-)
+
+commit 01efb24c2c39d6d36b4552f48c0a835c03490403
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jan 21 19:15:03 2013 +0900
+
+    Ignore empty input in none state.
+
+ libkkc/state.vala | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 0bd00fde50247fee6f9117c39a34a75d0a331ef1
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jan 21 18:26:56 2013 +0900
+
+    Change models directory from "model" to "models"
+
+ libkkc/language-model.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 1970893dcaf3e07028502a0ebb06e6a2ec97b178
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jan 21 18:06:52 2013 +0900
+
+    Expose segment list through context.
+
+ libkkc/candidate-list.vala | 119 ---------------------------------------
+ libkkc/context.vala        |  41 ++++++++------
+ libkkc/dict.vala           |   2 +-
+ libkkc/segment-list.vala   |  57 +++++++++----------
+ libkkc/state.vala          | 135
+ +++++++++++++++++----------------------------
+ tests/context.vala         |  23 ++++++++
+ 6 files changed, 126 insertions(+), 251 deletions(-)
+
+commit 595f5318c00af3664a189efe569d730fab81949a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jan 21 15:34:03 2013 +0900
+
+    Refactor numeric conversion.
+
+ libkkc/Makefile.am           |   4 +-
+ libkkc/expr.vala             | 194
+ ---------------------------------------
+ libkkc/expression.vala       | 209
+ +++++++++++++++++++++++++++++++++++++++++++
+ libkkc/numeric-template.vala | 120 +++++++++++++++++++++++++
+ libkkc/state.vala            | 136 ++--------------------------
+ libkkc/template.vala         |  35 ++++++++
+ 6 files changed, 375 insertions(+), 323 deletions(-)
+
+commit a43068c1c8f44df88fe49819410871107181fcc8
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jan 16 15:04:46 2013 +0900
+
+    Suppress warnings.
+
+ libkkc/file-dict.vala | 9 +++++++--
+ libkkc/kkc.vala       | 4 ----
+ libkkc/user-dict.vala | 2 +-
+ 3 files changed, 8 insertions(+), 7 deletions(-)
+
+commit b186a8a024e4ea93200dd737ca2ceeb3f721c9ad
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jan 16 15:00:44 2013 +0900
+
+    Update copyright year and email address.
+
+ libkkc/dict.vala      | 4 ++--
+ libkkc/encoding.vala  | 4 ++--
+ libkkc/expr.vala      | 4 ++--
+ libkkc/file-dict.vala | 4 ++--
+ libkkc/user-dict.vala | 4 ++--
+ 5 files changed, 10 insertions(+), 10 deletions(-)
+
+commit b9c5df728f346a52931ed68ec0d51f9ca4ccdb3e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Wed Jan 16 15:00:00 2013 +0900
+
+    Remove surrounding-text stuff atm.
+
+ libkkc/context.vala | 41 -----------------------------------------
+ libkkc/state.vala   | 30 ------------------------------
+ 2 files changed, 71 deletions(-)
+
+commit 12862fdf3edacc1a93c73bab08452fbdaaf1ac54
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jan 15 19:42:51 2013 +0900
+
+    Untabify.
+
+ tests/basic.vala   | 68
+ +++++++++++++++++++++++++++---------------------------
+ tests/context.vala | 14 +++++------
+ 2 files changed, 41 insertions(+), 41 deletions(-)
+
+commit feb8a8722ef9015fb8dbfaba9fbf4bb5ebf5da0b
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jan 15 19:39:33 2013 +0900
+
+    Support SKK dictionary lookup.
+
+ libkkc/Makefile.am  |   1 +
+ libkkc/context.vala |  44 ++++++++++--
+ libkkc/expr.vala    | 194
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ libkkc/segment.vala |  19 ++---
+ libkkc/state.vala   | 192
+ +++++++++++++++++++++++++++++++++++++++++++--------
+ tests/context.vala  |  12 ++++
+ 6 files changed, 413 insertions(+), 49 deletions(-)
+
+commit c199e3703b90b4fab9efbdc47b69aed9cc1f490f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jan 15 18:46:50 2013 +0900
+
+    Support segment movement and resize.
+
+ libkkc/segment-list.vala | 34 ++++++++++++++++++
+ libkkc/state.vala        | 69 ++++++++++++++++---------------------
+ tests/Makefile.am        |  4 ++-
+ tests/context.vala       | 89
+ ++++++++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 155 insertions(+), 41 deletions(-)
+
+commit 86868aa150275b67458654c592e610119f412aeb
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Jan 15 06:19:10 2013 +0900
+
+    Import dictionary stuff from libskk.
+
+ libkkc/Makefile.am    |  12 +-
+ libkkc/candidate.vala |   9 ++
+ libkkc/dict.vala      | 173 ++++++++++++++++++++++
+ libkkc/encoding.vala  | 116 +++++++++++++++
+ libkkc/file-dict.vala | 354 ++++++++++++++++++++++++++++++++++++++++++++
+ libkkc/state.vala     |   2 +-
+ libkkc/user-dict.vala | 396
+ ++++++++++++++++++++++++++++++++++++++++++++++++++
+ 7 files changed, 1057 insertions(+), 5 deletions(-)
+
+commit 41e60cf9ca34f32640c20f7cc0568d1c7f7301f6
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jan 13 16:48:02 2013 +0900
+
+    Rename dict -> model.
+
+ libkkc/bigram-decoder.vala  | 20 ++++++++---------
+ libkkc/context.vala         |  4 ++--
+ libkkc/decoder.vala         | 10 ++++-----
+ libkkc/language-model.vala  | 24 ++++++++++-----------
+ libkkc/trigram-decoder.vala | 52
+ ++++++++++++++++++++++-----------------------
+ tests/basic.vala            |  4 ++--
+ tools/kkc.vala              | 14 ++++++------
+ 7 files changed, 64 insertions(+), 64 deletions(-)
+
+commit df1e8e8c1b2de39c7f423e5064ad8c2afc39f9d8
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jan 13 16:42:23 2013 +0900
+
+    Rename Decoder.new_for_dict to .create.
+
+ libkkc/context.vala | 2 +-
+ libkkc/decoder.vala | 2 +-
+ tests/basic.vala    | 2 +-
+ tools/kkc.vala      | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+commit e329b459ad7b7c4c8348a56c3511c75506a789f6
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jan 13 16:32:20 2013 +0900
+
+    Change email address.
+
+ Makefile.am                               | 2 +-
+ configure.ac                              | 4 ++--
+ libkkc/Makefile.am                        | 2 +-
+ libkkc/bigram-decoder.vala                | 2 +-
+ libkkc/candidate-list.vala                | 2 +-
+ libkkc/candidate.vala                     | 2 +-
+ libkkc/context.vala                       | 2 +-
+ libkkc/decoder.vala                       | 2 +-
+ libkkc/key-event-filter.vala              | 2 +-
+ libkkc/key-event.vala                     | 2 +-
+ libkkc/keymap.vala                        | 2 +-
+ libkkc/keysyms.vala                       | 2 +-
+ libkkc/kkc.vala                           | 2 +-
+ libkkc/language-model.vala                | 2 +-
+ libkkc/libkkc.pc.in                       | 2 +-
+ libkkc/map-file.vala                      | 2 +-
+ libkkc/nicola.vala                        | 2 +-
+ libkkc/rom-kana-utils.vala                | 2 +-
+ libkkc/rom-kana.vala                      | 2 +-
+ libkkc/rule.vala                          | 2 +-
+ libkkc/segment-list.vala                  | 2 +-
+ libkkc/segment.vala                       | 2 +-
+ libkkc/sorted-bigram-language-model.vala  | 2 +-
+ libkkc/sorted-trigram-language-model.vala | 2 +-
+ libkkc/state.vala                         | 2 +-
+ libkkc/text-bigram-language-model.vala    | 2 +-
+ libkkc/text-trigram-language-model.vala   | 2 +-
+ libkkc/trellis-node.vala                  | 2 +-
+ libkkc/trigram-decoder.vala               | 2 +-
+ libkkc/utils.vala                         | 2 +-
+ marisa-glib/Makefile.am                   | 2 +-
+ rules/Makefile.am                         | 2 +-
+ rules/README.rules                        | 2 +-
+ tests/Makefile.am                         | 2 +-
+ tools/kkc.vala                            | 2 +-
+ 35 files changed, 36 insertions(+), 36 deletions(-)
+
+commit aaf0c43ee1e52e1bacbd4111d18a2538e57e238f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jan 13 16:31:27 2013 +0900
+
+    Update copyright year.
+
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit f0c2f02491b48a20aa38feb123f7e86a7e64efdb
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jan 13 10:08:40 2013 +0900
+
+    Add .dir-locals.el.
+
+ .dir-locals.el | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit ef8801e9a735f5db53296ecbb6ff61d080c9861b
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sun Jan 13 10:07:46 2013 +0900
+
+    Rewrite tests in Vala.
+
+ configure.ac             |   1 +
+ tests/Makefile.am        |  35 +++++++++---
+ tests/basic.c            | 135
+ -----------------------------------------------
+ tests/basic.vala         |  49 +++++++++++++++++
+ tests/lib/Makefile.am    |  47 +++++++++++++++++
+ tests/lib/test-case.vala | 118 +++++++++++++++++++++++++++++++++++++++++
+ 6 files changed, 243 insertions(+), 142 deletions(-)
+
+commit ccf3e0934e2c9b6b1dbf3e3380305de53a63ab92
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Sat Jan 12 10:42:53 2013 +0900
+
+    Update README.
+
+ README | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit b622d2b1943cdc045a7ea6e3aea88c21a6440c22
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 11 18:49:08 2013 +0900
+
+    Add coding cookie to README.
+
+ README | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d1ae0dacbed3751d46d09814f4add71ff2d3b723
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 11 18:48:45 2013 +0900
+
+    Update copyright year.
+
+ Makefile.am                  | 4 ++--
+ libkkc/candidate-list.vala   | 4 ++--
+ libkkc/candidate.vala        | 4 ++--
+ libkkc/context.vala          | 4 ++--
+ libkkc/key-event-filter.vala | 4 ++--
+ libkkc/key-event.vala        | 4 ++--
+ libkkc/keymap.vala           | 4 ++--
+ libkkc/keysyms.vala          | 4 ++--
+ libkkc/map-file.vala         | 4 ++--
+ libkkc/nicola.vala           | 4 ++--
+ libkkc/rom-kana-utils.vala   | 4 ++--
+ libkkc/rom-kana.vala         | 4 ++--
+ libkkc/rule.vala             | 4 ++--
+ libkkc/state.vala            | 4 ++--
+ rules/Makefile.am            | 4 ++--
+ tests/Makefile.am            | 4 ++--
+ 16 files changed, 32 insertions(+), 32 deletions(-)
+
+commit 5616c8757e29f65dd1aabde49741841c0597e983
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 11 18:35:57 2013 +0900
+
+    Update README.
+
+ README | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+
+commit d2fc0a53d969264557e0332343464d8c505d2418
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 11 18:28:24 2013 +0900
+
+    Update copyright year.
+
+ libkkc/bigram-decoder.vala                | 4 ++--
+ libkkc/decoder.vala                       | 4 ++--
+ libkkc/kkc.vala                           | 4 ++--
+ libkkc/language-model.vala                | 4 ++--
+ libkkc/segment-list.vala                  | 4 ++--
+ libkkc/segment.vala                       | 4 ++--
+ libkkc/sorted-bigram-language-model.vala  | 4 ++--
+ libkkc/sorted-trigram-language-model.vala | 4 ++--
+ libkkc/text-bigram-language-model.vala    | 4 ++--
+ libkkc/text-trigram-language-model.vala   | 4 ++--
+ libkkc/trellis-node.vala                  | 4 ++--
+ libkkc/trigram-decoder.vala               | 4 ++--
+ libkkc/utils.vala                         | 4 ++--
+ tools/kkc.vala                            | 4 ++--
+ 14 files changed, 28 insertions(+), 28 deletions(-)
+
+commit 86f30891469f5e4e5c0a6bfb779dfdbd802c1135
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 11 18:27:10 2013 +0900
+
+    Use IOError instead of LanguageModelError for MemoryMappedFile.
+
+ libkkc/sorted-bigram-language-model.vala  |  4 ++--
+ libkkc/sorted-trigram-language-model.vala |  2 +-
+ libkkc/utils.vala                         | 17 ++++++++++-------
+ 3 files changed, 13 insertions(+), 10 deletions(-)
+
+commit ba76eefc8475bbcab35a097e4cb176906813fceb
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 11 18:12:52 2013 +0900
+
+    Rename util -> utils.
+
+ libkkc/Makefile.am                        |   5 +-
+ libkkc/kkc.vala                           |   2 +-
+ libkkc/language-model-utils.vala          |  28 ++
+ libkkc/language-model.vala                |   2 +-
+ libkkc/rom-kana-util.vala                 | 432
+ ------------------------------
+ libkkc/rom-kana-utils.vala                | 432
+ ++++++++++++++++++++++++++++++
+ libkkc/rule.vala                          |   6 +-
+ libkkc/sorted-bigram-language-model.vala  |  10 +-
+ libkkc/sorted-trigram-language-model.vala |   4 +-
+ libkkc/state.vala                         |  12 +-
+ libkkc/util.vala                          | 134 ---------
+ libkkc/utils.vala                         |  97 +++++++
+ 12 files changed, 578 insertions(+), 586 deletions(-)
+
+commit 589254cbfaa1056c57483592a5d7fd92a3d55465
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 11 17:55:33 2013 +0900
+
+    Make SegmentList private.
+
+ libkkc/segment-list.vala | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 2acad9db2638560945ae936165ccef2194012529
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 11 17:55:16 2013 +0900
+
+    Add State.move_segment and .resize_segment.
+
+ libkkc/state.vala | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
+
+commit 02067c1d39a25b27d8eda89bb327be57ec32f381
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 11 17:41:29 2013 +0900
+
+    Rename State.lookup_sentence to .convert_sentence.
+
+ libkkc/state.vala | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
+
+commit 706b813fcb0e82a8aa9b1ab55f36437dcc53a683
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 11 16:22:43 2013 +0900
+
+    Rename Dict -> LanguageModel.
+
+ libkkc/Makefile.am                        |  10 +-
+ libkkc/bigram-decoder.vala                |   8 +-
+ libkkc/context.vala                       |   2 +-
+ libkkc/decoder.vala                       |  10 +-
+ libkkc/dict.vala                          | 188
+ ----------------------------
+ libkkc/kkc.vala                           |   2 +-
+ libkkc/language-model.vala                | 190
+ +++++++++++++++++++++++++++++
+ libkkc/sorted-bigram-dict.vala            | 195
+ ------------------------------
+ libkkc/sorted-bigram-language-model.vala  | 195
+ ++++++++++++++++++++++++++++++
+ libkkc/sorted-trigram-dict.vala           |  78 ------------
+ libkkc/sorted-trigram-language-model.vala |  78 ++++++++++++
+ libkkc/text-bigram-dict.vala              | 188
+ ----------------------------
+ libkkc/text-bigram-language-model.vala    | 188
+ ++++++++++++++++++++++++++++
+ libkkc/text-trigram-dict.vala             |  44 -------
+ libkkc/text-trigram-language-model.vala   |  44 +++++++
+ libkkc/trellis-node.vala                  |  20 +--
+ libkkc/trigram-decoder.vala               |  16 +--
+ libkkc/util.vala                          |  12 +-
+ tools/kkc.vala                            |   6 +-
+ 19 files changed, 738 insertions(+), 736 deletions(-)
+
+commit 12e3ce351ba65e26a547c5bfdead724fa6a33ce9
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 11 16:13:20 2013 +0900
+
+    Remove Python dependency.
+
+ configure.ac | 3 ---
+ 1 file changed, 3 deletions(-)
+
+commit 963d8503eb987145e9f1b53a20c831e56f20a97d
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 11 16:10:51 2013 +0900
+
+    Update marisa-trie version to 0.2.1.
+
+ README | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 774a26660089efbbb42620ce8004ea3a6556833b
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Fri Jan 11 15:59:14 2013 +0900
+
+    Modernize vapi generation for marisa-glib.
+
+ configure.ac            |  3 +++
+ marisa-glib/Makefile.am | 28 +++++++++++++++++-----------
+ 2 files changed, 20 insertions(+), 11 deletions(-)
+
+commit 1783e5287f68e426dee4c4337c2e47329aa18646
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Sep 3 14:42:53 2012 +0900
+
+    Fix typo.
+
+ libkkc/context.vala  | 2 +-
+ libkkc/rom-kana.vala | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 13b633fcf0fc525c81fe475340d7721decede6c4
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Aug 27 16:40:04 2012 +0900
+
+    Import rom-kana conversion stuff from libskk.
+
+ Makefile.am                                        |    2 +-
+ configure.ac                                       |    1 +
+ docs/Makefile.am                                   |    2 +
+ libkkc/Makefile.am                                 |   20 +-
+ libkkc/candidate-list.vala                         |  430 +++
+ libkkc/candidate.vala                              |   81 +
+ libkkc/context.vala                                |  404 +++
+ libkkc/decoder.vala                                |    6 +-
+ libkkc/dict.vala                                   |    2 +-
+ libkkc/key-event-filter.vala                       |   68 +
+ libkkc/key-event.vala                              |  272 ++
+ libkkc/keymap.vala                                 |   56 +
+ libkkc/keysyms.vala                                | 2106 +++++++++++++
+ libkkc/kkc.vala                                    |   41 +-
+ libkkc/map-file.vala                               |  135 +
+ libkkc/nicola.vala                                 |  306 ++
+ libkkc/rom-kana-util.vala                          |  432 +++
+ libkkc/rom-kana.vala                               |  342 +++
+ libkkc/rule.vala                                   |  349 +++
+ libkkc/segment-list.vala                           |   57 +
+ libkkc/state.vala                                  |  538 ++++
+ rules/Makefile.am                                  |  128 +
+ rules/README.rules                                 |  166 +
+ rules/act/keymap/default.json                      |    5 +
+ rules/act/keymap/hankaku-katakana.json             |   10 +
+ rules/act/keymap/hiragana.json                     |   10 +
+ rules/act/keymap/katakana.json                     |   10 +
+ rules/act/keymap/latin.json                        |    5 +
+ rules/act/keymap/wide-latin.json                   |    5 +
+ rules/act/metadata.json                            |    4 +
+ rules/act/rom-kana/default.json                    |  671 ++++
+ rules/azik-jp106/keymap/hankaku-katakana.json      |    5 +
+ rules/azik-jp106/keymap/hiragana.json              |   11 +
+ rules/azik-jp106/keymap/katakana.json              |   11 +
+ rules/azik-jp106/keymap/latin.json                 |    5 +
+ rules/azik-jp106/keymap/wide-latin.json            |    5 +
+ rules/azik-jp106/metadata.json                     |    4 +
+ rules/azik-jp106/rom-kana/default.json             |  497 +++
+ rules/azik/keymap/default.json                     |   10 +
+ rules/azik/keymap/hankaku-katakana.json            |   10 +
+ rules/azik/keymap/hiragana.json                    |   10 +
+ rules/azik/keymap/katakana.json                    |   10 +
+ rules/azik/keymap/latin.json                       |    5 +
+ rules/azik/keymap/wide-latin.json                  |    5 +
+ rules/azik/metadata.json                           |    4 +
+ rules/azik/rom-kana/default.json                   |  497 +++
+ rules/default/keymap/default.json                  |   17 +
+ rules/default/keymap/hankaku-katakana.json         |   15 +
+ rules/default/keymap/hiragana.json                 |   15 +
+ rules/default/keymap/katakana.json                 |   15 +
+ rules/default/keymap/latin.json                    |   10 +
+ rules/default/keymap/wide-latin.json               |   10 +
+ rules/default/metadata.json                        |    4 +
+ rules/default/rom-kana/default.json                |  242 ++
+ rules/kzik/keymap/default.json                     |   10 +
+ rules/kzik/keymap/hankaku-katakana.json            |   10 +
+ rules/kzik/keymap/hiragana.json                    |   10 +
+ rules/kzik/keymap/katakana.json                    |   10 +
+ rules/kzik/keymap/latin.json                       |    5 +
+ rules/kzik/keymap/wide-latin.json                  |    5 +
+ rules/kzik/metadata.json                           |    4 +
+ rules/kzik/rom-kana/default.json                   |  521 ++++
+ rules/nicola/keymap/default.json                   |   19 +
+ rules/nicola/keymap/hankaku-katakana.json          |    5 +
+ rules/nicola/keymap/hiragana.json                  |   10 +
+ rules/nicola/keymap/kana.json                      |  180 ++
+ rules/nicola/keymap/katakana.json                  |   10 +
+ rules/nicola/keymap/latin.json                     |    5 +
+ rules/nicola/keymap/wide-latin.json                |    5 +
+ rules/nicola/metadata.json                         |    5 +
+ rules/nicola/rom-kana/default.json                 |    6 +
+ rules/tcode/keymap/hankaku-katakana.json           |    5 +
+ rules/tcode/keymap/hiragana.json                   |    5 +
+ rules/tcode/keymap/katakana.json                   |    5 +
+ rules/tcode/keymap/latin.json                      |    5 +
+ rules/tcode/keymap/wide-latin.json                 |    5 +
+ rules/tcode/metadata.json                          |    4 +
+ rules/tcode/rom-kana/default.json                  | 1360 ++++++++
+ rules/trycode/keymap/hankaku-katakana.json         |    5 +
+ rules/trycode/keymap/hiragana.json                 |    5 +
+ rules/trycode/keymap/katakana.json                 |    5 +
+ rules/trycode/keymap/latin.json                    |    5 +
+ rules/trycode/keymap/wide-latin.json               |    5 +
+ rules/trycode/metadata.json                        |    4 +
+ rules/trycode/rom-kana/default.json                | 3249
+ ++++++++++++++++++++
+ .../tutcode-touch16x/keymap/hankaku-katakana.json  |    5 +
+ rules/tutcode-touch16x/keymap/hiragana.json        |    5 +
+ rules/tutcode-touch16x/keymap/katakana.json        |    5 +
+ rules/tutcode-touch16x/keymap/latin.json           |    5 +
+ rules/tutcode-touch16x/keymap/wide-latin.json      |    5 +
+ rules/tutcode-touch16x/metadata.json               |    4 +
+ rules/tutcode-touch16x/rom-kana/default.json       |   18 +
+ rules/tutcode/keymap/hankaku-katakana.json         |    5 +
+ rules/tutcode/keymap/hiragana.json                 |    5 +
+ rules/tutcode/keymap/katakana.json                 |    5 +
+ rules/tutcode/keymap/latin.json                    |    5 +
+ rules/tutcode/keymap/wide-latin.json               |    5 +
+ rules/tutcode/metadata.json                        |    4 +
+ rules/tutcode/rom-kana/default.json                | 2645
+ ++++++++++++++++
+ tools/kkc.vala                                     |   57 +-
+ 100 files changed, 16332 insertions(+), 14 deletions(-)
+
+commit 3c93a29be690d91a86026969908d0af25f88ee9f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Aug 27 16:39:18 2012 +0900
+
+    Minor style fix.
+
+ libkkc/decoder.vala | 4 +---
+ libkkc/dict.vala    | 1 -
+ 2 files changed, 1 insertion(+), 4 deletions(-)
+
+commit cc1fd123be76fea24209df7d0e79cd0cd3504430
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Aug 27 16:35:59 2012 +0900
+
+    Handle mmap errors.
+
+ libkkc/sorted-bigram-dict.vala  | 29 +++++++++++++++++++++++++----
+ libkkc/sorted-trigram-dict.vala |  7 ++++++-
+ libkkc/text-bigram-dict.vala    | 11 ++++++++---
+ libkkc/util.vala                |  2 +-
+ 4 files changed, 40 insertions(+), 9 deletions(-)
+
+commit cd7c103b24034c37b21c6bf62abfe72bf62dab79
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue Aug 7 11:31:16 2012 +0900
+
+    Initial import.
+
+ AUTHORS                           |   0
+ COPYING                           | 674
+ ++++++++++++++++++++++++++++++++++++++
+ INSTALL                           | 370 +++++++++++++++++++++
+ Makefile.am                       |  78 +++++
+ NEWS                              |   0
+ README                            |  36 ++
+ autogen.sh                        |  25 ++
+ configure.ac                      | 175 ++++++++++
+ docs/Makefile.am                  |  98 ++++++
+ git.mk                            | 206 ++++++++++++
+ lcov.mk                           |  23 ++
+ libkkc/Makefile.am                | 111 +++++++
+ libkkc/bigram-decoder.vala        | 271 +++++++++++++++
+ libkkc/config.vapi                |  11 +
+ libkkc/decoder.vala               |  40 +++
+ libkkc/dict.vala                  | 189 +++++++++++
+ libkkc/kkc-1.0.deps               |   5 +
+ libkkc/kkc.vala                   |  34 ++
+ libkkc/libkkc.pc.in               |  29 ++
+ libkkc/segment.vala               |  43 +++
+ libkkc/sorted-bigram-dict.vala    | 174 ++++++++++
+ libkkc/sorted-trigram-dict.vala   |  73 +++++
+ libkkc/text-bigram-dict.vala      | 183 +++++++++++
+ libkkc/text-trigram-dict.vala     |  44 +++
+ libkkc/trellis-node.vala          | 153 +++++++++
+ libkkc/trigram-decoder.vala       | 246 ++++++++++++++
+ libkkc/util.vala                  | 134 ++++++++
+ marisa-glib/Makefile.am           |  63 ++++
+ marisa-glib/Marisa-custom.vala    |   2 +
+ marisa-glib/Marisa.metadata       |   5 +
+ marisa-glib/marisa-agent.cc       |  63 ++++
+ marisa-glib/marisa-agent.h        |  37 +++
+ marisa-glib/marisa-glib-private.h |  57 ++++
+ marisa-glib/marisa-glib.deps      |   1 +
+ marisa-glib/marisa-glib.h         |  18 +
+ marisa-glib/marisa-key.cc         |  66 ++++
+ marisa-glib/marisa-key.h          |  31 ++
+ marisa-glib/marisa-keyset.cc      |  61 ++++
+ marisa-glib/marisa-keyset.h       |  37 +++
+ marisa-glib/marisa-trie.cc        | 134 ++++++++
+ marisa-glib/marisa-trie.h         |  42 +++
+ po/POTFILES.in                    |   0
+ tests/Makefile.am                 |  37 +++
+ tests/basic.c                     | 135 ++++++++
+ tools/Makefile.am                 |  22 ++
+ tools/kkc.vala                    |  95 ++++++
+ 46 files changed, 4331 insertions(+)

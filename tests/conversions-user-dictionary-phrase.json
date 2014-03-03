@@ -1,0 +1,18 @@
+[
+    {
+        "keys": "k a r e n o n a m a e h a n a k a n o d e s u SPC Right Right C-Left C-Left SPC RET",
+        "input": "",
+        "segments": "",
+        "segments_size": 0,
+        "segments_cursor_pos": -1,
+        "output": "彼の名前は中のです"
+    },
+    {
+        "keys": "w a t a s h i n o n a m a e h a n a k a n o d e s u SPC",
+        "input": "わたしのなまえはなかのです",
+        "segments": "私の名前は中のです",
+        "segments_size": 3,
+        "segments_cursor_pos": 0,
+        "output": ""
+    }
+]
