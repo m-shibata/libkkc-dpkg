@@ -1,0 +1,71 @@
+Source: libkkc
+Priority: extra
+Maintainer: IME Packaging Team <pkg-ime-devel@lists.alioth.debian.org>
+Uploaders: Mitsuya Shibata <mty.shibata@gmail.com>, Osamu Aoki <osamu@debian.org>
+Build-Depends: debhelper (>= 9),
+    autotools-dev,
+    intltool,
+    valac,
+    libglib2.0-dev,
+    libgee-dev,
+    libjson-glib-dev,
+    libmarisa-dev,
+    gobject-introspection,
+    libgirepository1.0-dev,
+    python-marisa
+Standards-Version: 3.9.5
+Section: libs
+Homepage: https://bitbucket.org/libkkc/libkkc/wiki/Home
+
+Package: libkkc-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libkkc2 (= ${binary:Version}), ${misc:Depends}
+Description: Japanese Kana Kanji input library - development files
+ libkkc provides a converter from Japanese Kana-string to
+ Kana-Kanji-mixed-string. It was named after kkc.el in GNU Emacs, a simple Kana
+ Kanji converter, while libkkc tries to convert sentences in a bit more complex
+ way using N-gram language models.
+ .
+ This package provides the files necessary for compiling programs that
+ depend on libkkc.
+
+Package: libkkc2
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: libkkc-common, libkkc-data, skkdic, ${shlibs:Depends}, ${misc:Depends}
+Description: Japanese Kana Kanji input library
+ libkkc provides a converter from Japanese Kana-string to
+ Kana-Kanji-mixed-string. It was named after kkc.el in GNU Emacs, a simple Kana
+ Kanji converter, while libkkc tries to convert sentences in a bit more complex
+ way using N-gram language models.
+ .
+ This package provides shared libraries for libkkc.
+
+Package: libkkc-utils
+Section: utils
+Architecture: any
+Multi-Arch: foreign
+Depends: libkkc2 (= ${binary:Version}), libkkc-data, ${shlibs:Depends}, ${misc:Depends}
+Description: Japanese Kana Kanji input library - utility files
+ libkkc provides a converter from Japanese Kana-string to
+ Kana-Kanji-mixed-string. It was named after kkc.el in GNU Emacs, a simple Kana
+ Kanji converter, while libkkc tries to convert sentences in a bit more complex
+ way using N-gram language models.
+ .
+ This package provides test utils for libkkc.
+
+Package: libkkc-common
+Section: utils
+Architecture: any
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Description: Japanese Kana Kanji input library - common data
+ libkkc provides a converter from Japanese Kana-string to
+ Kana-Kanji-mixed-string. It was named after kkc.el in GNU Emacs, a simple Kana
+ Kanji converter, while libkkc tries to convert sentences in a bit more complex
+ way using N-gram language models.
+ .
+ This package provides common data as like typing rules for libkkc.
