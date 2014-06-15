@@ -104,9 +104,9 @@ DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	sorted-trigram-language-model.c language-model-utils.c \
 	decoder.c bigram-decoder.c trigram-decoder.c segment-list.c \
 	segment.c bloom-filter.c candidate-list.c candidate.c \
-	key-event-filter.c key-event.c keymap.c keynames.c keysyms.c \
-	map-file.c nicola.c rom-kana-utils.c rom-kana.c rule.c \
-	user-rule.c context.c state.c initial-state-handler.c \
+	key-event-filter.c key-event.c keymap.c keysyms.c map-file.c \
+	nicola.c rom-kana-utils.c rom-kana.c rule.c user-rule.c \
+	context.c state.c initial-state-handler.c \
 	convert-sentence-state-handler.c \
 	convert-segment-state-handler.c dictionary.c \
 	segment-dictionary.c system-segment-dictionary.c \
@@ -178,11 +178,11 @@ libkkc_la_DEPENDENCIES = $(am__DEPENDENCIES_1) \
 	$(top_builddir)/marisa-glib/libmarisa-glib.la
 am__objects_1 = libkkc_la-candidate-list.lo libkkc_la-candidate.lo \
 	libkkc_la-key-event-filter.lo libkkc_la-key-event.lo \
-	libkkc_la-keymap.lo libkkc_la-keynames.lo libkkc_la-keysyms.lo \
-	libkkc_la-map-file.lo libkkc_la-nicola.lo \
-	libkkc_la-rom-kana-utils.lo libkkc_la-rom-kana.lo \
-	libkkc_la-rule.lo libkkc_la-user-rule.lo libkkc_la-context.lo \
-	libkkc_la-state.lo libkkc_la-initial-state-handler.lo \
+	libkkc_la-keymap.lo libkkc_la-keysyms.lo libkkc_la-map-file.lo \
+	libkkc_la-nicola.lo libkkc_la-rom-kana-utils.lo \
+	libkkc_la-rom-kana.lo libkkc_la-rule.lo libkkc_la-user-rule.lo \
+	libkkc_la-context.lo libkkc_la-state.lo \
+	libkkc_la-initial-state-handler.lo \
 	libkkc_la-convert-sentence-state-handler.lo \
 	libkkc_la-convert-segment-state-handler.lo \
 	libkkc_la-dictionary.lo libkkc_la-segment-dictionary.lo \
@@ -482,6 +482,7 @@ libkkc_la_VALAFLAGS = \
 	--vapidir=.						\
 	--vapidir=$(top_srcdir)/marisa-glib			\
 	--pkg config						\
+	--pkg keysyms						\
 	--pkg glib-2.0						\
 	--pkg gio-2.0						\
 	--pkg gee-1.0						\
@@ -541,7 +542,6 @@ libkkc_shell_sources = \
 	key-event-filter.vala			\
 	key-event.vala				\
 	keymap.vala				\
-	keynames.vala				\
 	keysyms.vala				\
 	map-file.vala				\
 	nicola.vala				\
@@ -612,7 +612,15 @@ pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = kkc-1.0.pc
 vapi_DATA = kkc-1.0.vapi kkc-1.0.deps
 vapidir = $(datadir)/vala/vapi
-EXTRA_DIST = config.vapi kkc-1.0.deps libkkc.symbols
+EXTRA_DIST = \
+	config.vapi				\
+	kkc-1.0.deps				\
+	libkkc.symbols				\
+	ks_tables.h				\
+	keysyms.h				\
+	keysyms.vapi				\
+	$(NULL)
+
 all: all-am
 
 .SUFFIXES:
@@ -724,7 +732,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libkkc_la-key-event-filter.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libkkc_la-key-event.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libkkc_la-keymap.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libkkc_la-keynames.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libkkc_la-keysyms.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libkkc_la-kkc.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libkkc_la-language-model-utils.Plo@am__quote@
@@ -908,13 +915,6 @@ libkkc_la-keymap.lo: keymap.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='keymap.c' object='libkkc_la-keymap.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libkkc_la_CFLAGS) $(CFLAGS) -c -o libkkc_la-keymap.lo `test -f 'keymap.c' || echo '$(srcdir)/'`keymap.c
-
-libkkc_la-keynames.lo: keynames.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libkkc_la_CFLAGS) $(CFLAGS) -MT libkkc_la-keynames.lo -MD -MP -MF $(DEPDIR)/libkkc_la-keynames.Tpo -c -o libkkc_la-keynames.lo `test -f 'keynames.c' || echo '$(srcdir)/'`keynames.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libkkc_la-keynames.Tpo $(DEPDIR)/libkkc_la-keynames.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='keynames.c' object='libkkc_la-keynames.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libkkc_la_CFLAGS) $(CFLAGS) -c -o libkkc_la-keynames.lo `test -f 'keynames.c' || echo '$(srcdir)/'`keynames.c
 
 libkkc_la-keysyms.lo: keysyms.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libkkc_la_CFLAGS) $(CFLAGS) -MT libkkc_la-keysyms.lo -MD -MP -MF $(DEPDIR)/libkkc_la-keysyms.Tpo -c -o libkkc_la-keysyms.lo `test -f 'keysyms.c' || echo '$(srcdir)/'`keysyms.c
@@ -1192,11 +1192,6 @@ $(srcdir)/keymap.c: $(srcdir)/libkkc_la_vala.stamp
 	@if test -f $@; then :; else \
 	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/libkkc_la_vala.stamp; \
 	fi
-$(srcdir)/keynames.c: $(srcdir)/libkkc_la_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/libkkc_la_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/libkkc_la_vala.stamp; \
-	fi
 $(srcdir)/keysyms.c: $(srcdir)/libkkc_la_vala.stamp
 	@if test -f $@; then :; else rm -f $(srcdir)/libkkc_la_vala.stamp; fi
 	@if test -f $@; then :; else \
@@ -1352,9 +1347,9 @@ $(srcdir)/Kkc-@KKC_API_VERSION@.gir: $(srcdir)/libkkc_la_vala.stamp
 	@if test -f $@; then :; else \
 	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/libkkc_la_vala.stamp; \
 	fi
-$(srcdir)/libkkc_la_vala.stamp: metadata-file.vala trellis-node.vala language-model.vala text-bigram-language-model.vala text-trigram-language-model.vala sorted-bigram-language-model.vala sorted-trigram-language-model.vala language-model-utils.vala decoder.vala bigram-decoder.vala trigram-decoder.vala segment-list.vala segment.vala bloom-filter.vala candidate-list.vala candidate.vala key-event-filter.vala key-event.vala keymap.vala keynames.vala keysyms.vala map-file.vala nicola.vala rom-kana-utils.vala rom-kana.vala rule.vala user-rule.vala context.vala state.vala initial-state-handler.vala convert-sentence-state-handler.vala convert-segment-state-handler.vala dictionary.vala segment-dictionary.vala system-segment-dictionary.vala user-segment-dictionary.vala sentence-dictionary.vala user-sentence-dictionary.vala user-dictionary.vala dictionary-list.vala encoding.vala template.vala numeric-template.vala expression.vala utils.vala kkc.vala
+$(srcdir)/libkkc_la_vala.stamp: metadata-file.vala trellis-node.vala language-model.vala text-bigram-language-model.vala text-trigram-language-model.vala sorted-bigram-language-model.vala sorted-trigram-language-model.vala language-model-utils.vala decoder.vala bigram-decoder.vala trigram-decoder.vala segment-list.vala segment.vala bloom-filter.vala candidate-list.vala candidate.vala key-event-filter.vala key-event.vala keymap.vala keysyms.vala map-file.vala nicola.vala rom-kana-utils.vala rom-kana.vala rule.vala user-rule.vala context.vala state.vala initial-state-handler.vala convert-sentence-state-handler.vala convert-segment-state-handler.vala dictionary.vala segment-dictionary.vala system-segment-dictionary.vala user-segment-dictionary.vala sentence-dictionary.vala user-sentence-dictionary.vala user-dictionary.vala dictionary-list.vala encoding.vala template.vala numeric-template.vala expression.vala utils.vala kkc.vala
 	$(AM_V_at)rm -f $@ && echo stamp > $@-t
-	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(libkkc_la_VALAFLAGS) $(VALAFLAGS) -C metadata-file.vala trellis-node.vala language-model.vala text-bigram-language-model.vala text-trigram-language-model.vala sorted-bigram-language-model.vala sorted-trigram-language-model.vala language-model-utils.vala decoder.vala bigram-decoder.vala trigram-decoder.vala segment-list.vala segment.vala bloom-filter.vala candidate-list.vala candidate.vala key-event-filter.vala key-event.vala keymap.vala keynames.vala keysyms.vala map-file.vala nicola.vala rom-kana-utils.vala rom-kana.vala rule.vala user-rule.vala context.vala state.vala initial-state-handler.vala convert-sentence-state-handler.vala convert-segment-state-handler.vala dictionary.vala segment-dictionary.vala system-segment-dictionary.vala user-segment-dictionary.vala sentence-dictionary.vala user-sentence-dictionary.vala user-dictionary.vala dictionary-list.vala encoding.vala template.vala numeric-template.vala expression.vala utils.vala kkc.vala
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(libkkc_la_VALAFLAGS) $(VALAFLAGS) -C metadata-file.vala trellis-node.vala language-model.vala text-bigram-language-model.vala text-trigram-language-model.vala sorted-bigram-language-model.vala sorted-trigram-language-model.vala language-model-utils.vala decoder.vala bigram-decoder.vala trigram-decoder.vala segment-list.vala segment.vala bloom-filter.vala candidate-list.vala candidate.vala key-event-filter.vala key-event.vala keymap.vala keysyms.vala map-file.vala nicola.vala rom-kana-utils.vala rom-kana.vala rule.vala user-rule.vala context.vala state.vala initial-state-handler.vala convert-sentence-state-handler.vala convert-segment-state-handler.vala dictionary.vala segment-dictionary.vala system-segment-dictionary.vala user-segment-dictionary.vala sentence-dictionary.vala user-sentence-dictionary.vala user-dictionary.vala dictionary-list.vala encoding.vala template.vala numeric-template.vala expression.vala utils.vala kkc.vala
 	$(AM_V_at)mv -f $@-t $@
 
 mostlyclean-libtool:
@@ -1605,7 +1600,6 @@ maintainer-clean-generic:
 	-rm -f $(srcdir)/key-event-filter.c
 	-rm -f $(srcdir)/key-event.c
 	-rm -f $(srcdir)/keymap.c
-	-rm -f $(srcdir)/keynames.c
 	-rm -f $(srcdir)/keysyms.c
 	-rm -f $(srcdir)/kkc-@KKC_API_VERSION@.vapi
 	-rm -f $(srcdir)/kkc-internals-@KKC_API_VERSION@.vapi
@@ -1656,7 +1650,6 @@ maintainer-clean-generic:
 	-rm -f key-event-filter.c
 	-rm -f key-event.c
 	-rm -f keymap.c
-	-rm -f keynames.c
 	-rm -f keysyms.c
 	-rm -f kkc.c
 	-rm -f language-model-utils.c

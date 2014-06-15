@@ -110,6 +110,7 @@ kkc_segment_list_get
 kkc_segment_list_get_offset
 kkc_segment_list_set_segments
 kkc_segment_list_first_segment
+kkc_segment_list_last_segment
 kkc_segment_list_next_segment
 kkc_segment_list_previous_segment
 kkc_segment_list_get_output

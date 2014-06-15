@@ -50,6 +50,10 @@ namespace Kkc {
                                        do_next_segment);
             register_command_callback ("previous-segment",
                                        do_previous_segment);
+            register_command_callback ("first-segment",
+                                       do_first_segment);
+            register_command_callback ("last-segment",
+                                       do_last_segment);
 
             register_command_callback ("abort", do_clear_unhandled);
             register_command_callback ("delete", do_clear_unhandled);
@@ -95,6 +99,16 @@ namespace Kkc {
             return true;
         }
 
+        bool do_first_segment (string? command, State state, KeyEvent key) {
+            state.segments.first_segment ();
+            return true;
+        }
+
+        bool do_last_segment (string? command, State state, KeyEvent key) {
+            state.segments.last_segment ();
+            return true;
+        }
+
         bool do_start_segment_conversion (string? command, State state, KeyEvent key) {
             state.lookup (state.segments[state.segments.cursor_pos]);
             state.candidates.first ();
@@ -113,7 +127,10 @@ namespace Kkc {
             state.select_sentence ();
             state.reset ();
 
-            if (command == "commit")
+            if (command == "commit" ||
+                // Consider non-printable key as commit command
+                // FIXME: Make this check more reliable
+                (command == null && key.unicode == '\0'))
                 return true;
 
             if (command == null &&

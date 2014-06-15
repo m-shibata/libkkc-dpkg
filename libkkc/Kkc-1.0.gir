@@ -7340,6 +7340,11 @@
 				<type name="gboolean" c:type="gboolean"/>
 			</return-value>
 		</method>
+		<method name="last_segment" c:identifier="kkc_segment_list_last_segment">
+			<return-value transfer-ownership="full">
+				<type name="gboolean" c:type="gboolean"/>
+			</return-value>
+		</method>
 		<method name="next_segment" c:identifier="kkc_segment_list_next_segment">
 			<return-value transfer-ownership="full">
 				<type name="none"/>

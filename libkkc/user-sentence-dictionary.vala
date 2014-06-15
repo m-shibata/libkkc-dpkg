@@ -254,10 +254,13 @@ namespace Kkc {
 
             // Make sure to null terminate so joinv determine the end of strv.
             input.add (null);
-            constraint_entries.set (string.joinv ("", input.to_array ()),
-                                    constraint);
-            phrase_entries.set (string.joinv (" ", input.to_array ()),
-                                phrase);
+
+            // Newer valac thinks null in a fixed length array as an
+            // empty string.
+            var array = input.to_array ();
+            array.length = -1;
+            constraint_entries.set (string.joinv ("", array), constraint);
+            phrase_entries.set (string.joinv (" ", array), phrase);
             is_dirty = true;
             return true;
         }
