@@ -3,7 +3,7 @@ Priority: extra
 Maintainer: IME Packaging Team <pkg-ime-devel@lists.alioth.debian.org>
 Uploaders: Mitsuya Shibata <mty.shibata@gmail.com>,
            Osamu Aoki <osamu@debian.org>
-Build-Depends: autotools-dev,
+Build-Depends: dh-autoreconf,
                debhelper (>= 9),
                gobject-introspection,
                intltool,

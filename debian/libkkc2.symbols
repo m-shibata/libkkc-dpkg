@@ -270,6 +270,7 @@ libkkc.so.2 libkkc2 #MINVER#
  kkc_segment_list_get_output@Base 0.3.2
  kkc_segment_list_get_size@Base 0.3.2
  kkc_segment_list_get_type@Base 0.3.2
+ kkc_segment_list_last_segment@Base 0.3.3
  kkc_segment_list_new@Base 0.3.2
  kkc_segment_list_next_segment@Base 0.3.2
  kkc_segment_list_previous_segment@Base 0.3.2
