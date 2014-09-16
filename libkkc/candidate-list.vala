@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2011-2013 Daiki Ueno <ueno@gnu.org>
- * Copyright (C) 2011-2013 Red Hat, Inc.
+ * Copyright (C) 2011-2014 Daiki Ueno <ueno@gnu.org>
+ * Copyright (C) 2011-2014 Red Hat, Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -63,7 +63,7 @@ namespace Kkc {
             }
         }
 
-        Set<string> seen = new HashSet<string> ();
+        Set<string> seen = new Gee.HashSet<string> ();
 
         internal void clear () {
             bool is_populated = false;

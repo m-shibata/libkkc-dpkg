@@ -1,5 +1,5 @@
-# Copyright (C) 2012-2013 Daiki Ueno <ueno@gnu.org>
-# Copyright (C) 2012-2013 Red Hat, Inc.
+# Copyright (C) 2012-2014 Daiki Ueno <ueno@gnu.org>
+# Copyright (C) 2012-2014 Red Hat, Inc.
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 AC_PREREQ(2.63)
 AC_CONFIG_MACRO_DIR([m4])
 
-AC_INIT([libkkc], [0.3.3], [ueno@gnu.org])
+AC_INIT([libkkc], [0.3.4], [ueno@gnu.org])
 
 KKC_API_VERSION=1.0
 KKC_API_MAJOR_VERSION=1
@@ -75,8 +75,8 @@ PKG_CHECK_MODULES([GIO], [gio-2.0], ,
   [AC_MSG_ERROR([can't find gio-2.0])])
 
 # check gee
-PKG_CHECK_MODULES([GEE], [gee-1.0], ,
-  [AC_MSG_ERROR([can't find gee-1.0])])
+PKG_CHECK_MODULES([GEE], [gee-0.8], ,
+  [AC_MSG_ERROR([can't find gee-0.8])])
 
 # check json-glib
 PKG_CHECK_MODULES([JSON_GLIB], [json-glib-1.0], ,

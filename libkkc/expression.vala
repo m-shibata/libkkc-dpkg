@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2011-2013 Daiki Ueno <ueno@gnu.org>
- * Copyright (C) 2011-2013 Red Hat, Inc.
+ * Copyright (C) 2011-2014 Daiki Ueno <ueno@gnu.org>
+ * Copyright (C) 2011-2014 Red Hat, Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -159,7 +159,7 @@ namespace Kkc {
         public string? eval (ExpressionNode node) {
             if (node.type == ExpressionNodeType.ARRAY) {
                 var iter = node.nodes.list_iterator ();
-                if (iter.first ()) {
+                if (iter.next ()) {
                     var funcall = iter.get ();
                     if (funcall.type == ExpressionNodeType.SYMBOL) {
                         // FIXME support other functions in more extensible way

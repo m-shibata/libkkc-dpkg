@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2012-2013 Daiki Ueno <ueno@gnu.org>
- * Copyright (C) 2012-2013 Red Hat, Inc.
+ * Copyright (C) 2012-2014 Daiki Ueno <ueno@gnu.org>
+ * Copyright (C) 2012-2014 Red Hat, Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -191,10 +191,9 @@ namespace Kkc {
                 trigram_trellis[i] = new ArrayList<TrellisNode> ();
             }
 
-            var overlapped_nodes = new HashSet<TrellisNode>[trellis.length];
+            var overlapped_nodes = new Gee.HashSet<TrellisNode>[trellis.length];
             for (var i = 0; i < overlapped_nodes.length; i++) {
-                overlapped_nodes[i] = new HashSet<TrellisNode> (direct_hash,
-                                                                direct_equal);
+                overlapped_nodes[i] = new Gee.HashSet<TrellisNode> ();
             }
 
             for (var i = 1; i < trellis.length; i++) {

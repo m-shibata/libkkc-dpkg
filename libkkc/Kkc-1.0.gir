@@ -3,7 +3,7 @@
 <include name="GObject" version="2.0"/>
 <include name="Gio" version="2.0"/>
 <include name="Json" version="1.0"/>
-<include name="Gee" version="1.0"/>
+<include name="Gee" version="0.8"/>
 <package name="kkc-1.0"/>
 <c:include name="libkkc/libkkc.h"/>
 <namespace name="Kkc" version="1.0" c:prefix="Kkc">
@@ -8592,7 +8592,7 @@
 				<parameter name="type" transfer-ownership="none" allow-none="1">
 					<type name="GObject.Type" c:type="GType*"/>
 				</parameter>
-				<parameter name="callback" transfer-ownership="none" closure="2">
+				<parameter name="callback" transfer-ownership="none" closure="2" scope="call">
 					<type name="Kkc.DictionaryListDictionaryCallback" c:type="KkcDictionaryListDictionaryCallback"/>
 				</parameter>
 				<parameter name="callback_target" transfer-ownership="none" allow-none="1">

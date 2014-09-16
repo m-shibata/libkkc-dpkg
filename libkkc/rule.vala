@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2011-2013 Daiki Ueno <ueno@gnu.org>
- * Copyright (C) 2011-2013 Red Hat, Inc.
+ * Copyright (C) 2011-2014 Daiki Ueno <ueno@gnu.org>
+ * Copyright (C) 2011-2014 Red Hat, Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,19 +36,17 @@ namespace Kkc {
 
         void load_keymap (Keymap keymap, Map<string,Json.Node> map) {
             var iter = map.map_iterator ();
-            if (iter.first ()) {
-                do {
-                    var key = iter.get_key ();
-                    var value = iter.get_value ();
-                    try {
-                        keymap.set (new KeyEvent.from_string (key),
-                                    value.get_string ());
-                    } catch (KeyEventFormatError e) {
-                        warning (
-                            "can't get key event from string %s: %s",
-                            key, e.message);
-                    }
-                } while (iter.next ());
+            while (iter.next ()) {
+                var key = iter.get_key ();
+                var value = iter.get_value ();
+                try {
+                    keymap.set (new KeyEvent.from_string (key),
+                                value.get_string ());
+                } catch (KeyEventFormatError e) {
+                    warning (
+                        "can't get key event from string %s: %s",
+                        key, e.message);
+                }
             }
         }
 
@@ -116,15 +114,13 @@ namespace Kkc {
             var parent_map = get_parent ("rom-kana");
             var map = get ("rom-kana");
             var iter = map.map_iterator ();
-            if (iter.first ()) {
-                do {
-                    var key = iter.get_key ();
-                    var value = iter.get_value ();
-                    if (value.get_node_type () == Json.NodeType.NULL)
-                        parent_map.unset (key);
-                    else
-                        parent_map.set (key, value);
-                } while (iter.next ());
+            while (iter.next ()) {
+                var key = iter.get_key ();
+                var value = iter.get_value ();
+                if (value.get_node_type () == Json.NodeType.NULL)
+                    parent_map.unset (key);
+                else
+                    parent_map.set (key, value);
             }
             load_rom_kana (root_node, parent_map);
         }
@@ -309,7 +305,7 @@ namespace Kkc {
          * @return an array of RuleMetadata
          */
         public static RuleMetadata[] list () {
-            Set<string> names = new HashSet<string> ();
+            Set<string> names = new Gee.HashSet<string> ();
             RuleMetadata[] rules = {};
             var dirs = Utils.build_data_path ("rules");
             foreach (var dir in dirs) {
