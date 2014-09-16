@@ -1,3 +1,10 @@
+libkkc (0.3.4-1) unstable; urgency=medium
+
+  * New upsteam release
+  * Change Build-Depends from libgee-dev to libgee-0.8-dev (Closes: #753873)
+
+ -- Mitsuya Shibata <mty.shibata@gmail.com>  Tue, 16 Sep 2014 23:04:05 +0900
+
 libkkc (0.3.3-1) unstable; urgency=medium
 
   * New upstream release.
