@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2011-2013 Daiki Ueno <ueno@gnu.org>
- * Copyright (C) 2011-2013 Red Hat, Inc.
+ * Copyright (C) 2011-2014 Daiki Ueno <ueno@gnu.org>
+ * Copyright (C) 2011-2014 Red Hat, Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -131,7 +131,7 @@ namespace Kkc {
                           string type,
                           string name) throws RuleParseError
         {
-            Set<string> parents = new HashSet<string> ();
+            Set<string> parents = new Gee.HashSet<string> ();
             load (metadata, type, name, parents, maps, parent_maps);
         }
 

@@ -14,8 +14,8 @@
 
 @SET_MAKE@
 
-# Copyright (C) 2011-2013 Daiki Ueno <ueno@gnu.org>
-# Copyright (C) 2011-2013 Red Hat, Inc.
+# Copyright (C) 2011-2014 Daiki Ueno <ueno@gnu.org>
+# Copyright (C) 2011-2014 Red Hat, Inc.
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -111,23 +111,23 @@ DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am candidate.c \
 	metadata-file.c rom-kana.c rule.c segment.c segment-list.c \
 	state.c system-dictionary.c template.c trellis-node.c \
 	user-dictionary.c user-rule.c $(top_srcdir)/depcomp \
-	$(srcdir)/keymap_vala.stamp $(srcdir)/rule_vala.stamp \
-	$(srcdir)/key_event_vala.stamp $(srcdir)/segment_vala.stamp \
-	$(srcdir)/user_rule_vala.stamp $(srcdir)/state_vala.stamp \
-	$(srcdir)/user_dictionary_vala.stamp \
-	$(srcdir)/template_vala.stamp \
-	$(srcdir)/language_model_vala.stamp \
-	$(srcdir)/encoding_vala.stamp \
-	$(srcdir)/dictionary_list_vala.stamp \
-	$(srcdir)/segment_list_vala.stamp \
 	$(srcdir)/expression_vala.stamp \
+	$(srcdir)/trellis_node_vala.stamp \
+	$(srcdir)/encoding_vala.stamp $(srcdir)/keymap_vala.stamp \
+	$(srcdir)/user_rule_vala.stamp $(srcdir)/rule_vala.stamp \
+	$(srcdir)/segment_list_vala.stamp \
+	$(srcdir)/dictionary_list_vala.stamp \
 	$(srcdir)/metadata_file_vala.stamp \
-	$(srcdir)/decoder_vala.stamp $(srcdir)/trellis_node_vala.stamp \
+	$(srcdir)/decoder_vala.stamp $(srcdir)/key_event_vala.stamp \
+	$(srcdir)/state_vala.stamp $(srcdir)/rom_kana_vala.stamp \
+	$(srcdir)/template_vala.stamp \
+	$(srcdir)/user_dictionary_vala.stamp \
 	$(srcdir)/candidate_list_vala.stamp \
-	$(srcdir)/candidate_vala.stamp \
+	$(srcdir)/candidate_vala.stamp $(srcdir)/segment_vala.stamp \
+	$(srcdir)/language_model_vala.stamp \
 	$(srcdir)/system_dictionary_vala.stamp \
-	$(srcdir)/context_vala.stamp $(srcdir)/rom_kana_vala.stamp \
-	$(noinst_HEADERS) $(top_srcdir)/test-driver
+	$(srcdir)/context_vala.stamp $(noinst_HEADERS) \
+	$(top_srcdir)/test-driver
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/intltool.m4 \
 	$(top_srcdir)/m4/libtool.m4 $(top_srcdir)/m4/ltoptions.m4 \
@@ -1128,86 +1128,23 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LTCOMPILE) -c -o $@ $<
-$(srcdir)/keymap.c: $(srcdir)/keymap_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/keymap_vala.stamp; fi
+$(srcdir)/expression.c: $(srcdir)/expression_vala.stamp
+	@if test -f $@; then :; else rm -f $(srcdir)/expression_vala.stamp; fi
 	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/keymap_vala.stamp; \
+	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/expression_vala.stamp; \
 	fi
-$(srcdir)/keymap_vala.stamp: keymap.vala
+$(srcdir)/expression_vala.stamp: expression.vala
 	$(AM_V_at)rm -f $@ && echo stamp > $@-t
-	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C keymap.vala
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C expression.vala
 	$(AM_V_at)mv -f $@-t $@
-$(srcdir)/rule.c: $(srcdir)/rule_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/rule_vala.stamp; fi
+$(srcdir)/trellis-node.c: $(srcdir)/trellis_node_vala.stamp
+	@if test -f $@; then :; else rm -f $(srcdir)/trellis_node_vala.stamp; fi
 	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/rule_vala.stamp; \
+	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/trellis_node_vala.stamp; \
 	fi
-$(srcdir)/rule_vala.stamp: rule.vala
+$(srcdir)/trellis_node_vala.stamp: trellis-node.vala
 	$(AM_V_at)rm -f $@ && echo stamp > $@-t
-	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C rule.vala
-	$(AM_V_at)mv -f $@-t $@
-$(srcdir)/key-event.c: $(srcdir)/key_event_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/key_event_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/key_event_vala.stamp; \
-	fi
-$(srcdir)/key_event_vala.stamp: key-event.vala
-	$(AM_V_at)rm -f $@ && echo stamp > $@-t
-	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C key-event.vala
-	$(AM_V_at)mv -f $@-t $@
-$(srcdir)/segment.c: $(srcdir)/segment_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/segment_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/segment_vala.stamp; \
-	fi
-$(srcdir)/segment_vala.stamp: segment.vala
-	$(AM_V_at)rm -f $@ && echo stamp > $@-t
-	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C segment.vala
-	$(AM_V_at)mv -f $@-t $@
-$(srcdir)/user-rule.c: $(srcdir)/user_rule_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/user_rule_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/user_rule_vala.stamp; \
-	fi
-$(srcdir)/user_rule_vala.stamp: user-rule.vala
-	$(AM_V_at)rm -f $@ && echo stamp > $@-t
-	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C user-rule.vala
-	$(AM_V_at)mv -f $@-t $@
-$(srcdir)/state.c: $(srcdir)/state_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/state_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/state_vala.stamp; \
-	fi
-$(srcdir)/state_vala.stamp: state.vala
-	$(AM_V_at)rm -f $@ && echo stamp > $@-t
-	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C state.vala
-	$(AM_V_at)mv -f $@-t $@
-$(srcdir)/user-dictionary.c: $(srcdir)/user_dictionary_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/user_dictionary_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/user_dictionary_vala.stamp; \
-	fi
-$(srcdir)/user_dictionary_vala.stamp: user-dictionary.vala
-	$(AM_V_at)rm -f $@ && echo stamp > $@-t
-	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C user-dictionary.vala
-	$(AM_V_at)mv -f $@-t $@
-$(srcdir)/template.c: $(srcdir)/template_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/template_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/template_vala.stamp; \
-	fi
-$(srcdir)/template_vala.stamp: template.vala
-	$(AM_V_at)rm -f $@ && echo stamp > $@-t
-	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C template.vala
-	$(AM_V_at)mv -f $@-t $@
-$(srcdir)/language-model.c: $(srcdir)/language_model_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/language_model_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/language_model_vala.stamp; \
-	fi
-$(srcdir)/language_model_vala.stamp: language-model.vala
-	$(AM_V_at)rm -f $@ && echo stamp > $@-t
-	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C language-model.vala
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C trellis-node.vala
 	$(AM_V_at)mv -f $@-t $@
 $(srcdir)/encoding.c: $(srcdir)/encoding_vala.stamp
 	@if test -f $@; then :; else rm -f $(srcdir)/encoding_vala.stamp; fi
@@ -1218,14 +1155,32 @@ $(srcdir)/encoding_vala.stamp: encoding.vala
 	$(AM_V_at)rm -f $@ && echo stamp > $@-t
 	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C encoding.vala
 	$(AM_V_at)mv -f $@-t $@
-$(srcdir)/dictionary-list.c: $(srcdir)/dictionary_list_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/dictionary_list_vala.stamp; fi
+$(srcdir)/keymap.c: $(srcdir)/keymap_vala.stamp
+	@if test -f $@; then :; else rm -f $(srcdir)/keymap_vala.stamp; fi
 	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/dictionary_list_vala.stamp; \
+	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/keymap_vala.stamp; \
 	fi
-$(srcdir)/dictionary_list_vala.stamp: dictionary-list.vala
+$(srcdir)/keymap_vala.stamp: keymap.vala
 	$(AM_V_at)rm -f $@ && echo stamp > $@-t
-	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C dictionary-list.vala
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C keymap.vala
+	$(AM_V_at)mv -f $@-t $@
+$(srcdir)/user-rule.c: $(srcdir)/user_rule_vala.stamp
+	@if test -f $@; then :; else rm -f $(srcdir)/user_rule_vala.stamp; fi
+	@if test -f $@; then :; else \
+	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/user_rule_vala.stamp; \
+	fi
+$(srcdir)/user_rule_vala.stamp: user-rule.vala
+	$(AM_V_at)rm -f $@ && echo stamp > $@-t
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C user-rule.vala
+	$(AM_V_at)mv -f $@-t $@
+$(srcdir)/rule.c: $(srcdir)/rule_vala.stamp
+	@if test -f $@; then :; else rm -f $(srcdir)/rule_vala.stamp; fi
+	@if test -f $@; then :; else \
+	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/rule_vala.stamp; \
+	fi
+$(srcdir)/rule_vala.stamp: rule.vala
+	$(AM_V_at)rm -f $@ && echo stamp > $@-t
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C rule.vala
 	$(AM_V_at)mv -f $@-t $@
 $(srcdir)/segment-list.c: $(srcdir)/segment_list_vala.stamp
 	@if test -f $@; then :; else rm -f $(srcdir)/segment_list_vala.stamp; fi
@@ -1236,14 +1191,14 @@ $(srcdir)/segment_list_vala.stamp: segment-list.vala
 	$(AM_V_at)rm -f $@ && echo stamp > $@-t
 	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C segment-list.vala
 	$(AM_V_at)mv -f $@-t $@
-$(srcdir)/expression.c: $(srcdir)/expression_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/expression_vala.stamp; fi
+$(srcdir)/dictionary-list.c: $(srcdir)/dictionary_list_vala.stamp
+	@if test -f $@; then :; else rm -f $(srcdir)/dictionary_list_vala.stamp; fi
 	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/expression_vala.stamp; \
+	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/dictionary_list_vala.stamp; \
 	fi
-$(srcdir)/expression_vala.stamp: expression.vala
+$(srcdir)/dictionary_list_vala.stamp: dictionary-list.vala
 	$(AM_V_at)rm -f $@ && echo stamp > $@-t
-	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C expression.vala
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C dictionary-list.vala
 	$(AM_V_at)mv -f $@-t $@
 $(srcdir)/metadata-file.c: $(srcdir)/metadata_file_vala.stamp
 	@if test -f $@; then :; else rm -f $(srcdir)/metadata_file_vala.stamp; fi
@@ -1263,14 +1218,50 @@ $(srcdir)/decoder_vala.stamp: decoder.vala
 	$(AM_V_at)rm -f $@ && echo stamp > $@-t
 	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C decoder.vala
 	$(AM_V_at)mv -f $@-t $@
-$(srcdir)/trellis-node.c: $(srcdir)/trellis_node_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/trellis_node_vala.stamp; fi
+$(srcdir)/key-event.c: $(srcdir)/key_event_vala.stamp
+	@if test -f $@; then :; else rm -f $(srcdir)/key_event_vala.stamp; fi
 	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/trellis_node_vala.stamp; \
+	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/key_event_vala.stamp; \
 	fi
-$(srcdir)/trellis_node_vala.stamp: trellis-node.vala
+$(srcdir)/key_event_vala.stamp: key-event.vala
 	$(AM_V_at)rm -f $@ && echo stamp > $@-t
-	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C trellis-node.vala
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C key-event.vala
+	$(AM_V_at)mv -f $@-t $@
+$(srcdir)/state.c: $(srcdir)/state_vala.stamp
+	@if test -f $@; then :; else rm -f $(srcdir)/state_vala.stamp; fi
+	@if test -f $@; then :; else \
+	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/state_vala.stamp; \
+	fi
+$(srcdir)/state_vala.stamp: state.vala
+	$(AM_V_at)rm -f $@ && echo stamp > $@-t
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C state.vala
+	$(AM_V_at)mv -f $@-t $@
+$(srcdir)/rom-kana.c: $(srcdir)/rom_kana_vala.stamp
+	@if test -f $@; then :; else rm -f $(srcdir)/rom_kana_vala.stamp; fi
+	@if test -f $@; then :; else \
+	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/rom_kana_vala.stamp; \
+	fi
+$(srcdir)/rom_kana_vala.stamp: rom-kana.vala
+	$(AM_V_at)rm -f $@ && echo stamp > $@-t
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C rom-kana.vala
+	$(AM_V_at)mv -f $@-t $@
+$(srcdir)/template.c: $(srcdir)/template_vala.stamp
+	@if test -f $@; then :; else rm -f $(srcdir)/template_vala.stamp; fi
+	@if test -f $@; then :; else \
+	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/template_vala.stamp; \
+	fi
+$(srcdir)/template_vala.stamp: template.vala
+	$(AM_V_at)rm -f $@ && echo stamp > $@-t
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C template.vala
+	$(AM_V_at)mv -f $@-t $@
+$(srcdir)/user-dictionary.c: $(srcdir)/user_dictionary_vala.stamp
+	@if test -f $@; then :; else rm -f $(srcdir)/user_dictionary_vala.stamp; fi
+	@if test -f $@; then :; else \
+	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/user_dictionary_vala.stamp; \
+	fi
+$(srcdir)/user_dictionary_vala.stamp: user-dictionary.vala
+	$(AM_V_at)rm -f $@ && echo stamp > $@-t
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C user-dictionary.vala
 	$(AM_V_at)mv -f $@-t $@
 $(srcdir)/candidate-list.c: $(srcdir)/candidate_list_vala.stamp
 	@if test -f $@; then :; else rm -f $(srcdir)/candidate_list_vala.stamp; fi
@@ -1290,6 +1281,24 @@ $(srcdir)/candidate_vala.stamp: candidate.vala
 	$(AM_V_at)rm -f $@ && echo stamp > $@-t
 	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C candidate.vala
 	$(AM_V_at)mv -f $@-t $@
+$(srcdir)/segment.c: $(srcdir)/segment_vala.stamp
+	@if test -f $@; then :; else rm -f $(srcdir)/segment_vala.stamp; fi
+	@if test -f $@; then :; else \
+	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/segment_vala.stamp; \
+	fi
+$(srcdir)/segment_vala.stamp: segment.vala
+	$(AM_V_at)rm -f $@ && echo stamp > $@-t
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C segment.vala
+	$(AM_V_at)mv -f $@-t $@
+$(srcdir)/language-model.c: $(srcdir)/language_model_vala.stamp
+	@if test -f $@; then :; else rm -f $(srcdir)/language_model_vala.stamp; fi
+	@if test -f $@; then :; else \
+	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/language_model_vala.stamp; \
+	fi
+$(srcdir)/language_model_vala.stamp: language-model.vala
+	$(AM_V_at)rm -f $@ && echo stamp > $@-t
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C language-model.vala
+	$(AM_V_at)mv -f $@-t $@
 $(srcdir)/system-dictionary.c: $(srcdir)/system_dictionary_vala.stamp
 	@if test -f $@; then :; else rm -f $(srcdir)/system_dictionary_vala.stamp; fi
 	@if test -f $@; then :; else \
@@ -1307,15 +1316,6 @@ $(srcdir)/context.c: $(srcdir)/context_vala.stamp
 $(srcdir)/context_vala.stamp: context.vala
 	$(AM_V_at)rm -f $@ && echo stamp > $@-t
 	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C context.vala
-	$(AM_V_at)mv -f $@-t $@
-$(srcdir)/rom-kana.c: $(srcdir)/rom_kana_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/rom_kana_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/rom_kana_vala.stamp; \
-	fi
-$(srcdir)/rom_kana_vala.stamp: rom-kana.vala
-	$(AM_V_at)rm -f $@ && echo stamp > $@-t
-	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C rom-kana.vala
 	$(AM_V_at)mv -f $@-t $@
 
 mostlyclean-libtool:

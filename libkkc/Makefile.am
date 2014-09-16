@@ -1,5 +1,5 @@
-# Copyright (C) 2012-2013 Daiki Ueno <ueno@gnu.org>
-# Copyright (C) 2012-2013 Red Hat, Inc.
+# Copyright (C) 2012-2014 Daiki Ueno <ueno@gnu.org>
+# Copyright (C) 2012-2014 Red Hat, Inc.
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ libkkc_la_VALAFLAGS =						\
 	--pkg keysyms						\
 	--pkg glib-2.0						\
 	--pkg gio-2.0						\
-	--pkg gee-1.0						\
+	--pkg gee-0.8						\
 	--pkg json-glib-1.0					\
 	--pkg marisa-glib					\
 	--internal-vapi kkc-internals-@KKC_API_VERSION@.vapi	\

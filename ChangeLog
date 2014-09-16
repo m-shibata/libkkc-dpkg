@@ -1,3 +1,223 @@
+commit 4ffd6c8331d4575678aca7cad7c5e839d7dbd736
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jul 7 13:09:45 2014 +0900
+
+    Revert "build: Switch from intltool to gettext"
+
+    This reverts commit 25e166bda1f6308a9b4f26268791d55781112620.
+    The required gettext version 0.19.1 is not yet available on many
+    systems.
+
+ configure.ac |  3 +--
+ po/Makevars  | 72
+ ------------------------------------------------------------
+ 2 files changed, 1 insertion(+), 74 deletions(-)
+
+commit 784377b6c2aa7e78e193b4c4a7ebde9e1a5aeba3
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jul 7 13:06:29 2014 +0900
+
+    Bump version to 0.3.4
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 3cff841d1fb430fcb30236e20e7ec84214f2d9c1
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jul 7 13:05:36 2014 +0900
+
+    Update copyright year
+
+ Makefile.am                                             | 4 ++--
+ README                                                  | 4 ++--
+ configure.ac                                            | 4 ++--
+ data/Makefile.am                                        | 4 ++--
+ data/rules/Makefile.am                                  | 4 ++--
+ data/rules/README.rules                                 | 4 ++--
+ data/templates/Makefile.am                              | 4 ++--
+ data/templates/libkkc-data/Makefile.am                  | 4 ++--
+ data/templates/libkkc-data/configure.ac.in              | 4 ++--
+ data/templates/libkkc-data/data/Makefile.am             | 4 ++--
+ data/templates/libkkc-data/data/models/Makefile.sorted2 | 4 ++--
+ data/templates/libkkc-data/data/models/Makefile.sorted3 | 4 ++--
+ data/templates/libkkc-data/tools/Makefile.am            | 4 ++--
+ data/templates/libkkc-data/tools/genfilter.py           | 4 ++--
+ data/templates/libkkc-data/tools/sortlm.py              | 4 ++--
+ libkkc/Makefile.am                                      | 4 ++--
+ libkkc/bigram-decoder.vala                              | 4 ++--
+ libkkc/bloom-filter.vala                                | 4 ++--
+ libkkc/candidate-list.vala                              | 4 ++--
+ libkkc/candidate.vala                                   | 4 ++--
+ libkkc/context.vala                                     | 4 ++--
+ libkkc/convert-segment-state-handler.vala               | 4 ++--
+ libkkc/convert-sentence-state-handler.vala              | 4 ++--
+ libkkc/decoder.vala                                     | 4 ++--
+ libkkc/dictionary-list.vala                             | 4 ++--
+ libkkc/dictionary.vala                                  | 4 ++--
+ libkkc/encoding.vala                                    | 4 ++--
+ libkkc/expression.vala                                  | 4 ++--
+ libkkc/initial-state-handler.vala                       | 4 ++--
+ libkkc/key-event-filter.vala                            | 4 ++--
+ libkkc/key-event.vala                                   | 4 ++--
+ libkkc/keymap.vala                                      | 4 ++--
+ libkkc/keysyms.vala                                     | 4 ++--
+ libkkc/kkc-1.0.pc.in                                    | 4 ++--
+ libkkc/kkc.vala                                         | 4 ++--
+ libkkc/language-model-utils.vala                        | 4 ++--
+ libkkc/language-model.vala                              | 4 ++--
+ libkkc/map-file.vala                                    | 4 ++--
+ libkkc/metadata-file.vala                               | 4 ++--
+ libkkc/nicola.vala                                      | 4 ++--
+ libkkc/numeric-template.vala                            | 4 ++--
+ libkkc/rom-kana-utils.vala                              | 4 ++--
+ libkkc/rom-kana.vala                                    | 4 ++--
+ libkkc/rule.vala                                        | 4 ++--
+ libkkc/segment-dictionary.vala                          | 4 ++--
+ libkkc/segment-list.vala                                | 4 ++--
+ libkkc/segment.vala                                     | 4 ++--
+ libkkc/sentence-dictionary.vala                         | 4 ++--
+ libkkc/sorted-bigram-language-model.vala                | 4 ++--
+ libkkc/sorted-trigram-language-model.vala               | 4 ++--
+ libkkc/state.vala                                       | 4 ++--
+ libkkc/system-segment-dictionary.vala                   | 4 ++--
+ libkkc/template.vala                                    | 4 ++--
+ libkkc/text-bigram-language-model.vala                  | 4 ++--
+ libkkc/text-trigram-language-model.vala                 | 4 ++--
+ libkkc/trellis-node.vala                                | 4 ++--
+ libkkc/trigram-decoder.vala                             | 4 ++--
+ libkkc/user-dictionary.vala                             | 4 ++--
+ libkkc/user-segment-dictionary.vala                     | 4 ++--
+ libkkc/user-sentence-dictionary.vala                    | 4 ++--
+ libkkc/utils.vala                                       | 4 ++--
+ marisa-glib/Makefile.am                                 | 4 ++--
+ tests/Makefile.am                                       | 4 ++--
+ tools/Makefile.am                                       | 4 ++--
+ tools/kkc-package-data.in                               | 4 ++--
+ tools/kkc.vala                                          | 4 ++--
+ 66 files changed, 132 insertions(+), 132 deletions(-)
+
+commit 025d2fb3bf7e05bd7367d459bbf0557d5e929eab
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 16 12:18:40 2014 +0900
+
+    Update translations
+
+ po/ja.po | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+commit 95ecc6d8a21814a093e013c60e370ac49407013a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 16 12:13:19 2014 +0900
+
+    Update translations
+
+ po/ja.po | 148
+ ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 81 insertions(+), 67 deletions(-)
+
+commit 25e166bda1f6308a9b4f26268791d55781112620
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 16 12:10:51 2014 +0900
+
+    build: Switch from intltool to gettext
+
+ configure.ac |  3 ++-
+ po/Makevars  | 72
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 74 insertions(+), 1 deletion(-)
+
+commit e5a21c69386a1c6681d63f5201fde2230a51f27a
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 16 12:00:41 2014 +0900
+
+    Fix dependencies
+
+    Can't make json-glib-1.0 and gee-0.8 optional, since some classes
+    provide
+    API using it for performance reason.
+
+ libkkc/kkc-1.0.deps  | 1 +
+ libkkc/kkc-1.0.pc.in | 3 +--
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 82ab9a22f97852fcc096347a663b3ea3b95626a8
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 16 11:27:23 2014 +0900
+
+    Fix package dependencies
+
+ libkkc/kkc-1.0.deps  | 2 --
+ libkkc/kkc-1.0.pc.in | 4 ++--
+ 2 files changed, 2 insertions(+), 4 deletions(-)
+
+commit baf68310e26cd090b6b5d7b4604cb4fcd5e5ca4f
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 16 11:17:36 2014 +0900
+
+    Fix HashSet name clash between Vala 0.26 glib-2.0.vapi and
+    gee-0.8.vapi
+
+ libkkc/bigram-decoder.vala  | 2 +-
+ libkkc/candidate-list.vala  | 2 +-
+ libkkc/map-file.vala        | 2 +-
+ libkkc/rule.vala            | 2 +-
+ libkkc/trigram-decoder.vala | 4 ++--
+ 5 files changed, 6 insertions(+), 6 deletions(-)
+
+commit ebc714b954a7798646371eb3fd6fe4e51638f329
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 16 11:12:50 2014 +0900
+
+    Port to libgee 0.8 API
+
+ configure.ac                         |  4 ++--
+ libkkc/Makefile.am                   |  2 +-
+ libkkc/bigram-decoder.vala           | 12 ++++-------
+ libkkc/expression.vala               |  2 +-
+ libkkc/keymap.vala                   | 32 ++++++++++++-----------------
+ libkkc/kkc-1.0.pc.in                 |  2 +-
+ libkkc/nicola.vala                   |  4 ++--
+ libkkc/rule.vala                     | 40
+ ++++++++++++++++--------------------
+ libkkc/state.vala                    |  2 +-
+ libkkc/trigram-decoder.vala          |  3 +--
+ libkkc/user-segment-dictionary.vala  |  4 ++--
+ libkkc/user-sentence-dictionary.vala |  4 ++--
+ 12 files changed, 48 insertions(+), 63 deletions(-)
+
+commit 8a5366c976b0399a69e6b9f622ad29f987c8a52e
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Mon Jun 16 10:50:34 2014 +0900
+
+    kkc-1.0.pc: Mark libgee and json-glib as private dependency
+
+ libkkc/kkc-1.0.pc.in | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 72a596d438f5ede05c59d733a05ba566a1259bcd
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 13 16:30:46 2014 +0900
+
+    rom-kana: Retain partial input when "convert-*" commands are called
+
+    Suggested by Masafumi Miura.
+
+ libkkc/rom-kana.vala           | 14 +++++++++++---
+ tests/conversions-initial.json |  4 +++-
+ tests/lib/test-utils.vala      |  3 +++
+ 3 files changed, 17 insertions(+), 4 deletions(-)
+
+commit 5f38726532b8790e1320e1b35bc326439ef9cdb0
+Author: Daiki Ueno <ueno@unixuser.org>
+Date:   Tue May 13 12:04:27 2014 +0900
+
+    rom-kana: Assign "ly<X>" to HIRAGANA SMALL LETTER <X>
+
+    Suggested by Masafumi Miura.
+
+ data/rules/default/rom-kana/default.json | 5 +++++
+ 1 file changed, 5 insertions(+)
+
 commit 4859e8ab00b215d1cf6830a31cbb1abe8c0f06b1
 Author: Daiki Ueno <ueno@unixuser.org>
 Date:   Tue Apr 1 18:17:33 2014 +0900

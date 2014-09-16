@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2012-2013 Daiki Ueno <ueno@gnu.org>
- * Copyright (C) 2012-2013 Red Hat, Inc.
+ * Copyright (C) 2012-2014 Daiki Ueno <ueno@gnu.org>
+ * Copyright (C) 2012-2014 Red Hat, Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -228,17 +228,13 @@ namespace Kkc {
                 return new Segment[] { segment };
             }
 
-            var trellis_nbest_map = new HashMap<TrellisNode,NbestNode> (
-                direct_hash,
-                direct_equal);
+            var trellis_nbest_map = new HashMap<TrellisNode,NbestNode> ();
 
-            var open_list = new PriorityQueue<NbestNode> (
-                (CompareFunc)compare_nbest_node);
+            var open_list = new PriorityQueue<NbestNode> (compare_nbest_node);
 
-            var close_list = new PriorityQueue<NbestNode> (
-                (CompareFunc)compare_nbest_node);
+            var close_list = new PriorityQueue<NbestNode> (compare_nbest_node);
 
-            var duplicates = new HashSet<string> (str_hash, str_equal);
+            var duplicates = new Gee.HashSet<string> ();
 
             var eos_nbest_node = new NbestNode (eos_trellis_node);
             trellis_nbest_map.set (eos_trellis_node, eos_nbest_node);
